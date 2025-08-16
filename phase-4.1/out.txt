@@ -1,0 +1,7 @@
+127.0.0.1:3000
+Started background thinking...
+Background thinking for opponent move: 20
+Background thinking started...
+Background thinking: Using book move 21
+Background thinking completed, best move: 21
+Background thinking found move: 21 (evaluated 0 nodes)

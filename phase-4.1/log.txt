@@ -1,0 +1,4434 @@
+
+2025-08-05 09:41:31 - Initial Board
+O: 2 pieces, X: 2 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ···✓····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: D3 C4 F5 E6
+
+2025-08-05 09:41:31 - AI Thinking
+O: 2 pieces, X: 2 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ···✓····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: D3 C4 F5 E6
+Remaining time: 60000 ms, Allocated time: 2608 ms
+Using book move
+Move: D3
+Move: C3
+
+2025-08-05 09:41:31 - Opponent's Move
+O: 3 pieces, X: 3 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ·✓XO····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: B3 C4 F5 E6
+
+2025-08-05 09:41:31 - AI Thinking
+O: 3 pieces, X: 3 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ·✓XO····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: B3 C4 F5 E6
+Remaining time: 59999 ms, Allocated time: 2727 ms
+Using book move
+Move: C4
+Move: E3
+
+2025-08-05 09:41:31 - Opponent's Move
+O: 3 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ··XXX✓··
+4 ··OOX✓··
+5 ···OX✓··
+6 ·····✓··
+7 ········
+8 ········
+Placeable: B2 C2 D2 E2 F2 F3 F4 F5 F6
+
+2025-08-05 09:41:31 - AI Thinking
+O: 3 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ··XXX✓··
+4 ··OOX✓··
+5 ···OX✓··
+6 ·····✓··
+7 ········
+8 ········
+Placeable: B2 C2 D2 E2 F2 F3 F4 F5 F6
+Remaining time: 59999 ms, Allocated time: 2857 ms
+Using book move
+Move: F4
+Move: D6
+
+2025-08-05 09:41:31 - Opponent's Move
+O: 3 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX···
+4 ··OXOO··
+5 ···XX···
+6 ··✓X✓···
+7 ··✓·····
+8 ········
+Placeable: C2 D2 E2 C6 E6 C7
+
+2025-08-05 09:41:31 - AI Thinking
+O: 3 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX···
+4 ··OXOO··
+5 ···XX···
+6 ··✓X✓···
+7 ··✓·····
+8 ········
+Placeable: C2 D2 E2 C6 E6 C7
+Remaining time: 59952 ms, Allocated time: 2997 ms
+Using book move
+Move: C6
+Move: F5
+
+2025-08-05 09:41:31 - Opponent's Move
+O: 4 pieces, X: 8 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX✓··
+4 ··OXXO··
+5 ···OXX✓·
+6 ··OX✓✓··
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 F3 G5 E6 F6 C7 D7
+
+2025-08-05 09:41:31 - AI Thinking
+O: 4 pieces, X: 8 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX✓··
+4 ··OXXO··
+5 ···OXX✓·
+6 ··OX✓✓··
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 F3 G5 E6 F6 C7 D7
+Remaining time: 59952 ms, Allocated time: 3155 ms
+Using book move
+Move: F3
+Move: B4
+
+2025-08-05 09:41:34 - Opponent's Move
+O: 5 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 ···OXX✓·
+6 ··OX✓✓✓·
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 B3 A4 G5 E6 F6 G6 C7 D7
+
+2025-08-05 09:41:34 - AI Thinking
+O: 5 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 ···OXX✓·
+6 ··OX✓✓✓·
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 B3 A4 G5 E6 F6 G6 C7 D7
+Remaining time: 59952 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=14, evals=13, score=-0.20, move=45
+Depth 2: nodes=148, evals=131, score=11.86, move=12
+Depth 3: nodes=1072, evals=935, score=-4.55, move=10
+Depth 4: nodes=3508, evals=2877, score=10.74, move=45
+Depth 5: nodes=12648, evals=10455, score=-4.81, move=45
+Search completed: Total nodes=17390, Total evals=14411, Ratio=82.87%
+Final: Depth=6, Best move=45, Score=-4.81, Finished=false
+End : 2025-08-05 09:41:37
+
+Move: F6
+Move: C5
+
+2025-08-05 09:41:40 - Opponent's Move
+O: 6 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓···
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 ·✓XXXO··
+6 ··OX✓O··
+7 ··✓·····
+8 ········
+Placeable: B2 C2 D2 E2 B3 A4 B5 E6 C7
+
+2025-08-05 09:41:40 - AI Thinking
+O: 6 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓···
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 ·✓XXXO··
+6 ··OX✓O··
+7 ··✓·····
+8 ········
+Placeable: B2 C2 D2 E2 B3 A4 B5 E6 C7
+Remaining time: 56620 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=15, evals=8, score=-6.63, move=44
+Depth 2: nodes=82, evals=67, score=-4.81, move=44
+Depth 3: nodes=895, evals=760, score=-4.81, move=44
+Depth 4: nodes=6666, evals=5698, score=11.35, move=44
+Search completed: Total nodes=7658, Total evals=6533, Ratio=85.31%
+Final: Depth=5, Best move=44, Score=11.35, Finished=false
+End : 2025-08-05 09:41:43
+
+Move: E6
+Move: D7
+
+2025-08-05 09:41:46 - Opponent's Move
+O: 8 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓···
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 ·✓XXOO··
+6 ··OXOO··
+7 ··✓X····
+8 ··✓·✓···
+Placeable: B2 C2 D2 E2 B3 A4 B5 C7 C8 E8
+
+2025-08-05 09:41:46 - AI Thinking
+O: 8 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓···
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 ·✓XXOO··
+6 ··OXOO··
+7 ··✓X····
+8 ··✓·✓···
+Placeable: B2 C2 D2 E2 B3 A4 B5 C7 C8 E8
+Remaining time: 53288 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=14, evals=13, score=-4.81, move=33
+Depth 2: nodes=166, evals=152, score=11.35, move=12
+Depth 3: nodes=2082, evals=1827, score=-5.49, move=33
+Depth 4: nodes=6182, evals=5310, score=10.36, move=33
+Search completed: Total nodes=8444, Total evals=7302, Ratio=86.48%
+Final: Depth=5, Best move=33, Score=10.36, Finished=false
+End : 2025-08-05 09:41:50
+
+Move: B5
+Move: F7
+
+2025-08-05 09:41:53 - Opponent's Move
+O: 9 pieces, X: 11 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 ·OOXOO··
+6 ··OXXO··
+7 ··✓X✓X··
+8 ··✓·✓✓··
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 C7 E7 C8 E8 F8
+
+2025-08-05 09:41:53 - AI Thinking
+O: 9 pieces, X: 11 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 ·OOXOO··
+6 ··OXXO··
+7 ··✓X✓X··
+8 ··✓·✓✓··
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 C7 E7 C8 E8 F8
+Remaining time: 49956 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=19, evals=18, score=-2.96, move=52
+Depth 2: nodes=269, evals=248, score=12.55, move=52
+Depth 3: nodes=2272, evals=2010, score=-3.69, move=60
+Depth 4: nodes=11421, evals=9853, score=13.58, move=52
+Search completed: Total nodes=13981, Total evals=12129, Ratio=86.75%
+Final: Depth=5, Best move=52, Score=13.58, Finished=false
+End : 2025-08-05 09:41:56
+
+Move: E7
+Move: A6
+
+2025-08-05 09:41:59 - Opponent's Move
+O: 11 pieces, X: 11 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 ✓XOXOO··
+6 X·OOOO··
+7 ··✓XOX✓·
+8 ··✓✓✓✓✓·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 A5 C7 G7 C8 D8 E8 F8 G8
+
+2025-08-05 09:41:59 - AI Thinking
+O: 11 pieces, X: 11 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 ✓XOXOO··
+6 X·OOOO··
+7 ··✓XOX✓·
+8 ··✓✓✓✓✓·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 A5 C7 G7 C8 D8 E8 F8 G8
+Remaining time: 46625 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=21, evals=20, score=-1.59, move=32
+Depth 2: nodes=179, evals=158, score=14.03, move=13
+Depth 3: nodes=1175, evals=1024, score=-2.24, move=13
+Depth 4: nodes=9785, evals=8360, score=14.34, move=32
+Search completed: Total nodes=11160, Total evals=9562, Ratio=85.68%
+Final: Depth=5, Best move=32, Score=14.34, Finished=false
+End : 2025-08-05 09:42:02
+
+Move: A5
+Move: B6
+
+2025-08-05 09:42:05 - Opponent's Move
+O: 11 pieces, X: 13 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓···
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 XXOOOO··
+7 ✓·✓XOX✓·
+8 ··✓✓✓✓✓·
+Placeable: B2 C2 D2 E2 A3 B3 A4 A7 C7 G7 C8 D8 E8 F8 G8
+
+2025-08-05 09:42:05 - AI Thinking
+O: 11 pieces, X: 13 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓···
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 XXOOOO··
+7 ✓·✓XOX✓·
+8 ··✓✓✓✓✓·
+Placeable: B2 C2 D2 E2 A3 B3 A4 A7 C7 G7 C8 D8 E8 F8 G8
+Remaining time: 43293 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=21, evals=19, score=-3.24, move=48
+Depth 2: nodes=275, evals=252, score=15.02, move=48
+Depth 3: nodes=1502, evals=1307, score=-4.66, move=16
+Depth 4: nodes=5526, evals=4632, score=15.36, move=48
+Search completed: Total nodes=7324, Total evals=6210, Ratio=84.79%
+Final: Depth=5, Best move=48, Score=15.36, Finished=false
+End : 2025-08-05 09:42:08
+
+Move: A7
+Move: C7
+
+2025-08-05 09:42:11 - Opponent's Move
+O: 12 pieces, X: 14 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 OXXOOO··
+7 O✓XXOX✓·
+8 ·✓✓✓·✓✓·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 B7 G7 B8 C8 D8 F8 G8
+
+2025-08-05 09:42:11 - AI Thinking
+O: 12 pieces, X: 14 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 OXXOOO··
+7 O✓XXOX✓·
+8 ·✓✓✓·✓✓·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 B7 G7 B8 C8 D8 F8 G8
+Remaining time: 39961 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=20, evals=19, score=-6.81, move=61
+Depth 2: nodes=280, evals=256, score=15.36, move=61
+Depth 3: nodes=1890, evals=1679, score=-4.17, move=61
+Depth 4: nodes=6484, evals=5387, score=13.67, move=58
+Search completed: Total nodes=8674, Total evals=7341, Ratio=84.63%
+Final: Depth=5, Best move=58, Score=13.67, Finished=false
+End : 2025-08-05 09:42:15
+
+Move: C8
+Move: F8
+
+2025-08-05 09:42:18 - Opponent's Move
+O: 12 pieces, X: 16 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 OXXXOO··
+7 O✓XOXX✓·
+8 ·✓O✓✓X✓·
+Placeable: B2 C2 D2 E2 F2 B3 A4 B7 G7 B8 D8 E8 G8
+
+2025-08-05 09:42:18 - AI Thinking
+O: 12 pieces, X: 16 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ·✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 OXXXOO··
+7 O✓XOXX✓·
+8 ·✓O✓✓X✓·
+Placeable: B2 C2 D2 E2 F2 B3 A4 B7 G7 B8 D8 E8 G8
+Remaining time: 36629 ms, Allocated time: 3329 ms
+No book move found
+Depth 1: nodes=14, evals=11, score=-6.02, move=9
+Depth 2: nodes=133, evals=115, score=13.67, move=60
+Depth 3: nodes=1361, evals=1201, score=-3.83, move=60
+Depth 4: nodes=5965, evals=5012, score=21.71, move=60
+Search completed: Total nodes=7473, Total evals=6339, Ratio=84.83%
+Final: Depth=5, Best move=60, Score=21.71, Finished=false
+End : 2025-08-05 09:42:21
+
+Move: E8
+Move: D8
+
+2025-08-05 09:42:24 - Opponent's Move
+O: 12 pieces, X: 18 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 OXXXOO··
+7 O✓XXOX✓·
+8 ·✓OXXX✓·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 B7 G7 B8 G8
+
+2025-08-05 09:42:24 - AI Thinking
+O: 12 pieces, X: 18 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOO··
+5 OXXXOO··
+6 OXXXOO··
+7 O✓XXOX✓·
+8 ·✓OXXX✓·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 B7 G7 B8 G8
+Remaining time: 33298 ms, Allocated time: 3329 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=24.37, move=62
+Depth 2: nodes=1, evals=0, score=24.37, move=62
+Depth 3: nodes=926, evals=805, score=7.08, move=62
+Depth 4: nodes=6376, evals=5454, score=25.37, move=62
+Search completed: Total nodes=7304, Total evals=6259, Ratio=85.69%
+Final: Depth=5, Best move=62, Score=25.37, Finished=false
+End : 2025-08-05 09:42:27
+
+Move: G8
+Move: G5
+
+2025-08-05 09:42:30 - Opponent's Move
+O: 14 pieces, X: 18 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOX✓✓
+5 OXXXXXX✓
+6 OXXXOO✓·
+7 O✓XXOO··
+8 ··OOOOO·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 G4 H4 H5 G6 B7
+
+2025-08-05 09:42:30 - AI Thinking
+O: 14 pieces, X: 18 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXOX✓✓
+5 OXXXXXX✓
+6 OXXXOO✓·
+7 O✓XXOO··
+8 ··OOOOO·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 G4 H4 H5 G6 B7
+Remaining time: 29965 ms, Allocated time: 3329 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=25.37, move=30
+Depth 2: nodes=1, evals=0, score=25.37, move=30
+Depth 3: nodes=900, evals=804, score=7.46, move=30
+Depth 4: nodes=5019, evals=3948, score=26.55, move=30
+Search completed: Total nodes=5921, Total evals=4752, Ratio=80.26%
+Final: Depth=5, Best move=30, Score=26.55, Finished=false
+End : 2025-08-05 09:42:34
+
+Move: G4
+Move: G6
+
+2025-08-05 09:42:36 - Opponent's Move
+O: 13 pieces, X: 21 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXXOO✓
+5 OXXXXXX✓
+6 OXXXXXX✓
+7 O✓XXOO✓·
+8 ·✓OOOOO·
+Placeable: C2 D2 E2 F2 A3 B3 A4 H4 H5 H6 B7 G7 B8
+
+2025-08-05 09:42:36 - AI Thinking
+O: 13 pieces, X: 21 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓✓··
+3 ✓✓XXXO··
+4 ✓XXXXOO✓
+5 OXXXXXX✓
+6 OXXXXXX✓
+7 O✓XXOO✓·
+8 ·✓OOOOO·
+Placeable: C2 D2 E2 F2 A3 B3 A4 H4 H5 H6 B7 G7 B8
+Remaining time: 26634 ms, Allocated time: 3329 ms
+No book move found
+Depth 1: nodes=17, evals=16, score=7.46, move=57
+Depth 2: nodes=108, evals=89, score=27.48, move=57
+Depth 3: nodes=876, evals=777, score=5.03, move=57
+Depth 4: nodes=3652, evals=2814, score=24.03, move=57
+Search completed: Total nodes=4653, Total evals=3696, Ratio=79.43%
+Final: Depth=5, Best move=57, Score=24.03, Finished=false
+End : 2025-08-05 09:42:40
+
+Move: B8
+Move: H3
+
+2025-08-05 09:42:43 - Opponent's Move
+O: 16 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO·X
+4 ✓XXXXOX✓
+5 OXXXOXX✓
+6 OXXOXXX✓
+7 O✓OXOO✓·
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 H4 H5 H6 B7 G7
+
+2025-08-05 09:42:43 - AI Thinking
+O: 16 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ✓✓XXXO·X
+4 ✓XXXXOX✓
+5 OXXXOXX✓
+6 OXXOXXX✓
+7 O✓OXOO✓·
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 F2 A3 B3 A4 H4 H5 H6 B7 G7
+Remaining time: 23303 ms, Allocated time: 3329 ms
+No book move found
+Depth 1: nodes=14, evals=13, score=5.03, move=24
+Depth 2: nodes=122, evals=102, score=24.03, move=13
+Depth 3: nodes=832, evals=736, score=2.02, move=17
+Depth 4: nodes=2698, evals=2061, score=20.42, move=13
+Search completed: Total nodes=3666, Total evals=2912, Ratio=79.43%
+Final: Depth=5, Best move=13, Score=20.42, Finished=false
+End : 2025-08-05 09:42:46
+
+Move: F2
+Move: G3
+
+2025-08-05 09:42:49 - Opponent's Move
+O: 19 pieces, X: 19 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓O·✓
+3 ✓✓XXXXXX
+4 ✓XXOXOX✓
+5 OXOXOXX✓
+6 OOXOXXX✓
+7 O·OXOO✓·
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 H2 A3 B3 A4 H4 H5 H6 G7
+
+2025-08-05 09:42:49 - AI Thinking
+O: 19 pieces, X: 19 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓O·✓
+3 ✓✓XXXXXX
+4 ✓XXOXOX✓
+5 OXOXOXX✓
+6 OOXOXXX✓
+7 O·OXOO✓·
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 H2 A3 B3 A4 H4 H5 H6 G7
+Remaining time: 19972 ms, Allocated time: 3328 ms
+No book move found
+Depth 1: nodes=15, evals=14, score=-0.97, move=16
+Depth 2: nodes=117, evals=101, score=21.04, move=47
+Depth 3: nodes=735, evals=645, score=-1.87, move=39
+Depth 4: nodes=4804, evals=3761, score=13.75, move=39
+Search completed: Total nodes=5671, Total evals=4521, Ratio=79.72%
+Final: Depth=5, Best move=39, Score=13.75, Finished=false
+End : 2025-08-05 09:42:52
+
+Move: H5
+Move: H7
+
+2025-08-05 09:42:55 - Opponent's Move
+O: 21 pieces, X: 19 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓O✓✓
+3 ✓✓XXXXXX
+4 ✓XXOXOX✓
+5 OXOXOXOO
+6 OOXOXXX✓
+7 O·OXOO✓X
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 G2 H2 A3 B3 A4 H4 H6 G7
+
+2025-08-05 09:42:55 - AI Thinking
+O: 21 pieces, X: 19 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓O✓✓
+3 ✓✓XXXXXX
+4 ✓XXOXOX✓
+5 OXOXOXOO
+6 OOXOXXX✓
+7 O·OXOO✓X
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 G2 H2 A3 B3 A4 H4 H6 G7
+Remaining time: 16642 ms, Allocated time: 3328 ms
+No book move found
+Depth 1: nodes=16, evals=13, score=13.75, move=47
+Depth 2: nodes=98, evals=83, score=13.75, move=47
+Depth 3: nodes=1106, evals=983, score=12.05, move=16
+Depth 4: nodes=2095, evals=1620, score=7.34, move=47
+Search completed: Total nodes=3315, Total evals=2699, Ratio=81.42%
+Final: Depth=5, Best move=47, Score=7.34, Finished=false
+End : 2025-08-05 09:42:59
+
+Move: H6
+Move: H4
+
+2025-08-05 09:43:01 - Opponent's Move
+O: 23 pieces, X: 19 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓O✓✓
+3 ✓✓XXXXXX
+4 ✓XXOXOXX
+5 OXOXOXOX
+6 OOXOOOOX
+7 O·OXOO·X
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 G2 H2 A3 B3 A4
+
+2025-08-05 09:43:01 - AI Thinking
+O: 23 pieces, X: 19 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓O✓✓
+3 ✓✓XXXXXX
+4 ✓XXOXOXX
+5 OXOXOXOX
+6 OOXOOOOX
+7 O·OXOO·X
+8 ·OOOOOO·
+Placeable: B2 C2 D2 E2 G2 H2 A3 B3 A4
+Remaining time: 13312 ms, Allocated time: 3328 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=-9.72, move=15
+Depth 2: nodes=136, evals=121, score=7.34, move=14
+Depth 3: nodes=860, evals=722, score=-0.42, move=14
+Depth 4: nodes=3089, evals=2476, score=-2.92, move=10
+Depth 5: nodes=7053, evals=5604, score=0.36, move=14
+Search completed: Total nodes=11151, Total evals=8935, Ratio=80.13%
+Final: Depth=6, Best move=14, Score=0.36, Finished=false
+End : 2025-08-05 09:43:05
+
+Move: G2
+Move: B7
+
+2025-08-05 09:43:08 - Opponent's Move
+O: 24 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓OO·
+3 ✓✓XXXXOX
+4 ✓XXOXOOX
+5 OXOXOXOX
+6 OXXOOOOX
+7 OXXXOO·X
+8 ✓OOOOOO·
+Placeable: B2 C2 D2 E2 A3 B3 A4 A8
+
+2025-08-05 09:43:08 - AI Thinking
+O: 24 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓OO·
+3 ✓✓XXXXOX
+4 ✓XXOXOOX
+5 OXOXOXOX
+6 OXXOOOOX
+7 OXXXOO·X
+8 ✓OOOOOO·
+Placeable: B2 C2 D2 E2 A3 B3 A4 A8
+Remaining time: 9982 ms, Allocated time: 3327 ms
+No book move found
+Depth 1: nodes=12, evals=10, score=18.87, move=56
+Depth 2: nodes=154, evals=121, score=12.19, move=56
+Depth 3: nodes=553, evals=457, score=9.07, move=16
+Depth 4: nodes=4541, evals=3836, score=13.39, move=56
+Depth 5: nodes=9146, evals=6930, score=-2.78, move=56
+Search completed: Total nodes=14406, Total evals=11354, Ratio=78.81%
+Final: Depth=6, Best move=56, Score=-2.78, Finished=false
+End : 2025-08-05 09:43:11
+
+Move: A8
+Move: H2
+
+2025-08-05 09:43:14 - Opponent's Move
+O: 26 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓OOX
+3 ✓✓XXXOXX
+4 ✓XXOOXOX
+5 OXOOXXOX
+6 OXOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: B2 C2 D2 E2 A3 B3 A4
+
+2025-08-05 09:43:14 - AI Thinking
+O: 26 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓OOX
+3 ✓✓XXXOXX
+4 ✓XXOOXOX
+5 OXOOXXOX
+6 OXOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: B2 C2 D2 E2 A3 B3 A4
+Remaining time: 6653 ms, Allocated time: 4435 ms
+No book move found
+Solved: Winning position with move 24
+Move: A4
+Move: B3
+
+2025-08-05 09:43:15 - Opponent's Move
+O: 28 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ✓✓✓✓✓OOX
+3 ✓XXXXOXX
+4 OXOOOXOX
+5 OXOOXXOX
+6 OXOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: A2 B2 C2 D2 E2 A3
+
+2025-08-05 09:43:15 - AI Thinking
+O: 28 pieces, X: 20 pieces
+  ABCDEFGH
+1 ········
+2 ✓✓✓✓✓OOX
+3 ✓XXXXOXX
+4 OXOOOXOX
+5 OXOOXXOX
+6 OXOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: A2 B2 C2 D2 E2 A3
+Remaining time: 6358 ms, Allocated time: 4238 ms
+No book move found
+Solved: Winning position with move 8
+Move: A2
+Move: A3
+
+2025-08-05 09:43:16 - Opponent's Move
+O: 29 pieces, X: 21 pieces
+  ABCDEFGH
+1 ········
+2 O✓✓✓✓OOX
+3 XXXXXOXX
+4 OXOOOXOX
+5 OXOOXXOX
+6 OXOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: B2 C2 D2 E2
+
+2025-08-05 09:43:16 - AI Thinking
+O: 29 pieces, X: 21 pieces
+  ABCDEFGH
+1 ········
+2 O✓✓✓✓OOX
+3 XXXXXOXX
+4 OXOOOXOX
+5 OXOOXXOX
+6 OXOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: B2 C2 D2 E2
+Remaining time: 6357 ms, Allocated time: 4238 ms
+No book move found
+Solved: Winning position with move 9
+Move: B2
+Move: A1
+
+2025-08-05 09:43:17 - Opponent's Move
+O: 31 pieces, X: 21 pieces
+  ABCDEFGH
+1 X✓······
+2 XX✓✓✓OOX
+3 XOXXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: B1 C2 D2 E2
+
+2025-08-05 09:43:17 - AI Thinking
+O: 31 pieces, X: 21 pieces
+  ABCDEFGH
+1 X✓······
+2 XX✓✓✓OOX
+3 XOXXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: B1 C2 D2 E2
+Remaining time: 6353 ms, Allocated time: 4235 ms
+No book move found
+Solved: Winning position with move 1
+Move: B1
+Move: E1
+
+2025-08-05 09:43:17 - Opponent's Move
+O: 32 pieces, X: 22 pieces
+  ABCDEFGH
+1 XO··X✓✓·
+2 XO✓✓✓XOX
+3 XOXXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: F1 G1 C2 D2 E2
+
+2025-08-05 09:43:17 - AI Thinking
+O: 32 pieces, X: 22 pieces
+  ABCDEFGH
+1 XO··X✓✓·
+2 XO✓✓✓XOX
+3 XOXXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: F1 G1 C2 D2 E2
+Remaining time: 6352 ms, Allocated time: 4234 ms
+No book move found
+Solved: Winning position with move 5
+Move: F1
+Move: C2
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 33 pieces, X: 23 pieces
+  ABCDEFGH
+1 XO✓✓XO··
+2 XXX✓✓OOX
+3 XOXXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: C1 D1 D2 E2
+
+2025-08-05 09:43:18 - AI Thinking
+O: 33 pieces, X: 23 pieces
+  ABCDEFGH
+1 XO✓✓XO··
+2 XXX✓✓OOX
+3 XOXXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: C1 D1 D2 E2
+Remaining time: 6341 ms, Allocated time: 4227 ms
+No book move found
+Solved: Winning position with move 2
+Move: C1
+Move: D1
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 34 pieces, X: 24 pieces
+  ABCDEFGH
+1 XXXXXO··
+2 XXO✓✓OOX
+3 XOOXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: D2 E2
+
+2025-08-05 09:43:18 - AI Thinking
+O: 34 pieces, X: 24 pieces
+  ABCDEFGH
+1 XXXXXO··
+2 XXO✓✓OOX
+3 XOOXXOXX
+4 OOOXOXOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: D2 E2
+Remaining time: 6339 ms, Allocated time: 4226 ms
+No book move found
+Solved: Winning position with move 11
+Move: D2
+Move: G1
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 37 pieces, X: 23 pieces
+  ABCDEFGH
+1 XXXXXXX✓
+2 XXOO·OXX
+3 XOOOOOXX
+4 OOOOOOOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: H1
+
+2025-08-05 09:43:18 - AI Thinking
+O: 37 pieces, X: 23 pieces
+  ABCDEFGH
+1 XXXXXXX✓
+2 XXOO·OXX
+3 XOOOOOXX
+4 OOOOOOOX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO·
+Placeable: H1
+Remaining time: 6337 ms, Allocated time: 4224 ms
+No book move found
+Solved: Winning position with move 7
+Move: H1
+Move: E2
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 31 pieces, X: 31 pieces
+  ABCDEFGH
+1 XXXXXXXO
+2 XXXXXXXX
+3 XOOOXXXX
+4 OOOOXOXX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO✓
+Placeable: H8
+
+2025-08-05 09:43:18 - AI Thinking
+O: 31 pieces, X: 31 pieces
+  ABCDEFGH
+1 XXXXXXXO
+2 XXXXXXXX
+3 XOOOXXXX
+4 OOOOXOXX
+5 OOOOXXOX
+6 OOOXOOOX
+7 OOXXOO·X
+8 OOOOOOO✓
+Placeable: H8
+Remaining time: 6333 ms, Allocated time: 4222 ms
+No book move found
+Solved: Winning position with move 63
+Move: H8
+Move: G7
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 33 pieces, X: 31 pieces
+  ABCDEFGH
+1 XXXXXXXO
+2 XXXXXXXO
+3 XOOOXXXO
+4 OOOOXOXO
+5 OOOOXXXO
+6 OOOXOXXO
+7 OOXXXXXO
+8 OOOOOOOO
+No placeable positions
+
+2025-08-05 09:43:18 - AI Thinking
+O: 33 pieces, X: 31 pieces
+  ABCDEFGH
+1 XXXXXXXO
+2 XXXXXXXO
+3 XOOOXXXO
+4 OOOOXOXO
+5 OOOOXXXO
+6 OOOXOXXO
+7 OOXXXXXO
+8 OOOOOOOO
+No placeable positions
+Remaining time: 6329 ms, Allocated time: 4219 ms
+No valid moves - PASS
+Move: PASS
+
+2025-08-05 09:43:18 - Initial Board
+O: 2 pieces, X: 2 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ····✓···
+4 ···OX✓··
+5 ··✓XO···
+6 ···✓····
+7 ········
+8 ········
+Placeable: E3 F4 C5 D6
+Move: D3
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 1 pieces, X: 4 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··✓X✓···
+4 ···XX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: C3 E3 C5
+
+2025-08-05 09:43:18 - AI Thinking
+O: 1 pieces, X: 4 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··✓X✓···
+4 ···XX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: C3 E3 C5
+Remaining time: 60000 ms, Allocated time: 2666 ms
+Using book move
+Move: C3
+Move: C4
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 2 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OX✓···
+4 ··XXX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: E3 C5
+
+2025-08-05 09:43:18 - AI Thinking
+O: 2 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OX✓···
+4 ··XXX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: E3 C5
+Remaining time: 59997 ms, Allocated time: 2790 ms
+Using book move
+Move: E3
+Move: F4
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 4 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ··XXXX··
+5 ·✓✓XO✓✓·
+6 ···✓····
+7 ········
+8 ········
+Placeable: G3 B5 C5 F5 G5 D6
+
+2025-08-05 09:43:18 - AI Thinking
+O: 4 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ··XXXX··
+5 ·✓✓XO✓✓·
+6 ···✓····
+7 ········
+8 ········
+Placeable: G3 B5 C5 F5 G5 D6
+Remaining time: 59994 ms, Allocated time: 2926 ms
+Using book move
+Move: D6
+Move: C6
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 6 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ·✓XOXX✓·
+5 ·✓✓XO✓✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: G3 B4 G4 B5 C5 F5 G5 B6
+
+2025-08-05 09:43:18 - AI Thinking
+O: 6 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ·✓XOXX✓·
+5 ·✓✓XO✓✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: G3 B4 G4 B5 C5 F5 G5 B6
+Remaining time: 59989 ms, Allocated time: 3076 ms
+Using book move
+Move: F5
+Move: F3
+
+2025-08-05 09:43:18 - Opponent's Move
+O: 7 pieces, X: 6 pieces
+  ABCDEFGH
+1 ········
+2 ·····✓··
+3 ··OOOX✓·
+4 ·✓XOXX✓·
+5 ·✓✓XOO✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: F2 G3 B4 G4 B5 C5 G5 B6
+
+2025-08-05 09:43:18 - AI Thinking
+O: 7 pieces, X: 6 pieces
+  ABCDEFGH
+1 ········
+2 ·····✓··
+3 ··OOOX✓·
+4 ·✓XOXX✓·
+5 ·✓✓XOO✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: F2 G3 B4 G4 B5 C5 G5 B6
+Remaining time: 59987 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=12, evals=11, score=-10.11, move=38
+Depth 2: nodes=96, evals=74, score=2.55, move=25
+Depth 3: nodes=608, evals=509, score=-5.55, move=25
+Depth 4: nodes=4981, evals=4164, score=4.55, move=25
+Depth 5: nodes=9805, evals=8017, score=-8.69, move=25
+Search completed: Total nodes=15502, Total evals=12775, Ratio=82.41%
+Final: Depth=6, Best move=25, Score=-8.69, Finished=false
+End : 2025-08-05 09:43:22
+
+Move: B4
+Move: F6
+
+2025-08-05 09:43:25 - Opponent's Move
+O: 8 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOOX✓·
+4 ·OOOXX✓·
+5 ··✓XOX✓·
+6 ·✓XO✓X✓·
+7 ······✓·
+8 ········
+Placeable: G3 G4 C5 G5 B6 E6 G6 G7
+
+2025-08-05 09:43:25 - AI Thinking
+O: 8 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOOX✓·
+4 ·OOOXX✓·
+5 ··✓XOX✓·
+6 ·✓XO✓X✓·
+7 ······✓·
+8 ········
+Placeable: G3 G4 C5 G5 B6 E6 G6 G7
+Remaining time: 56742 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=4.81, move=34
+Depth 2: nodes=1, evals=0, score=4.81, move=34
+Depth 3: nodes=1, evals=0, score=4.81, move=34
+Depth 4: nodes=1, evals=0, score=4.81, move=34
+Depth 5: nodes=17701, evals=14694, score=-11.22, move=30
+Search completed: Total nodes=17705, Total evals=14694, Ratio=82.99%
+Final: Depth=6, Best move=30, Score=-11.22, Finished=false
+End : 2025-08-05 09:43:28
+
+Move: G4
+Move: E6
+
+2025-08-05 09:43:31 - Opponent's Move
+O: 10 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ····✓✓✓·
+3 ··OOOX✓·
+4 ·OOOOOO·
+5 ··✓XOX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 F2 G2 G3 C5 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:43:31 - AI Thinking
+O: 10 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ····✓✓✓·
+3 ··OOOX✓·
+4 ·OOOOOO·
+5 ··✓XOX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 F2 G2 G3 C5 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 53498 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=-11.22, move=38
+Depth 2: nodes=1, evals=0, score=-11.22, move=38
+Depth 3: nodes=1, evals=0, score=-11.22, move=38
+Depth 4: nodes=4901, evals=4038, score=5.36, move=34
+Search completed: Total nodes=4904, Total evals=4038, Ratio=82.34%
+Final: Depth=5, Best move=34, Score=5.36, Finished=false
+End : 2025-08-05 09:43:34
+
+Move: C5
+Move: G3
+
+2025-08-05 09:43:37 - Opponent's Move
+O: 10 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ····✓·✓·
+3 ··OOOXX✓
+4 ·OOOOXO·
+5 ··OOXX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 G2 H3 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:43:37 - AI Thinking
+O: 10 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ····✓·✓·
+3 ··OOOXX✓
+4 ·OOOOXO·
+5 ··OOXX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 G2 H3 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 50254 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=16, evals=15, score=-11.21, move=46
+Depth 2: nodes=121, evals=107, score=5.36, move=12
+Depth 3: nodes=1074, evals=927, score=-10.02, move=38
+Depth 4: nodes=7198, evals=6094, score=4.08, move=12
+Search completed: Total nodes=8409, Total evals=7143, Ratio=84.94%
+Final: Depth=5, Best move=12, Score=4.08, Finished=false
+End : 2025-08-05 09:43:40
+
+Move: E2
+Move: H3
+
+2025-08-05 09:43:43 - Opponent's Move
+O: 11 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ····O···
+3 ··OOOOXX
+4 ·OOOOXX✓
+5 ··OOXX✓✓
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: H4 G5 H5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:43:43 - AI Thinking
+O: 11 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ····O···
+3 ··OOOOXX
+4 ·OOOOXX✓
+5 ··OOXX✓✓
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: H4 G5 H5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 47010 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=12, evals=11, score=-11.28, move=46
+Depth 2: nodes=139, evals=125, score=4.08, move=51
+Depth 3: nodes=1308, evals=1145, score=-11.72, move=39
+Search completed: Total nodes=1459, Total evals=1281, Ratio=87.80%
+Final: Depth=4, Best move=39, Score=-11.72, Finished=false
+End : 2025-08-05 09:43:47
+
+Move: H5
+Move: H4
+
+2025-08-05 09:43:49 - Opponent's Move
+O: 12 pieces, X: 11 pieces
+  ABCDEFGH
+1 ········
+2 ····O··✓
+3 ··OOOOXX
+4 ·OOOOXXX
+5 ··OOXX✓O
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: H2 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:43:50 - AI Thinking
+O: 12 pieces, X: 11 pieces
+  ABCDEFGH
+1 ········
+2 ····O··✓
+3 ··OOOOXX
+4 ·OOOOXXX
+5 ··OOXX✓O
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: H2 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 43766 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=10, evals=9, score=-10.18, move=15
+Depth 2: nodes=234, evals=218, score=1.81, move=15
+Depth 3: nodes=1472, evals=1271, score=-14.42, move=15
+Depth 4: nodes=13389, evals=11785, score=0.92, move=15
+Search completed: Total nodes=15105, Total evals=13283, Ratio=87.94%
+Final: Depth=5, Best move=15, Score=0.92, Finished=false
+End : 2025-08-05 09:43:53
+
+Move: H2
+Move: F2
+
+2025-08-05 09:43:56 - Opponent's Move
+O: 14 pieces, X: 11 pieces
+  ABCDEFGH
+1 ····✓·✓·
+2 ····OX✓O
+3 ··OOOXXO
+4 ·OOOOXXO
+5 ··OOXX✓O
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E1 G1 G2 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:43:56 - AI Thinking
+O: 14 pieces, X: 11 pieces
+  ABCDEFGH
+1 ····✓·✓·
+2 ····OX✓O
+3 ··OOOXXO
+4 ·OOOOXXO
+5 ··OOXX✓O
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E1 G1 G2 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 40523 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=0.92, move=38
+Depth 2: nodes=1, evals=0, score=0.92, move=38
+Depth 3: nodes=778, evals=662, score=-17.28, move=46
+Depth 4: nodes=6489, evals=5493, score=-1.72, move=4
+Search completed: Total nodes=7269, Total evals=6155, Ratio=84.67%
+Final: Depth=5, Best move=4, Score=-1.72, Finished=false
+End : 2025-08-05 09:43:59
+
+Move: E1
+Move: D2
+
+2025-08-05 09:44:02 - Opponent's Move
+O: 13 pieces, X: 14 pieces
+  ABCDEFGH
+1 ····O···
+2 ··✓XOO✓O
+3 ··OXXXOO
+4 ·OOXOXXO
+5 ··OXXX✓O
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: C2 G2 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:44:02 - AI Thinking
+O: 13 pieces, X: 14 pieces
+  ABCDEFGH
+1 ····O···
+2 ··✓XOO✓O
+3 ··OXXXOO
+4 ·OOXOXXO
+5 ··OXXX✓O
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: C2 G2 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 37279 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=-0.29, move=10
+Depth 2: nodes=1, evals=0, score=-0.29, move=10
+Depth 3: nodes=1092, evals=936, score=-20.20, move=10
+Depth 4: nodes=5653, evals=4786, score=-2.54, move=10
+Search completed: Total nodes=6747, Total evals=5722, Ratio=84.81%
+Final: Depth=5, Best move=10, Score=-2.54, Finished=false
+End : 2025-08-05 09:44:05
+
+Move: C2
+Move: B6
+
+2025-08-05 09:44:08 - Opponent's Move
+O: 15 pieces, X: 14 pieces
+  ABCDEFGH
+1 ····O···
+2 ··OOOO✓O
+3 ··OOXXOO
+4 ·OOXOXXO
+5 ··XXXX✓O
+6 ·XXXXX✓·
+7 ✓✓✓✓✓✓✓·
+8 ········
+Placeable: G2 G5 G6 A7 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:44:08 - AI Thinking
+O: 15 pieces, X: 14 pieces
+  ABCDEFGH
+1 ····O···
+2 ··OOOO✓O
+3 ··OOXXOO
+4 ·OOXOXXO
+5 ··XXXX✓O
+6 ·XXXXX✓·
+7 ✓✓✓✓✓✓✓·
+8 ········
+Placeable: G2 G5 G6 A7 B7 C7 D7 E7 F7 G7
+Remaining time: 34036 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=12, evals=8, score=-17.96, move=38
+Depth 2: nodes=125, evals=106, score=3.39, move=38
+Depth 3: nodes=884, evals=743, score=-15.53, move=38
+Depth 4: nodes=3957, evals=3325, score=1.52, move=38
+Search completed: Total nodes=4978, Total evals=4182, Ratio=84.01%
+Final: Depth=5, Best move=38, Score=1.52, Finished=false
+End : 2025-08-05 09:44:11
+
+Move: G5
+Move: B3
+
+2025-08-05 09:44:14 - Opponent's Move
+O: 15 pieces, X: 16 pieces
+  ABCDEFGH
+1 ····O···
+2 ·✓OOOO✓O
+3 ✓XXXXXOO
+4 ✓OXXOOOO
+5 ·✓XXXXOO
+6 ·XXXXX✓·
+7 ✓✓✓✓✓✓··
+8 ········
+Placeable: B2 G2 A3 A4 B5 G6 A7 B7 C7 D7 E7 F7
+
+2025-08-05 09:44:14 - AI Thinking
+O: 15 pieces, X: 16 pieces
+  ABCDEFGH
+1 ····O···
+2 ·✓OOOO✓O
+3 ✓XXXXXOO
+4 ✓OXXOOOO
+5 ·✓XXXXOO
+6 ·XXXXX✓·
+7 ✓✓✓✓✓✓··
+8 ········
+Placeable: B2 G2 A3 A4 B5 G6 A7 B7 C7 D7 E7 F7
+Remaining time: 30793 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=13, evals=10, score=-13.95, move=33
+Depth 2: nodes=178, evals=161, score=3.55, move=46
+Depth 3: nodes=1025, evals=866, score=-12.87, move=24
+Depth 4: nodes=6136, evals=5105, score=4.53, move=46
+Search completed: Total nodes=7352, Total evals=6142, Ratio=83.54%
+Final: Depth=5, Best move=46, Score=4.53, Finished=false
+End : 2025-08-05 09:44:18
+
+Move: G6
+Move: A4
+
+2025-08-05 09:44:21 - Opponent's Move
+O: 16 pieces, X: 17 pieces
+  ABCDEFGH
+1 ····O···
+2 ··OOOO✓O
+3 ✓XXXXXOO
+4 XXXXOOOO
+5 ✓✓XXXOOO
+6 ✓XXXXXO·
+7 ✓✓✓✓✓✓··
+8 ········
+Placeable: G2 A3 A5 B5 A6 A7 B7 C7 D7 E7 F7
+
+2025-08-05 09:44:21 - AI Thinking
+O: 16 pieces, X: 17 pieces
+  ABCDEFGH
+1 ····O···
+2 ··OOOO✓O
+3 ✓XXXXXOO
+4 XXXXOOOO
+5 ✓✓XXXOOO
+6 ✓XXXXXO·
+7 ✓✓✓✓✓✓··
+8 ········
+Placeable: G2 A3 A5 B5 A6 A7 B7 C7 D7 E7 F7
+Remaining time: 27551 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=16, evals=14, score=-13.57, move=53
+Depth 2: nodes=164, evals=147, score=9.03, move=53
+Depth 3: nodes=693, evals=599, score=-6.48, move=53
+Depth 4: nodes=4365, evals=3561, score=6.21, move=53
+Search completed: Total nodes=5238, Total evals=4321, Ratio=82.49%
+Final: Depth=5, Best move=53, Score=6.21, Finished=false
+End : 2025-08-05 09:44:24
+
+Move: F7
+Move: C1
+
+2025-08-05 09:44:27 - Opponent's Move
+O: 16 pieces, X: 19 pieces
+  ABCDEFGH
+1 ·✓X·O···
+2 ✓✓XXOO✓O
+3 ✓XXXXXOO
+4 XXXXOOOO
+5 ✓✓XXXOOO
+6 ✓XXXXOO·
+7 ✓✓✓✓✓O··
+8 ········
+Placeable: B1 A2 B2 G2 A3 A5 B5 A6 A7 B7 C7 D7 E7
+
+2025-08-05 09:44:27 - AI Thinking
+O: 16 pieces, X: 19 pieces
+  ABCDEFGH
+1 ·✓X·O···
+2 ✓✓XXOO✓O
+3 ✓XXXXXOO
+4 XXXXOOOO
+5 ✓✓XXXOOO
+6 ✓XXXXOO·
+7 ✓✓✓✓✓O··
+8 ········
+Placeable: B1 A2 B2 G2 A3 A5 B5 A6 A7 B7 C7 D7 E7
+Remaining time: 24308 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=19, evals=16, score=-6.48, move=52
+Depth 2: nodes=169, evals=151, score=6.21, move=33
+Depth 3: nodes=1569, evals=1380, score=-4.13, move=33
+Depth 4: nodes=12744, evals=10762, score=9.16, move=33
+Search completed: Total nodes=14501, Total evals=12309, Ratio=84.88%
+Final: Depth=5, Best move=33, Score=9.16, Finished=false
+End : 2025-08-05 09:44:30
+
+Move: B5
+Move: D1
+
+2025-08-05 09:44:33 - Opponent's Move
+O: 21 pieces, X: 16 pieces
+  ABCDEFGH
+1 ·✓XXO✓··
+2 ✓✓XXXO✓O
+3 ✓XXOXXOO
+4 XXOXOOOO
+5 ✓OOOOOOO
+6 ✓XXXXOO·
+7 ✓✓✓✓✓O··
+8 ········
+Placeable: B1 F1 A2 B2 G2 A3 A5 A6 A7 B7 C7 D7 E7
+
+2025-08-05 09:44:33 - AI Thinking
+O: 21 pieces, X: 16 pieces
+  ABCDEFGH
+1 ·✓XXO✓··
+2 ✓✓XXXO✓O
+3 ✓XXOXXOO
+4 XXOXOOOO
+5 ✓OOOOOOO
+6 ✓XXXXOO·
+7 ✓✓✓✓✓O··
+8 ········
+Placeable: B1 F1 A2 B2 G2 A3 A5 A6 A7 B7 C7 D7 E7
+Remaining time: 21065 ms, Allocated time: 3240 ms
+No book move found
+Depth 1: nodes=18, evals=17, score=-4.13, move=5
+Depth 2: nodes=92, evals=76, score=9.16, move=5
+Depth 3: nodes=1214, evals=1032, score=-11.44, move=32
+Search completed: Total nodes=1324, Total evals=1125, Ratio=84.97%
+Final: Depth=4, Best move=32, Score=-11.44, Finished=false
+End : 2025-08-05 09:44:36
+
+Move: A5
+Move: A3
+
+2025-08-05 09:44:39 - Opponent's Move
+O: 23 pieces, X: 16 pieces
+  ABCDEFGH
+1 ·✓XXO✓··
+2 ✓✓XOXO✓O
+3 XXOOXXOO
+4 XXOXOOOO
+5 OOXOOOOO
+6 ✓XXXXOO·
+7 ✓✓✓✓✓O··
+8 ········
+Placeable: B1 F1 A2 B2 G2 A6 A7 B7 C7 D7 E7
+
+2025-08-05 09:44:39 - AI Thinking
+O: 23 pieces, X: 16 pieces
+  ABCDEFGH
+1 ·✓XXO✓··
+2 ✓✓XOXO✓O
+3 XXOOXXOO
+4 XXOXOOOO
+5 OOXOOOOO
+6 ✓XXXXOO·
+7 ✓✓✓✓✓O··
+8 ········
+Placeable: B1 F1 A2 B2 G2 A6 A7 B7 C7 D7 E7
+Remaining time: 17822 ms, Allocated time: 3240 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=-8.04, move=5
+Depth 2: nodes=194, evals=177, score=3.63, move=5
+Depth 3: nodes=911, evals=751, score=-12.50, move=5
+Depth 4: nodes=5230, evals=4345, score=1.07, move=5
+Search completed: Total nodes=6348, Total evals=5285, Ratio=83.25%
+Final: Depth=5, Best move=5, Score=1.07, Finished=false
+End : 2025-08-05 09:44:43
+
+Move: F1
+Move: F8
+
+2025-08-05 09:44:46 - Opponent's Move
+O: 21 pieces, X: 20 pieces
+  ABCDEFGH
+1 ·✓XXOO··
+2 ✓✓XOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 OOXOOXOO
+6 ✓XXXXXO·
+7 ✓✓✓✓✓X✓·
+8 ····✓X✓·
+Placeable: B1 A2 B2 G2 A6 A7 B7 C7 D7 E7 G7 E8 G8
+
+2025-08-05 09:44:46 - AI Thinking
+O: 21 pieces, X: 20 pieces
+  ABCDEFGH
+1 ·✓XXOO··
+2 ✓✓XOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 OOXOOXOO
+6 ✓XXXXXO·
+7 ✓✓✓✓✓X✓·
+8 ····✓X✓·
+Placeable: B1 A2 B2 G2 A6 A7 B7 C7 D7 E7 G7 E8 G8
+Remaining time: 14578 ms, Allocated time: 3239 ms
+No book move found
+Depth 1: nodes=18, evals=12, score=-0.44, move=60
+Depth 2: nodes=117, evals=99, score=8.22, move=1
+Depth 3: nodes=1418, evals=1245, score=-4.08, move=8
+Depth 4: nodes=3602, evals=2845, score=1.40, move=1
+Search completed: Total nodes=5155, Total evals=4201, Ratio=81.49%
+Final: Depth=5, Best move=1, Score=1.40, Finished=false
+End : 2025-08-05 09:44:49
+
+Move: B1
+Move: A6
+
+2025-08-05 09:44:52 - Opponent's Move
+O: 24 pieces, X: 19 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓✓OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XOXOOXOO
+6 XXXXXXO·
+7 ✓✓✓✓✓X✓·
+8 ····✓X✓·
+Placeable: A2 B2 G2 A7 B7 C7 D7 E7 G7 E8 G8
+
+2025-08-05 09:44:52 - AI Thinking
+O: 24 pieces, X: 19 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓✓OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XOXOOXOO
+6 XXXXXXO·
+7 ✓✓✓✓✓X✓·
+8 ····✓X✓·
+Placeable: A2 B2 G2 A7 B7 C7 D7 E7 G7 E8 G8
+Remaining time: 11335 ms, Allocated time: 3238 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=1.40, move=52
+Depth 2: nodes=1, evals=0, score=1.40, move=52
+Depth 3: nodes=634, evals=529, score=-9.64, move=52
+Depth 4: nodes=4911, evals=3962, score=-1.85, move=50
+Search completed: Total nodes=5547, Total evals=4491, Ratio=80.96%
+Final: Depth=5, Best move=50, Score=-1.85, Finished=false
+End : 2025-08-05 09:44:55
+
+Move: C7
+Move: D7
+
+2025-08-05 09:44:58 - Opponent's Move
+O: 24 pieces, X: 21 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXOXOO
+6 XXXXXXO·
+7 ✓✓OX✓X✓·
+8 ··✓✓✓X✓·
+Placeable: A2 G2 A7 B7 E7 G7 C8 D8 E8 G8
+
+2025-08-05 09:44:58 - AI Thinking
+O: 24 pieces, X: 21 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXOXOO
+6 XXXXXXO·
+7 ✓✓OX✓X✓·
+8 ··✓✓✓X✓·
+Placeable: A2 G2 A7 B7 E7 G7 C8 D8 E8 G8
+Remaining time: 8096 ms, Allocated time: 3238 ms
+No book move found
+Depth 1: nodes=14, evals=13, score=-6.47, move=60
+Depth 2: nodes=94, evals=76, score=-0.50, move=49
+Depth 3: nodes=979, evals=845, score=-9.78, move=49
+Depth 4: nodes=3344, evals=2674, score=0.69, move=60
+Search completed: Total nodes=4431, Total evals=3608, Ratio=81.43%
+Final: Depth=5, Best move=60, Score=0.69, Finished=false
+End : 2025-08-05 09:45:01
+
+Move: E8
+Move: D8
+
+2025-08-05 09:45:01 - Opponent's Move
+O: 24 pieces, X: 23 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXOXOO
+6 XXXXXXO·
+7 ✓✓XX✓O✓·
+8 ·✓✓XXX··
+Placeable: A2 G2 A7 B7 E7 G7 B8 C8
+
+2025-08-05 09:45:01 - AI Thinking
+O: 24 pieces, X: 23 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXOXOO
+6 XXXXXXO·
+7 ✓✓XX✓O✓·
+8 ·✓✓XXX··
+Placeable: A2 G2 A7 B7 E7 G7 B8 C8
+Remaining time: 4856 ms, Allocated time: 3237 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=11, evals=10, score=-10.94, move=49
+Depth 2: nodes=54, evals=43, score=1.49, move=52
+Depth 3: nodes=729, evals=601, score=-10.73, move=52
+Search completed: Total nodes=794, Total evals=654, Ratio=82.37%
+Final: Depth=4, Best move=52, Score=-10.73, Finished=false
+End : 2025-08-05 09:45:02
+
+Move: E7
+Move: G8
+
+2025-08-05 09:45:02 - Opponent's Move
+O: 26 pieces, X: 23 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXOXOO
+6 XXXOXOO·
+7 ✓✓XXOX✓·
+8 ·✓✓XXXX·
+Placeable: A2 G2 A7 B7 G7 B8 C8
+
+2025-08-05 09:45:02 - AI Thinking
+O: 26 pieces, X: 23 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXOXOO
+6 XXXOXOO·
+7 ✓✓XXOX✓·
+8 ·✓✓XXXX·
+Placeable: A2 G2 A7 B7 G7 B8 C8
+Remaining time: 4234 ms, Allocated time: 2822 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=13, evals=11, score=-10.73, move=58
+Depth 2: nodes=49, evals=40, score=-8.71, move=57
+Depth 3: nodes=447, evals=367, score=-4.75, move=57
+Search completed: Total nodes=509, Total evals=418, Ratio=82.12%
+Final: Depth=4, Best move=57, Score=-4.75, Finished=false
+End : 2025-08-05 09:45:02
+
+Move: B8
+Move: G7
+
+2025-08-05 09:45:02 - Opponent's Move
+O: 26 pieces, X: 25 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXXXOO
+6 XXXOXXO·
+7 ✓✓OXOXX✓
+8 ·O✓XXXX✓
+Placeable: A2 G2 A7 B7 H7 C8 H8
+
+2025-08-05 09:45:02 - AI Thinking
+O: 26 pieces, X: 25 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓·OOOO✓O
+3 XXOOXXOO
+4 XXOXOXOO
+5 XXOXXXOO
+6 XXXOXXO·
+7 ✓✓OXOXX✓
+8 ·O✓XXXX✓
+Placeable: A2 G2 A7 B7 H7 C8 H8
+Remaining time: 3868 ms, Allocated time: 2578 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=12, evals=11, score=7.34, move=63
+Depth 2: nodes=55, evals=45, score=0.62, move=49
+Depth 3: nodes=536, evals=440, score=7.05, move=49
+Search completed: Total nodes=603, Total evals=496, Ratio=82.26%
+Final: Depth=4, Best move=49, Score=7.05, Finished=false
+End : 2025-08-05 09:45:03
+
+Move: B7
+Move: B2
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 28 pieces, X: 25 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓XOOOO✓O
+3 XXXOXXOO
+4 XXOXOXOO
+5 XXOOXXOO
+6 XXOOXXO·
+7 ✓OOXOXX✓
+8 ·O✓XXXX·
+Placeable: A2 G2 A7 H7 C8
+
+2025-08-05 09:45:03 - AI Thinking
+O: 28 pieces, X: 25 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓XOOOO✓O
+3 XXXOXXOO
+4 XXOXOXOO
+5 XXOOXXOO
+6 XXOOXXO·
+7 ✓OOXOXX✓
+8 ·O✓XXXX·
+Placeable: A2 G2 A7 H7 C8
+Remaining time: 3544 ms, Allocated time: 2362 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=8, evals=7, score=7.89, move=58
+Depth 2: nodes=45, evals=37, score=8.75, move=14
+Depth 3: nodes=275, evals=209, score=17.66, move=14
+Depth 4: nodes=280, evals=203, score=6.13, move=58
+Search completed: Total nodes=608, Total evals=456, Ratio=75.00%
+Final: Depth=5, Best move=58, Score=6.13, Finished=false
+End : 2025-08-05 09:45:03
+
+Move: C8
+Move: A8
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 26 pieces, X: 29 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓XOOOO·O
+3 XXXOXXOO
+4 XXOXXXOO
+5 XXOXXOOO
+6 XXXOOXO·
+7 ✓XOOOXX✓
+8 XXXXXXX·
+Placeable: A2 A7 H7
+
+2025-08-05 09:45:03 - AI Thinking
+O: 26 pieces, X: 29 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓XOOOO·O
+3 XXXOXXOO
+4 XXOXXXOO
+5 XXOXXOOO
+6 XXXOOXO·
+7 ✓XOOOXX✓
+8 XXXXXXX·
+Placeable: A2 A7 H7
+Remaining time: 3247 ms, Allocated time: 2164 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=5, evals=4, score=-7.34, move=48
+Depth 2: nodes=20, evals=15, score=8.11, move=48
+Depth 3: nodes=95, evals=63, score=5.12, move=48
+Depth 4: nodes=293, evals=186, score=-7.07, move=48
+Depth 5: nodes=591, evals=332, score=-4.57, move=48
+Search completed: Total nodes=1004, Total evals=600, Ratio=59.76%
+Final: Depth=6, Best move=48, Score=-4.57, Finished=false
+End : 2025-08-05 09:45:03
+
+Move: A7
+Move: H6
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 27 pieces, X: 30 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓XOOOO✓O
+3 XXXOXXOO
+4 XXOXXXOO
+5 XXOXXOXO
+6 XOXOOXXX
+7 OOOOOXX✓
+8 XXXXXXX·
+Placeable: A2 G2 H7
+
+2025-08-05 09:45:03 - AI Thinking
+O: 27 pieces, X: 30 pieces
+  ABCDEFGH
+1 ·OOOOO··
+2 ✓XOOOO✓O
+3 XXXOXXOO
+4 XXOXXXOO
+5 XXOXXOXO
+6 XOXOOXXX
+7 OOOOOXX✓
+8 XXXXXXX·
+Placeable: A2 G2 H7
+Remaining time: 2975 ms, Allocated time: 1983 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=5, evals=3, score=5.12, move=14
+Depth 2: nodes=15, evals=8, score=-6.38, move=55
+Depth 3: nodes=28, evals=10, score=-4.57, move=14
+Depth 4: nodes=43, evals=16, score=3.02, move=14
+Depth 5: nodes=133, evals=51, score=-7.74, move=14
+Depth 6: nodes=307, evals=110, score=-5.22, move=14
+Depth 7: nodes=386, evals=95, score=-8.59, move=14
+Depth 8: nodes=213, evals=38, score=-1010.00, move=14
+Search completed: Total nodes=1130, Total evals=331, Ratio=29.29%
+Final: Depth=8, Best move=14, Score=-1010.00, Finished=true
+End : 2025-08-05 09:45:03
+
+Move: G2
+Move: H1
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 22 pieces, X: 37 pieces
+  ABCDEFGH
+1 ·OOOOO✓X
+2 ✓XOOOOXX
+3 XXXOXXOX
+4 XXOXXXOX
+5 XXOXXOXX
+6 XOXOOXXX
+7 OXOOOXX✓
+8 XXXXXXX·
+Placeable: G1 A2 H7
+
+2025-08-05 09:45:03 - AI Thinking
+O: 22 pieces, X: 37 pieces
+  ABCDEFGH
+1 ·OOOOO✓X
+2 ✓XOOOOXX
+3 XXXOXXOX
+4 XXOXXXOX
+5 XXOXXOXX
+6 XOXOOXXX
+7 OXOOOXX✓
+8 XXXXXXX·
+Placeable: G1 A2 H7
+Remaining time: 2896 ms, Allocated time: 1930 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=4, evals=3, score=-4.57, move=6
+Depth 2: nodes=11, evals=6, score=3.02, move=6
+Depth 3: nodes=21, evals=10, score=-7.74, move=6
+Depth 4: nodes=31, evals=12, score=-5.22, move=6
+Depth 5: nodes=46, evals=14, score=-8.59, move=6
+Depth 6: nodes=38, evals=7, score=-1010.00, move=6
+Search completed: Total nodes=151, Total evals=52, Ratio=34.44%
+Final: Depth=6, Best move=6, Score=-1010.00, Finished=true
+End : 2025-08-05 09:45:03
+
+Move: G1
+Move: A1
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 18 pieces, X: 43 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 ✓XOOOOOX
+3 XXXOXXOX
+4 XXOXXXOX
+5 XXOXXOXX
+6 XOXOOXXX
+7 OXOOOXX✓
+8 XXXXXXX·
+Placeable: A2 H7
+
+2025-08-05 09:45:03 - AI Thinking
+O: 18 pieces, X: 43 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 ✓XOOOOOX
+3 XXXOXXOX
+4 XXOXXXOX
+5 XXOXXOXX
+6 XOXOOXXX
+7 OXOOOXX✓
+8 XXXXXXX·
+Placeable: A2 H7
+Remaining time: 2882 ms, Allocated time: 1921 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=3, evals=2, score=-7.74, move=8
+Depth 2: nodes=5, evals=1, score=-5.22, move=8
+Depth 3: nodes=8, evals=3, score=-8.59, move=8
+Depth 4: nodes=10, evals=3, score=-1004.00, move=8
+Search completed: Total nodes=26, Total evals=9, Ratio=34.62%
+Final: Depth=4, Best move=8, Score=-1004.00, Finished=true
+End : 2025-08-05 09:45:03
+
+Move: A2
+Move: PASS
+
+2025-08-05 09:45:03 - AI Thinking
+O: 25 pieces, X: 37 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 OOOOOOOX
+3 OOXOXXOX
+4 OXOXXXOX
+5 OXOXXOXX
+6 OOXOOXXX
+7 OXOOOXX✓
+8 XXXXXXX✓
+Placeable: H7 H8
+Remaining time: 2879 ms, Allocated time: 1919 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=4, evals=3, score=-8.59, move=63
+Depth 2: nodes=5, evals=2, score=-1004.00, move=63
+Search completed: Total nodes=9, Total evals=5, Ratio=55.56%
+Final: Depth=2, Best move=63, Score=-1004.00, Finished=true
+End : 2025-08-05 09:45:03
+
+Move: H8
+Move: H7
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 30 pieces, X: 34 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 OOOOOOOX
+3 OOOOXXOX
+4 OXOOXXOX
+5 OXOXOOXX
+6 OOXOOOXX
+7 OXOOOXXX
+8 XXXXXXXO
+No placeable positions
+
+2025-08-05 09:45:03 - AI Thinking
+O: 30 pieces, X: 34 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 OOOOOOOX
+3 OOOOXXOX
+4 OXOOXXOX
+5 OXOXOOXX
+6 OOXOOOXX
+7 OXOOOXXX
+8 XXXXXXXO
+No placeable positions
+Remaining time: 2878 ms, Allocated time: 1918 ms
+No valid moves - PASS
+Move: PASS
+
+2025-08-05 09:45:03 - Initial Board
+O: 2 pieces, X: 2 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ···✓····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: D3 C4 F5 E6
+
+2025-08-05 09:45:03 - AI Thinking
+O: 2 pieces, X: 2 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ···✓····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: D3 C4 F5 E6
+Remaining time: 60000 ms, Allocated time: 2608 ms
+Using book move
+Move: D3
+Move: C3
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 3 pieces, X: 3 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ·✓XO····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: B3 C4 F5 E6
+
+2025-08-05 09:45:03 - AI Thinking
+O: 3 pieces, X: 3 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ·✓XO····
+4 ··✓XO···
+5 ···OX✓··
+6 ····✓···
+7 ········
+8 ········
+Placeable: B3 C4 F5 E6
+Remaining time: 59999 ms, Allocated time: 2727 ms
+Using book move
+Move: C4
+Move: E3
+
+2025-08-05 09:45:03 - Opponent's Move
+O: 3 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ··XXX✓··
+4 ··OOX✓··
+5 ···OX✓··
+6 ·····✓··
+7 ········
+8 ········
+Placeable: B2 C2 D2 E2 F2 F3 F4 F5 F6
+
+2025-08-05 09:45:03 - AI Thinking
+O: 3 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓✓✓··
+3 ··XXX✓··
+4 ··OOX✓··
+5 ···OX✓··
+6 ·····✓··
+7 ········
+8 ········
+Placeable: B2 C2 D2 E2 F2 F3 F4 F5 F6
+Remaining time: 59998 ms, Allocated time: 2857 ms
+Using book move
+Move: F4
+Move: D6
+
+2025-08-05 09:45:04 - Opponent's Move
+O: 3 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX···
+4 ··OXOO··
+5 ···XX···
+6 ··✓X✓···
+7 ··✓·····
+8 ········
+Placeable: C2 D2 E2 C6 E6 C7
+
+2025-08-05 09:45:04 - AI Thinking
+O: 3 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX···
+4 ··OXOO··
+5 ···XX···
+6 ··✓X✓···
+7 ··✓·····
+8 ········
+Placeable: C2 D2 E2 C6 E6 C7
+Remaining time: 59997 ms, Allocated time: 2999 ms
+Using book move
+Move: C6
+Move: F5
+
+2025-08-05 09:45:04 - Opponent's Move
+O: 4 pieces, X: 8 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX✓··
+4 ··OXXO··
+5 ···OXX✓·
+6 ··OX✓✓··
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 F3 G5 E6 F6 C7 D7
+
+2025-08-05 09:45:04 - AI Thinking
+O: 4 pieces, X: 8 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ··XXX✓··
+4 ··OXXO··
+5 ···OXX✓·
+6 ··OX✓✓··
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 F3 G5 E6 F6 C7 D7
+Remaining time: 59996 ms, Allocated time: 3157 ms
+Using book move
+Move: F3
+Move: B5
+
+2025-08-05 09:45:06 - Opponent's Move
+O: 5 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ·✓XXXO··
+4 ✓✓XXOO··
+5 ·X·OXX✓·
+6 ··OX✓✓✓·
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 B3 A4 B4 G5 E6 F6 G6 C7 D7
+
+2025-08-05 09:45:06 - AI Thinking
+O: 5 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ··✓✓✓···
+3 ·✓XXXO··
+4 ✓✓XXOO··
+5 ·X·OXX✓·
+6 ··OX✓✓✓·
+7 ··✓✓····
+8 ········
+Placeable: C2 D2 E2 B3 A4 B4 G5 E6 F6 G6 C7 D7
+Remaining time: 59995 ms, Allocated time: 3333 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=1.03, move=12
+Depth 2: nodes=177, evals=150, score=13.14, move=12
+Depth 3: nodes=971, evals=837, score=-3.86, move=51
+Depth 4: nodes=3311, evals=2693, score=15.54, move=12
+Search completed: Total nodes=4472, Total evals=3692, Ratio=82.56%
+Final: Depth=5, Best move=12, Score=15.54, Finished=false
+End : 2025-08-05 09:45:10
+
+Move: E2
+Move: C5
+
+2025-08-05 09:45:13 - Opponent's Move
+O: 6 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ··✓·O···
+3 ·✓XXOO··
+4 ✓✓XXOO··
+5 ·XXXXX··
+6 ✓✓OX✓✓✓·
+7 ··✓·····
+8 ········
+Placeable: C2 B3 A4 B4 A6 B6 E6 F6 G6 C7
+
+2025-08-05 09:45:13 - AI Thinking
+O: 6 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ··✓·O···
+3 ·✓XXOO··
+4 ✓✓XXOO··
+5 ·XXXXX··
+6 ✓✓OX✓✓✓·
+7 ··✓·····
+8 ········
+Placeable: C2 B3 A4 B4 A6 B6 E6 F6 G6 C7
+Remaining time: 56660 ms, Allocated time: 3332 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=-5.20, move=25
+Depth 2: nodes=164, evals=143, score=15.54, move=25
+Depth 3: nodes=1067, evals=920, score=-4.91, move=25
+Depth 4: nodes=7512, evals=6325, score=13.42, move=25
+Search completed: Total nodes=8756, Total evals=7400, Ratio=84.51%
+Final: Depth=5, Best move=25, Score=13.42, Finished=false
+End : 2025-08-05 09:45:16
+
+Move: B4
+Move: B6
+
+2025-08-05 09:45:19 - Opponent's Move
+O: 8 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓O···
+3 ·✓XXOO··
+4 ·OOOOO··
+5 ·XXXXX··
+6 ✓XXX✓✓✓·
+7 ✓✓✓✓✓···
+8 ········
+Placeable: B2 C2 D2 B3 A6 E6 F6 G6 A7 B7 C7 D7 E7
+
+2025-08-05 09:45:19 - AI Thinking
+O: 8 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ·✓✓✓O···
+3 ·✓XXOO··
+4 ·OOOOO··
+5 ·XXXXX··
+6 ✓XXX✓✓✓·
+7 ✓✓✓✓✓···
+8 ········
+Placeable: B2 C2 D2 B3 A6 E6 F6 G6 A7 B7 C7 D7 E7
+Remaining time: 53326 ms, Allocated time: 3332 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=13.81, move=44
+Depth 2: nodes=1, evals=0, score=13.81, move=44
+Depth 3: nodes=1416, evals=1247, score=-5.21, move=44
+Depth 4: nodes=10348, evals=8839, score=12.88, move=45
+Search completed: Total nodes=11766, Total evals=10086, Ratio=85.72%
+Final: Depth=5, Best move=45, Score=12.88, Finished=false
+End : 2025-08-05 09:45:22
+
+Move: F6
+Move: F2
+
+2025-08-05 09:45:25 - Opponent's Move
+O: 9 pieces, X: 11 pieces
+  ABCDEFGH
+1 ·····✓··
+2 ·✓✓✓OX✓·
+3 ·✓XXXO··
+4 ·OOXOO··
+5 ✓XXXOO··
+6 ✓XXX✓O··
+7 ·✓✓·✓···
+8 ········
+Placeable: F1 B2 C2 D2 G2 B3 A5 A6 E6 B7 C7 E7
+
+2025-08-05 09:45:25 - AI Thinking
+O: 9 pieces, X: 11 pieces
+  ABCDEFGH
+1 ·····✓··
+2 ·✓✓✓OX✓·
+3 ·✓XXXO··
+4 ·OOXOO··
+5 ✓XXXOO··
+6 ✓XXX✓O··
+7 ·✓✓·✓···
+8 ········
+Placeable: F1 B2 C2 D2 G2 B3 A5 A6 E6 B7 C7 E7
+Remaining time: 49991 ms, Allocated time: 3332 ms
+No book move found
+Depth 1: nodes=17, evals=16, score=-1.93, move=44
+Depth 2: nodes=198, evals=179, score=15.73, move=44
+Depth 3: nodes=2248, evals=1941, score=-1.25, move=44
+Search completed: Total nodes=2463, Total evals=2136, Ratio=86.72%
+Final: Depth=4, Best move=44, Score=-1.25, Finished=false
+End : 2025-08-05 09:45:29
+
+Move: E6
+Move: E1
+
+2025-08-05 09:45:31 - Opponent's Move
+O: 10 pieces, X: 12 pieces
+  ABCDEFGH
+1 ···✓X✓··
+2 ·✓✓✓XX··
+3 ·✓XXXO··
+4 ·OOXOO··
+5 ✓XXOOO··
+6 ✓XXXOO··
+7 ·✓✓✓✓···
+8 ········
+Placeable: D1 F1 B2 C2 D2 B3 A5 A6 B7 C7 D7 E7
+
+2025-08-05 09:45:31 - AI Thinking
+O: 10 pieces, X: 12 pieces
+  ABCDEFGH
+1 ···✓X✓··
+2 ·✓✓✓XX··
+3 ·✓XXXO··
+4 ·OOXOO··
+5 ✓XXOOO··
+6 ✓XXXOO··
+7 ·✓✓✓✓···
+8 ········
+Placeable: D1 F1 B2 C2 D2 B3 A5 A6 B7 C7 D7 E7
+Remaining time: 46655 ms, Allocated time: 3332 ms
+No book move found
+Depth 1: nodes=15, evals=12, score=-0.24, move=3
+Depth 2: nodes=242, evals=221, score=16.04, move=52
+Depth 3: nodes=1914, evals=1660, score=-1.03, move=52
+Depth 4: nodes=11539, evals=9809, score=15.36, move=52
+Search completed: Total nodes=13710, Total evals=11702, Ratio=85.35%
+Final: Depth=5, Best move=52, Score=15.36, Finished=false
+End : 2025-08-05 09:45:35
+
+Move: E7
+Move: D7
+
+2025-08-05 09:45:38 - Opponent's Move
+O: 11 pieces, X: 13 pieces
+  ABCDEFGH
+1 ···✓X✓✓·
+2 ·✓✓✓XX··
+3 ·✓XXXO··
+4 ·OOXOO··
+5 ✓XOXOO··
+6 ✓XXXOO··
+7 ✓✓✓XO···
+8 ··✓·····
+Placeable: D1 F1 G1 B2 C2 D2 B3 A5 A6 A7 B7 C7 C8
+
+2025-08-05 09:45:38 - AI Thinking
+O: 11 pieces, X: 13 pieces
+  ABCDEFGH
+1 ···✓X✓✓·
+2 ·✓✓✓XX··
+3 ·✓XXXO··
+4 ·OOXOO··
+5 ✓XOXOO··
+6 ✓XXXOO··
+7 ✓✓✓XO···
+8 ··✓·····
+Placeable: D1 F1 G1 B2 C2 D2 B3 A5 A6 A7 B7 C7 C8
+Remaining time: 43319 ms, Allocated time: 3332 ms
+No book move found
+Depth 1: nodes=15, evals=12, score=-0.68, move=3
+Depth 2: nodes=211, evals=191, score=15.42, move=58
+Depth 3: nodes=1263, evals=1036, score=-2.51, move=58
+Depth 4: nodes=13215, evals=11216, score=13.46, move=32
+Search completed: Total nodes=14704, Total evals=12455, Ratio=84.70%
+Final: Depth=5, Best move=32, Score=13.46, Finished=false
+End : 2025-08-05 09:45:41
+
+Move: A5
+Move: F8
+
+2025-08-05 09:45:44 - Opponent's Move
+O: 12 pieces, X: 14 pieces
+  ABCDEFGH
+1 ···✓X✓✓·
+2 ·✓✓✓XX··
+3 ·✓XXXO··
+4 ·OOXOO··
+5 OOOXOO··
+6 ✓XXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: D1 F1 G1 B2 C2 D2 B3 A6 A7 B7 C7 C8 D8 E8
+
+2025-08-05 09:45:44 - AI Thinking
+O: 12 pieces, X: 14 pieces
+  ABCDEFGH
+1 ···✓X✓✓·
+2 ·✓✓✓XX··
+3 ·✓XXXO··
+4 ·OOXOO··
+5 OOOXOO··
+6 ✓XXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: D1 F1 G1 B2 C2 D2 B3 A6 A7 B7 C7 C8 D8 E8
+Remaining time: 39984 ms, Allocated time: 3332 ms
+No book move found
+Depth 1: nodes=18, evals=11, score=13.46, move=11
+Depth 2: nodes=193, evals=170, score=13.46, move=11
+Depth 3: nodes=1839, evals=1618, score=2.29, move=59
+Depth 4: nodes=10678, evals=8940, score=16.54, move=11
+Search completed: Total nodes=12728, Total evals=10739, Ratio=84.37%
+Final: Depth=5, Best move=11, Score=16.54, Finished=false
+End : 2025-08-05 09:45:47
+
+Move: D2
+Move: D1
+
+2025-08-05 09:45:50 - Opponent's Move
+O: 14 pieces, X: 14 pieces
+  ABCDEFGH
+1 ··✓XX✓✓·
+2 ··✓XXX··
+3 ··OXOO··
+4 ·OOXOO··
+5 OOOXOO··
+6 ✓XXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: C1 F1 G1 C2 A6 A7 B7 C7 C8 D8 E8
+
+2025-08-05 09:45:50 - AI Thinking
+O: 14 pieces, X: 14 pieces
+  ABCDEFGH
+1 ··✓XX✓✓·
+2 ··✓XXX··
+3 ··OXOO··
+4 ·OOXOO··
+5 OOOXOO··
+6 ✓XXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: C1 F1 G1 C2 A6 A7 B7 C7 C8 D8 E8
+Remaining time: 36649 ms, Allocated time: 3331 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=1.34, move=10
+Depth 2: nodes=246, evals=228, score=16.74, move=10
+Depth 3: nodes=1546, evals=1333, score=2.16, move=10
+Depth 4: nodes=6560, evals=5487, score=17.97, move=10
+Search completed: Total nodes=8365, Total evals=7060, Ratio=84.40%
+Final: Depth=5, Best move=10, Score=17.97, Finished=false
+End : 2025-08-05 09:45:54
+
+Move: C2
+Move: C1
+
+2025-08-05 09:45:57 - Opponent's Move
+O: 12 pieces, X: 18 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ·✓XXXX··
+3 ·✓XOOO··
+4 ·OXXOO··
+5 OOXXOO··
+6 ✓XXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 B2 B3 A6 A7 B7 C7 C8 D8 E8
+
+2025-08-05 09:45:57 - AI Thinking
+O: 12 pieces, X: 18 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ·✓XXXX··
+3 ·✓XOOO··
+4 ·OXXOO··
+5 OOXXOO··
+6 ✓XXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 B2 B3 A6 A7 B7 C7 C8 D8 E8
+Remaining time: 33315 ms, Allocated time: 3331 ms
+No book move found
+Depth 1: nodes=14, evals=13, score=2.16, move=58
+Depth 2: nodes=209, evals=191, score=17.97, move=17
+Depth 3: nodes=1705, evals=1457, score=1.03, move=17
+Depth 4: nodes=7395, evals=6239, score=16.51, move=17
+Search completed: Total nodes=9323, Total evals=7900, Ratio=84.74%
+Final: Depth=5, Best move=17, Score=16.51, Finished=false
+End : 2025-08-05 09:46:00
+
+Move: B3
+Move: A6
+
+2025-08-05 09:46:03 - Opponent's Move
+O: 13 pieces, X: 19 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX··
+3 ·OOXOO··
+4 ·OXXOO··
+5 OXXOOO··
+6 XXXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 A7 B7 C7 C8 D8 E8
+
+2025-08-05 09:46:03 - AI Thinking
+O: 13 pieces, X: 19 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX··
+3 ·OOXOO··
+4 ·OXXOO··
+5 OXXOOO··
+6 XXXXOO··
+7 ✓✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 A7 B7 C7 C8 D8 E8
+Remaining time: 29981 ms, Allocated time: 3331 ms
+No book move found
+Depth 1: nodes=13, evals=9, score=10.49, move=60
+Depth 2: nodes=110, evals=97, score=17.03, move=48
+Depth 3: nodes=1394, evals=1200, score=0.74, move=48
+Depth 4: nodes=6716, evals=5662, score=15.89, move=48
+Search completed: Total nodes=8233, Total evals=6968, Ratio=84.64%
+Final: Depth=5, Best move=48, Score=15.89, Finished=false
+End : 2025-08-05 09:46:06
+
+Move: A7
+Move: G3
+
+2025-08-05 09:46:09 - Opponent's Move
+O: 14 pieces, X: 20 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 ·OOXXXX✓
+4 ·OXOOX✓·
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 G2 H3 G4 B7 C7 C8 D8 E8
+
+2025-08-05 09:46:09 - AI Thinking
+O: 14 pieces, X: 20 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 ·OOXXXX✓
+4 ·OXOOX✓·
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 G2 H3 G4 B7 C7 C8 D8 E8
+Remaining time: 26646 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=16, evals=15, score=0.74, move=50
+Depth 2: nodes=94, evals=80, score=19.61, move=30
+Depth 3: nodes=1087, evals=951, score=0.33, move=50
+Depth 4: nodes=4377, evals=3662, score=18.01, move=30
+Search completed: Total nodes=5574, Total evals=4708, Ratio=84.46%
+Final: Depth=5, Best move=30, Score=18.01, Finished=false
+End : 2025-08-05 09:46:12
+
+Move: G4
+Move: H4
+
+2025-08-05 09:46:15 - Opponent's Move
+O: 12 pieces, X: 24 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 ·OOXXXX✓
+4 ·OXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 G2 H3 B7 C7 C8 D8 E8
+
+2025-08-05 09:46:15 - AI Thinking
+O: 12 pieces, X: 24 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 ·OOXXXX✓
+4 ·OXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓XX···
+8 ··✓✓✓X··
+Placeable: B1 F1 G1 G2 H3 B7 C7 C8 D8 E8
+Remaining time: 23313 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=0.03, move=50
+Depth 2: nodes=120, evals=107, score=18.01, move=58
+Depth 3: nodes=987, evals=850, score=-0.23, move=50
+Depth 4: nodes=3849, evals=3145, score=16.03, move=60
+Search completed: Total nodes=4969, Total evals=4114, Ratio=82.79%
+Final: Depth=5, Best move=60, Score=16.03, Finished=false
+End : 2025-08-05 09:46:19
+
+Move: E8
+Move: D8
+
+2025-08-05 09:46:22 - Opponent's Move
+O: 13 pieces, X: 25 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 ·OOXXXX✓
+4 ·OXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓XO···
+8 ··✓XXX··
+Placeable: B1 F1 G1 G2 H3 B7 C7 C8
+
+2025-08-05 09:46:22 - AI Thinking
+O: 13 pieces, X: 25 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 ·OOXXXX✓
+4 ·OXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓XO···
+8 ··✓XXX··
+Placeable: B1 F1 G1 G2 H3 B7 C7 C8
+Remaining time: 19980 ms, Allocated time: 3330 ms
+No book move found
+Depth 1: nodes=11, evals=10, score=-5.47, move=58
+Depth 2: nodes=53, evals=42, score=16.23, move=58
+Depth 3: nodes=616, evals=516, score=-3.59, move=58
+Depth 4: nodes=2842, evals=2354, score=15.01, move=58
+Depth 5: nodes=12897, evals=10431, score=1.44, move=58
+Search completed: Total nodes=16419, Total evals=13353, Ratio=81.33%
+Final: Depth=6, Best move=58, Score=1.44, Finished=false
+End : 2025-08-05 09:46:25
+
+Move: C8
+Move: A4
+
+2025-08-05 09:46:28 - Opponent's Move
+O: 13 pieces, X: 27 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ✓✓XXXX✓·
+3 ✓XOXXXX✓
+4 XXXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓OO···
+8 ··OXXX✓·
+Placeable: B1 F1 G1 A2 B2 G2 A3 H3 B7 C7 G8
+
+2025-08-05 09:46:28 - AI Thinking
+O: 13 pieces, X: 27 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ✓✓XXXX✓·
+3 ✓XOXXXX✓
+4 XXXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓OO···
+8 ··OXXX✓·
+Placeable: B1 F1 G1 A2 B2 G2 A3 H3 B7 C7 G8
+Remaining time: 16647 ms, Allocated time: 3329 ms
+No book move found
+Depth 1: nodes=12, evals=11, score=4.74, move=1
+Depth 2: nodes=146, evals=127, score=21.04, move=16
+Depth 3: nodes=1082, evals=912, score=1.44, move=16
+Depth 4: nodes=3188, evals=2527, score=23.56, move=16
+Search completed: Total nodes=4428, Total evals=3577, Ratio=80.78%
+Final: Depth=5, Best move=16, Score=23.56, Finished=false
+End : 2025-08-05 09:46:31
+
+Move: A3
+Move: B8
+
+2025-08-05 09:46:34 - Opponent's Move
+O: 16 pieces, X: 26 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 OOOXXXX✓
+4 OOXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓OO···
+8 ·XXXXX··
+Placeable: B1 F1 G1 G2 H3 B7 C7
+
+2025-08-05 09:46:34 - AI Thinking
+O: 16 pieces, X: 26 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX✓·
+3 OOOXXXX✓
+4 OOXXXXXX
+5 OXOOXO··
+6 OOXXOO··
+7 O✓✓OO···
+8 ·XXXXX··
+Placeable: B1 F1 G1 G2 H3 B7 C7
+Remaining time: 13315 ms, Allocated time: 3328 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=25.10, move=50
+Depth 2: nodes=1, evals=0, score=25.10, move=50
+Depth 3: nodes=456, evals=377, score=9.58, move=50
+Depth 4: nodes=3882, evals=3185, score=22.51, move=50
+Depth 5: nodes=10526, evals=8196, score=9.31, move=50
+Search completed: Total nodes=14866, Total evals=11758, Ratio=79.09%
+Final: Depth=6, Best move=50, Score=9.31, Finished=false
+End : 2025-08-05 09:46:37
+
+Move: C7
+Move: B7
+
+2025-08-05 09:46:40 - Opponent's Move
+O: 15 pieces, X: 29 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX·✓
+3 OOOXXXX✓
+4 OOXXXXXX
+5 OXOXXO··
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: B1 F1 G1 H2 H3
+
+2025-08-05 09:46:40 - AI Thinking
+O: 15 pieces, X: 29 pieces
+  ABCDEFGH
+1 ·✓XXX✓✓·
+2 ··XXXX·✓
+3 OOOXXXX✓
+4 OOXXXXXX
+5 OXOXXO··
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: B1 F1 G1 H2 H3
+Remaining time: 9985 ms, Allocated time: 3328 ms
+No book move found
+Depth 1: nodes=8, evals=5, score=9.58, move=5
+Depth 2: nodes=42, evals=32, score=22.51, move=5
+Depth 3: nodes=238, evals=194, score=18.88, move=5
+Depth 4: nodes=1053, evals=801, score=25.52, move=5
+Depth 5: nodes=6741, evals=5169, score=18.91, move=5
+Search completed: Total nodes=8082, Total evals=6201, Ratio=76.73%
+Final: Depth=6, Best move=5, Score=18.91, Finished=false
+End : 2025-08-05 09:46:44
+
+Move: F1
+Move: G2
+
+2025-08-05 09:46:47 - Opponent's Move
+O: 20 pieces, X: 26 pieces
+  ABCDEFGH
+1 ·✓XXXO✓·
+2 ··XXXXX✓
+3 OOOOXXX✓
+4 OOOXXOXX
+5 OOOXXO··
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: B1 G1 H2 H3
+
+2025-08-05 09:46:47 - AI Thinking
+O: 20 pieces, X: 26 pieces
+  ABCDEFGH
+1 ·✓XXXO✓·
+2 ··XXXXX✓
+3 OOOOXXX✓
+4 OOOXXOXX
+5 OOOXXO··
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: B1 G1 H2 H3
+Remaining time: 6654 ms, Allocated time: 4436 ms
+No book move found
+Solved: Winning position with move 1
+Move: B1
+Move: A2
+
+2025-08-05 09:46:48 - Opponent's Move
+O: 23 pieces, X: 25 pieces
+  ABCDEFGH
+1 ✓OOOOO✓·
+2 X✓OXXXX✓
+3 OXOOXXX✓
+4 OOXXXOXX
+5 OOOXXO·✓
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: A1 G1 B2 H2 H3 H5
+
+2025-08-05 09:46:48 - AI Thinking
+O: 23 pieces, X: 25 pieces
+  ABCDEFGH
+1 ✓OOOOO✓·
+2 X✓OXXXX✓
+3 OXOOXXX✓
+4 OOXXXOXX
+5 OOOXXO·✓
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: A1 G1 B2 H2 H3 H5
+Remaining time: 6635 ms, Allocated time: 4423 ms
+No book move found
+Solved: Winning position with move 0
+Move: A1
+Move: B2
+
+2025-08-05 09:46:48 - Opponent's Move
+O: 23 pieces, X: 27 pieces
+  ABCDEFGH
+1 OOOOOO✓·
+2 OXXXXXX✓
+3 OXXOXXX✓
+4 OOXXXOXX
+5 OOOXXO·✓
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: G1 H2 H3 H5
+
+2025-08-05 09:46:48 - AI Thinking
+O: 23 pieces, X: 27 pieces
+  ABCDEFGH
+1 OOOOOO✓·
+2 OXXXXXX✓
+3 OXXOXXX✓
+4 OOXXXOXX
+5 OOOXXO·✓
+6 OXXXOO··
+7 OXOOO···
+8 ·XXXXX··
+Placeable: G1 H2 H3 H5
+Remaining time: 6634 ms, Allocated time: 4422 ms
+No book move found
+Solved: Winning position with move 6
+Move: G1
+Move: G7
+
+2025-08-05 09:46:49 - Opponent's Move
+O: 26 pieces, X: 26 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXXXOX✓
+3 OXXOOXX✓
+4 OOXOXOXX
+5 OOOXXO✓✓
+6 OXXXOX✓·
+7 OXOOO✓X·
+8 ·XXXXX·✓
+Placeable: H2 H3 G5 H5 G6 F7 H8
+
+2025-08-05 09:46:49 - AI Thinking
+O: 26 pieces, X: 26 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXXXOX✓
+3 OXXOOXX✓
+4 OOXOXOXX
+5 OOOXXO✓✓
+6 OXXXOX✓·
+7 OXOOO✓X·
+8 ·XXXXX·✓
+Placeable: H2 H3 G5 H5 G6 F7 H8
+Remaining time: 6632 ms, Allocated time: 4421 ms
+No book move found
+Solved: Winning position with move 53
+Move: F7
+Move: G5
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 23 pieces, X: 31 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXXXOX✓
+3 OXXOXXX✓
+4 OOXOXXXX
+5 OOOXXXX✓
+6 OXXXOX✓✓
+7 OXOOXOX✓
+8 ·XXXXX·✓
+Placeable: H2 H3 H5 G6 H6 H7 H8
+
+2025-08-05 09:46:50 - AI Thinking
+O: 23 pieces, X: 31 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXXXOX✓
+3 OXXOXXX✓
+4 OOXOXXXX
+5 OOOXXXX✓
+6 OXXXOX✓✓
+7 OXOOXOX✓
+8 ·XXXXX·✓
+Placeable: H2 H3 H5 G6 H6 H7 H8
+Remaining time: 6631 ms, Allocated time: 4420 ms
+No book move found
+Solved: Winning position with move 47
+Move: H6
+Move: H5
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 27 pieces, X: 29 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXOXOX✓
+3 OXXOOXX✓
+4 OOXOXOXX
+5 OOOXXXXX
+6 OXXXOX✓O
+7 OXOOXOX✓
+8 ·XXXXX·✓
+Placeable: H2 H3 G6 H7 H8
+
+2025-08-05 09:46:50 - AI Thinking
+O: 27 pieces, X: 29 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXOXOX✓
+3 OXXOOXX✓
+4 OOXOXOXX
+5 OOOXXXXX
+6 OXXXOX✓O
+7 OXOOXOX✓
+8 ·XXXXX·✓
+Placeable: H2 H3 G6 H7 H8
+Remaining time: 6630 ms, Allocated time: 4420 ms
+No book move found
+Solved: Winning position with move 55
+Move: H7
+Move: G8
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 27 pieces, X: 31 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXOXOX✓
+3 OXXOOXX✓
+4 OOXOXOXX
+5 OOOXXXXX
+6 OXXXXX✓O
+7 OXOOXXOO
+8 ·XXXXXX·
+Placeable: H2 H3 G6
+
+2025-08-05 09:46:50 - AI Thinking
+O: 27 pieces, X: 31 pieces
+  ABCDEFGH
+1 OOOOOOO·
+2 OXXOXOX✓
+3 OXXOOXX✓
+4 OOXOXOXX
+5 OOOXXXXX
+6 OXXXXX✓O
+7 OXOOXXOO
+8 ·XXXXXX·
+Placeable: H2 H3 G6
+Remaining time: 6629 ms, Allocated time: 4419 ms
+No book move found
+Solved: Winning position with move 15
+Move: H2
+Move: H1
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 29 pieces, X: 31 pieces
+  ABCDEFGH
+1 OOOOOOOX
+2 OXXOXOXO
+3 OXXOOXO✓
+4 OOXOXOXX
+5 OOOXXXXX
+6 OXXXXX✓O
+7 OXOOXXOO
+8 ·XXXXXX·
+Placeable: H3 G6
+
+2025-08-05 09:46:50 - AI Thinking
+O: 29 pieces, X: 31 pieces
+  ABCDEFGH
+1 OOOOOOOX
+2 OXXOXOXO
+3 OXXOOXO✓
+4 OOXOXOXX
+5 OOOXXXXX
+6 OXXXXX✓O
+7 OXOOXXOO
+8 ·XXXXXX·
+Placeable: H3 G6
+Remaining time: 6628 ms, Allocated time: 4418 ms
+No book move found
+Solved: Winning position with move 23
+Move: H3
+Move: H8
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 29 pieces, X: 33 pieces
+  ABCDEFGH
+1 OOOOOOOX
+2 OXXOXOOX
+3 OXXOOXOX
+4 OOXOXOOX
+5 OOOXXOXX
+6 OXXXOX✓X
+7 OXOOXXXX
+8 ✓XXXXXXX
+Placeable: G6 A8
+
+2025-08-05 09:46:50 - AI Thinking
+O: 29 pieces, X: 33 pieces
+  ABCDEFGH
+1 OOOOOOOX
+2 OXXOXOOX
+3 OXXOOXOX
+4 OOXOXOOX
+5 OOOXXOXX
+6 OXXXOX✓X
+7 OXOOXXXX
+8 ✓XXXXXXX
+Placeable: G6 A8
+Remaining time: 6627 ms, Allocated time: 4418 ms
+No book move found
+Solved: Draw position with move 56
+Move: A8
+Move: G6
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 32 pieces, X: 32 pieces
+  ABCDEFGH
+1 OOOOOOOX
+2 OXXOXOOX
+3 OXXXOOOX
+4 OOXOXOOX
+5 OOOOXXXX
+6 OXOXOXXX
+7 OOOOXXXX
+8 OXXXXXXX
+No placeable positions
+
+2025-08-05 09:46:50 - AI Thinking
+O: 32 pieces, X: 32 pieces
+  ABCDEFGH
+1 OOOOOOOX
+2 OXXOXOOX
+3 OXXXOOOX
+4 OOXOXOOX
+5 OOOOXXXX
+6 OXOXOXXX
+7 OOOOXXXX
+8 OXXXXXXX
+No placeable positions
+Remaining time: 6626 ms, Allocated time: 4417 ms
+No valid moves - PASS
+Move: PASS
+
+2025-08-05 09:46:50 - Initial Board
+O: 2 pieces, X: 2 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ····✓···
+4 ···OX✓··
+5 ··✓XO···
+6 ···✓····
+7 ········
+8 ········
+Placeable: E3 F4 C5 D6
+Move: D3
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 1 pieces, X: 4 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··✓X✓···
+4 ···XX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: C3 E3 C5
+
+2025-08-05 09:46:50 - AI Thinking
+O: 1 pieces, X: 4 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··✓X✓···
+4 ···XX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: C3 E3 C5
+Remaining time: 60000 ms, Allocated time: 2666 ms
+Using book move
+Move: C3
+Move: C4
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 2 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OX✓···
+4 ··XXX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: E3 C5
+
+2025-08-05 09:46:50 - AI Thinking
+O: 2 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OX✓···
+4 ··XXX···
+5 ··✓XO···
+6 ········
+7 ········
+8 ········
+Placeable: E3 C5
+Remaining time: 59999 ms, Allocated time: 2790 ms
+Using book move
+Move: E3
+Move: F4
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 4 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ··XXXX··
+5 ·✓✓XO✓✓·
+6 ···✓····
+7 ········
+8 ········
+Placeable: G3 B5 C5 F5 G5 D6
+
+2025-08-05 09:46:50 - AI Thinking
+O: 4 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ··XXXX··
+5 ·✓✓XO✓✓·
+6 ···✓····
+7 ········
+8 ········
+Placeable: G3 B5 C5 F5 G5 D6
+Remaining time: 59998 ms, Allocated time: 2926 ms
+Using book move
+Move: D6
+Move: C6
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 6 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ·✓XOXX✓·
+5 ·✓✓XO✓✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: G3 B4 G4 B5 C5 F5 G5 B6
+
+2025-08-05 09:46:50 - AI Thinking
+O: 6 pieces, X: 5 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOO·✓·
+4 ·✓XOXX✓·
+5 ·✓✓XO✓✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: G3 B4 G4 B5 C5 F5 G5 B6
+Remaining time: 59997 ms, Allocated time: 3076 ms
+Using book move
+Move: F5
+Move: F3
+
+2025-08-05 09:46:50 - Opponent's Move
+O: 7 pieces, X: 6 pieces
+  ABCDEFGH
+1 ········
+2 ·····✓··
+3 ··OOOX✓·
+4 ·✓XOXX✓·
+5 ·✓✓XOO✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: F2 G3 B4 G4 B5 C5 G5 B6
+
+2025-08-05 09:46:50 - AI Thinking
+O: 7 pieces, X: 6 pieces
+  ABCDEFGH
+1 ········
+2 ·····✓··
+3 ··OOOX✓·
+4 ·✓XOXX✓·
+5 ·✓✓XOO✓·
+6 ·✓XO····
+7 ········
+8 ········
+Placeable: F2 G3 B4 G4 B5 C5 G5 B6
+Remaining time: 59996 ms, Allocated time: 3243 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=-8.69, move=25
+Depth 2: nodes=1, evals=0, score=-8.69, move=25
+Depth 3: nodes=1, evals=0, score=-8.69, move=25
+Depth 4: nodes=1, evals=0, score=-8.69, move=25
+Depth 5: nodes=1, evals=0, score=-8.69, move=25
+Search completed: Total nodes=5, Total evals=0, Ratio=0.00%
+Final: Depth=6, Best move=25, Score=-8.69, Finished=false
+End : 2025-08-05 09:46:54
+
+Move: B4
+Move: F6
+
+2025-08-05 09:46:57 - Opponent's Move
+O: 8 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOOX✓·
+4 ·OOOXX✓·
+5 ··✓XOX✓·
+6 ·✓XO✓X✓·
+7 ······✓·
+8 ········
+Placeable: G3 G4 C5 G5 B6 E6 G6 G7
+
+2025-08-05 09:46:57 - AI Thinking
+O: 8 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ········
+3 ··OOOX✓·
+4 ·OOOXX✓·
+5 ··✓XOX✓·
+6 ·✓XO✓X✓·
+7 ······✓·
+8 ········
+Placeable: G3 G4 C5 G5 B6 E6 G6 G7
+Remaining time: 56751 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=-11.22, move=30
+Depth 2: nodes=1, evals=0, score=-11.22, move=30
+Depth 3: nodes=1, evals=0, score=-11.22, move=30
+Depth 4: nodes=1, evals=0, score=-11.22, move=30
+Depth 5: nodes=1, evals=0, score=-11.22, move=30
+Search completed: Total nodes=5, Total evals=0, Ratio=0.00%
+Final: Depth=6, Best move=30, Score=-11.22, Finished=false
+End : 2025-08-05 09:47:00
+
+Move: G4
+Move: E6
+
+2025-08-05 09:47:03 - Opponent's Move
+O: 10 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ····✓✓✓·
+3 ··OOOX✓·
+4 ·OOOOOO·
+5 ··✓XOX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 F2 G2 G3 C5 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:47:03 - AI Thinking
+O: 10 pieces, X: 7 pieces
+  ABCDEFGH
+1 ········
+2 ····✓✓✓·
+3 ··OOOX✓·
+4 ·OOOOOO·
+5 ··✓XOX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 F2 G2 G3 C5 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 53505 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=5.36, move=34
+Depth 2: nodes=1, evals=0, score=5.36, move=34
+Depth 3: nodes=1, evals=0, score=5.36, move=34
+Depth 4: nodes=1, evals=0, score=5.36, move=34
+Search completed: Total nodes=4, Total evals=0, Ratio=0.00%
+Final: Depth=5, Best move=34, Score=5.36, Finished=false
+End : 2025-08-05 09:47:06
+
+Move: C5
+Move: G3
+
+2025-08-05 09:47:09 - Opponent's Move
+O: 10 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ····✓·✓·
+3 ··OOOXX✓
+4 ·OOOOXO·
+5 ··OOXX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 G2 H3 G5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:47:09 - AI Thinking
+O: 10 pieces, X: 9 pieces
+  ABCDEFGH
+1 ········
+2 ····✓·✓·
+3 ··OOOXX✓
+4 ·OOOOXO·
+5 ··OOXX✓·
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: E2 G2 H3 G5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 50259 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=17, evals=10, score=2.84, move=38
+Depth 2: nodes=100, evals=79, score=5.36, move=12
+Depth 3: nodes=959, evals=793, score=2.84, move=38
+Depth 4: nodes=5989, evals=5124, score=4.08, move=12
+Search completed: Total nodes=7065, Total evals=6006, Ratio=85.01%
+Final: Depth=5, Best move=12, Score=4.08, Finished=false
+End : 2025-08-05 09:47:12
+
+Move: E2
+Move: H3
+
+2025-08-05 09:47:15 - Opponent's Move
+O: 11 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ····O···
+3 ··OOOOXX
+4 ·OOOOXX✓
+5 ··OOXX✓✓
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: H4 G5 H5 G6 B7 C7 D7 E7 F7 G7
+
+2025-08-05 09:47:15 - AI Thinking
+O: 11 pieces, X: 10 pieces
+  ABCDEFGH
+1 ········
+2 ····O···
+3 ··OOOOXX
+4 ·OOOOXX✓
+5 ··OOXX✓✓
+6 ··XXXX✓·
+7 ·✓✓✓✓✓✓·
+8 ········
+Placeable: H4 G5 H5 G6 B7 C7 D7 E7 F7 G7
+Remaining time: 47014 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=12, evals=9, score=-1.09, move=31
+Depth 2: nodes=139, evals=122, score=4.08, move=51
+Depth 3: nodes=827, evals=664, score=-11.72, move=39
+Depth 4: nodes=7029, evals=6120, score=4.37, move=51
+Search completed: Total nodes=8007, Total evals=6915, Ratio=86.36%
+Final: Depth=5, Best move=51, Score=4.37, Finished=false
+End : 2025-08-05 09:47:19
+
+Move: D7
+Move: B5
+
+2025-08-05 09:47:22 - Opponent's Move
+O: 11 pieces, X: 12 pieces
+  ABCDEFGH
+1 ········
+2 ····O··✓
+3 ··OOOOXX
+4 ✓OOOOXX✓
+5 ·XXXXX✓✓
+6 ✓✓XOXX✓·
+7 ·✓✓O✓✓✓·
+8 ········
+Placeable: H2 A4 H4 G5 H5 A6 B6 G6 B7 C7 E7 F7 G7
+
+2025-08-05 09:47:22 - AI Thinking
+O: 11 pieces, X: 12 pieces
+  ABCDEFGH
+1 ········
+2 ····O··✓
+3 ··OOOOXX
+4 ✓OOOOXX✓
+5 ·XXXXX✓✓
+6 ✓✓XOXX✓·
+7 ·✓✓O✓✓✓·
+8 ········
+Placeable: H2 A4 H4 G5 H5 A6 B6 G6 B7 C7 E7 F7 G7
+Remaining time: 43769 ms, Allocated time: 3242 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=4.37, move=52
+Depth 2: nodes=1, evals=0, score=4.37, move=52
+Depth 3: nodes=1758, evals=1495, score=-13.11, move=38
+Search completed: Total nodes=1760, Total evals=1495, Ratio=84.94%
+Final: Depth=4, Best move=38, Score=-13.11, Finished=false
+End : 2025-08-05 09:47:25
+
+Move: G5
+Move: H4
+
+2025-08-05 09:47:28 - Opponent's Move
+O: 12 pieces, X: 13 pieces
+  ABCDEFGH
+1 ········
+2 ····O··✓
+3 ··OOOOXX
+4 ✓OOOOOXX
+5 ·XXXXXX✓
+6 ✓✓XOXX✓✓
+7 ·✓✓O✓✓✓·
+8 ········
+Placeable: H2 A4 H5 A6 B6 G6 H6 B7 C7 E7 F7 G7
+
+2025-08-05 09:47:28 - AI Thinking
+O: 12 pieces, X: 13 pieces
+  ABCDEFGH
+1 ········
+2 ····O··✓
+3 ··OOOOXX
+4 ✓OOOOOXX
+5 ·XXXXXX✓
+6 ✓✓XOXX✓✓
+7 ·✓✓O✓✓✓·
+8 ········
+Placeable: H2 A4 H5 A6 B6 G6 H6 B7 C7 E7 F7 G7
+Remaining time: 40524 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=1, evals=0, score=4.55, move=50
+Depth 2: nodes=1, evals=0, score=4.55, move=50
+Depth 3: nodes=1309, evals=1119, score=-12.40, move=40
+Depth 4: nodes=14890, evals=13219, score=2.80, move=50
+Search completed: Total nodes=16201, Total evals=14338, Ratio=88.50%
+Final: Depth=5, Best move=50, Score=2.80, Finished=false
+End : 2025-08-05 09:47:31
+
+Move: C7
+Move: F2
+
+2025-08-05 09:47:34 - Opponent's Move
+O: 13 pieces, X: 14 pieces
+  ABCDEFGH
+1 ······✓·
+2 ····OX✓✓
+3 ··OOOXXX
+4 ✓OOOOXXX
+5 ✓XOXXXX✓
+6 ✓✓OOXX✓✓
+7 ··OO✓✓✓·
+8 ········
+Placeable: G1 G2 H2 A4 A5 H5 A6 B6 G6 H6 E7 F7 G7
+
+2025-08-05 09:47:34 - AI Thinking
+O: 13 pieces, X: 14 pieces
+  ABCDEFGH
+1 ······✓·
+2 ····OX✓✓
+3 ··OOOXXX
+4 ✓OOOOXXX
+5 ✓XOXXXX✓
+6 ✓✓OOXX✓✓
+7 ··OO✓✓✓·
+8 ········
+Placeable: G1 G2 H2 A4 A5 H5 A6 B6 G6 H6 E7 F7 G7
+Remaining time: 37281 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=17, evals=12, score=2.71, move=32
+Depth 2: nodes=195, evals=178, score=2.80, move=40
+Depth 3: nodes=2027, evals=1746, score=-12.27, move=32
+Depth 4: nodes=6379, evals=5471, score=1.43, move=32
+Search completed: Total nodes=8618, Total evals=7407, Ratio=85.95%
+Final: Depth=5, Best move=32, Score=1.43, Finished=false
+End : 2025-08-05 09:47:37
+
+Move: A5
+Move: E1
+
+2025-08-05 09:47:40 - Opponent's Move
+O: 12 pieces, X: 17 pieces
+  ABCDEFGH
+1 ····X✓✓·
+2 ····XX✓✓
+3 ··OOXXXX
+4 ·OOOXXXX
+5 OOOXXXX✓
+6 ··OOXX✓·
+7 ··OO·✓✓·
+8 ········
+Placeable: F1 G1 G2 H2 H5 G6 F7 G7
+
+2025-08-05 09:47:40 - AI Thinking
+O: 12 pieces, X: 17 pieces
+  ABCDEFGH
+1 ····X✓✓·
+2 ····XX✓✓
+3 ··OOXXXX
+4 ·OOOXXXX
+5 OOOXXXX✓
+6 ··OOXX✓·
+7 ··OO·✓✓·
+8 ········
+Placeable: F1 G1 G2 H2 H5 G6 F7 G7
+Remaining time: 34038 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=10, evals=9, score=-12.27, move=5
+Depth 2: nodes=128, evals=115, score=1.43, move=53
+Depth 3: nodes=630, evals=510, score=-16.54, move=53
+Depth 4: nodes=5112, evals=4405, score=-1.52, move=53
+Search completed: Total nodes=5880, Total evals=5039, Ratio=85.70%
+Final: Depth=5, Best move=53, Score=-1.52, Finished=false
+End : 2025-08-05 09:47:44
+
+Move: F7
+Move: F8
+
+2025-08-05 09:47:47 - Opponent's Move
+O: 14 pieces, X: 17 pieces
+  ABCDEFGH
+1 ····X✓✓·
+2 ····XX✓✓
+3 ··OOXXXX
+4 ·OOOXXXX
+5 OOOOXXX✓
+6 ··OOOX✓·
+7 ··OO·X✓·
+8 ·····X✓·
+Placeable: F1 G1 G2 H2 H5 G6 G7 G8
+
+2025-08-05 09:47:47 - AI Thinking
+O: 14 pieces, X: 17 pieces
+  ABCDEFGH
+1 ····X✓✓·
+2 ····XX✓✓
+3 ··OOXXXX
+4 ·OOOXXXX
+5 OOOOXXX✓
+6 ··OOOX✓·
+7 ··OO·X✓·
+8 ·····X✓·
+Placeable: F1 G1 G2 H2 H5 G6 G7 G8
+Remaining time: 30795 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=11, evals=6, score=-1.52, move=46
+Depth 2: nodes=197, evals=183, score=-1.52, move=46
+Depth 3: nodes=1084, evals=935, score=-16.66, move=54
+Depth 4: nodes=6355, evals=5548, score=-2.48, move=46
+Search completed: Total nodes=7647, Total evals=6672, Ratio=87.25%
+Final: Depth=5, Best move=46, Score=-2.48, Finished=false
+End : 2025-08-05 09:47:50
+
+Move: G6
+Move: H5
+
+2025-08-05 09:47:53 - Opponent's Move
+O: 17 pieces, X: 16 pieces
+  ABCDEFGH
+1 ····X✓✓·
+2 ····XX✓✓
+3 ··OOXXXX
+4 ·OOOOXXX
+5 OOOOXOXX
+6 ··OOOOX✓
+7 ··OO·X·✓
+8 ·····X✓·
+Placeable: F1 G1 G2 H2 H6 H7 G8
+
+2025-08-05 09:47:53 - AI Thinking
+O: 17 pieces, X: 16 pieces
+  ABCDEFGH
+1 ····X✓✓·
+2 ····XX✓✓
+3 ··OOXXXX
+4 ·OOOOXXX
+5 OOOOXOXX
+6 ··OOOOX✓
+7 ··OO·X·✓
+8 ·····X✓·
+Placeable: F1 G1 G2 H2 H6 H7 G8
+Remaining time: 27552 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=9, evals=6, score=-19.35, move=6
+Depth 2: nodes=196, evals=182, score=-2.48, move=55
+Depth 3: nodes=667, evals=551, score=-20.24, move=55
+Depth 4: nodes=4648, evals=4008, score=-10.00, move=14
+Search completed: Total nodes=5520, Total evals=4747, Ratio=86.00%
+Final: Depth=5, Best move=14, Score=-10.00, Finished=false
+End : 2025-08-05 09:47:56
+
+Move: G2
+Move: C2
+
+2025-08-05 09:47:59 - Opponent's Move
+O: 16 pieces, X: 19 pieces
+  ABCDEFGH
+1 ··✓✓X✓✓·
+2 ··X✓XXO✓
+3 ··OXXOXX
+4 ·OOOXXXX
+5 OOOOXXXX
+6 ··OOOOX✓
+7 ··OO·X✓·
+8 ·····X✓·
+Placeable: C1 D1 F1 G1 D2 H2 H6 G7 G8
+
+2025-08-05 09:47:59 - AI Thinking
+O: 16 pieces, X: 19 pieces
+  ABCDEFGH
+1 ··✓✓X✓✓·
+2 ··X✓XXO✓
+3 ··OXXOXX
+4 ·OOOXXXX
+5 OOOOXXXX
+6 ··OOOOX✓
+7 ··OO·X✓·
+8 ·····X✓·
+Placeable: C1 D1 F1 G1 D2 H2 H6 G7 G8
+Remaining time: 24308 ms, Allocated time: 3241 ms
+No book move found
+Depth 1: nodes=10, evals=9, score=-20.58, move=3
+Depth 2: nodes=192, evals=177, score=-10.00, move=2
+Depth 3: nodes=1381, evals=1179, score=-20.97, move=3
+Depth 4: nodes=4965, evals=4300, score=-8.78, move=2
+Search completed: Total nodes=6548, Total evals=5665, Ratio=86.51%
+Final: Depth=5, Best move=2, Score=-8.78, Finished=false
+End : 2025-08-05 09:48:02
+
+Move: C1
+Move: E7
+
+2025-08-05 09:48:05 - Opponent's Move
+O: 16 pieces, X: 21 pieces
+  ABCDEFGH
+1 ··O✓X✓✓·
+2 ··O✓XXO✓
+3 ··OXXOXX
+4 ·OOOXXXX
+5 OOOOXXXX
+6 ··OOXXX✓
+7 ··OOXX✓✓
+8 ·····X✓·
+Placeable: D1 F1 G1 D2 H2 H6 G7 H7 G8
+
+2025-08-05 09:48:05 - AI Thinking
+O: 16 pieces, X: 21 pieces
+  ABCDEFGH
+1 ··O✓X✓✓·
+2 ··O✓XXO✓
+3 ··OXXOXX
+4 ·OOOXXXX
+5 OOOOXXXX
+6 ··OOXXX✓
+7 ··OOXX✓✓
+8 ·····X✓·
+Placeable: D1 F1 G1 D2 H2 H6 G7 H7 G8
+Remaining time: 21065 ms, Allocated time: 3240 ms
+No book move found
+Depth 1: nodes=13, evals=12, score=-18.33, move=3
+Depth 2: nodes=92, evals=81, score=-8.78, move=3
+Depth 3: nodes=688, evals=550, score=-17.67, move=3
+Depth 4: nodes=2975, evals=2561, score=-5.87, move=3
+Search completed: Total nodes=3768, Total evals=3204, Ratio=85.03%
+Final: Depth=5, Best move=3, Score=-5.87, Finished=false
+End : 2025-08-05 09:48:09
+
+Move: D1
+Move: D2
+
+2025-08-05 09:48:12 - Opponent's Move
+O: 17 pieces, X: 22 pieces
+  ABCDEFGH
+1 ··OOX✓✓·
+2 ··OXXXO✓
+3 ··OXXOXX
+4 ·OOOXXXX
+5 OOOOXXXX
+6 ··OOXXX✓
+7 ··OOXX✓✓
+8 ·····X✓·
+Placeable: F1 G1 H2 H6 G7 H7 G8
+
+2025-08-05 09:48:12 - AI Thinking
+O: 17 pieces, X: 22 pieces
+  ABCDEFGH
+1 ··OOX✓✓·
+2 ··OXXXO✓
+3 ··OXXOXX
+4 ·OOOXXXX
+5 OOOOXXXX
+6 ··OOXXX✓
+7 ··OOXX✓✓
+8 ·····X✓·
+Placeable: F1 G1 H2 H6 G7 H7 G8
+Remaining time: 17822 ms, Allocated time: 3240 ms
+No book move found
+Depth 1: nodes=9, evals=8, score=-17.67, move=6
+Depth 2: nodes=161, evals=148, score=-5.87, move=6
+Depth 3: nodes=796, evals=658, score=-16.23, move=6
+Depth 4: nodes=2545, evals=2174, score=-3.89, move=6
+Search completed: Total nodes=3511, Total evals=2988, Ratio=85.10%
+Final: Depth=5, Best move=6, Score=-3.89, Finished=false
+End : 2025-08-05 09:48:15
+
+Move: G1
+Move: D8
+
+2025-08-05 09:48:18 - Opponent's Move
+O: 16 pieces, X: 25 pieces
+  ABCDEFGH
+1 ··OOX✓O·
+2 ··OXXOO✓
+3 ··OXOOXX
+4 ·OOXXXXX
+5 OOOXXXXX
+6 ··OXXXX✓
+7 ··OXXX✓✓
+8 ···X✓X✓·
+Placeable: F1 H2 H6 G7 H7 E8 G8
+
+2025-08-05 09:48:18 - AI Thinking
+O: 16 pieces, X: 25 pieces
+  ABCDEFGH
+1 ··OOX✓O·
+2 ··OXXOO✓
+3 ··OXOOXX
+4 ·OOXXXXX
+5 OOOXXXXX
+6 ··OXXXX✓
+7 ··OXXX✓✓
+8 ···X✓X✓·
+Placeable: F1 H2 H6 G7 H7 E8 G8
+Remaining time: 14580 ms, Allocated time: 3240 ms
+No book move found
+Depth 1: nodes=8, evals=7, score=-14.99, move=5
+Depth 2: nodes=137, evals=125, score=-0.70, move=5
+Depth 3: nodes=865, evals=713, score=-17.28, move=5
+Depth 4: nodes=3028, evals=2582, score=-4.48, move=5
+Search completed: Total nodes=4038, Total evals=3427, Ratio=84.87%
+Final: Depth=5, Best move=5, Score=-4.48, Finished=false
+End : 2025-08-05 09:48:21
+
+Move: F1
+Move: H1
+
+2025-08-05 09:48:24 - Opponent's Move
+O: 18 pieces, X: 25 pieces
+  ABCDEFGH
+1 ··OOOOOX
+2 ··OXOOX✓
+3 ··OOOXXX
+4 ·OOXXXXX
+5 OOOXXXXX
+6 ··OXXXX✓
+7 ··OXXX✓✓
+8 ···X✓X✓·
+Placeable: H2 H6 G7 H7 E8 G8
+
+2025-08-05 09:48:24 - AI Thinking
+O: 18 pieces, X: 25 pieces
+  ABCDEFGH
+1 ··OOOOOX
+2 ··OXOOX✓
+3 ··OOOXXX
+4 ·OOXXXXX
+5 OOOXXXXX
+6 ··OXXXX✓
+7 ··OXXX✓✓
+8 ···X✓X✓·
+Placeable: H2 H6 G7 H7 E8 G8
+Remaining time: 11338 ms, Allocated time: 3239 ms
+No book move found
+Depth 1: nodes=7, evals=5, score=-15.89, move=62
+Depth 2: nodes=55, evals=43, score=-4.48, move=15
+Depth 3: nodes=428, evals=347, score=-12.62, move=15
+Depth 4: nodes=1746, evals=1409, score=-1.59, move=15
+Depth 5: nodes=5727, evals=4207, score=-10.37, move=15
+Search completed: Total nodes=7963, Total evals=6011, Ratio=75.49%
+Final: Depth=6, Best move=15, Score=-10.37, Finished=false
+End : 2025-08-05 09:48:27
+
+Move: H2
+Move: B3
+
+2025-08-05 09:48:30 - Opponent's Move
+O: 20 pieces, X: 25 pieces
+  ABCDEFGH
+1 ··OOOOOX
+2 ·✓OXOOOO
+3 ✓XXXXXOX
+4 ✓OXXXOXX
+5 OOOXOXXX
+6 ··OOXXX✓
+7 ··OXXX✓✓
+8 ···X✓X··
+Placeable: B2 A3 A4 H6 G7 H7 E8
+
+2025-08-05 09:48:30 - AI Thinking
+O: 20 pieces, X: 25 pieces
+  ABCDEFGH
+1 ··OOOOOX
+2 ·✓OXOOOO
+3 ✓XXXXXOX
+4 ✓OXXXOXX
+5 OOOXOXXX
+6 ··OOXXX✓
+7 ··OXXX✓✓
+8 ···X✓X··
+Placeable: B2 A3 A4 H6 G7 H7 E8
+Remaining time: 8096 ms, Allocated time: 3238 ms
+No book move found
+Depth 1: nodes=10, evals=5, score=-10.37, move=60
+Depth 2: nodes=61, evals=48, score=-0.44, move=24
+Depth 3: nodes=164, evals=128, score=-10.37, move=60
+Depth 4: nodes=1554, evals=1175, score=-2.31, move=24
+Depth 5: nodes=4609, evals=3387, score=-7.73, move=24
+Depth 6: nodes=13239, evals=9577, score=-1.90, move=24
+Search completed: Total nodes=19637, Total evals=14320, Ratio=72.92%
+Final: Depth=7, Best move=24, Score=-1.90, Finished=false
+End : 2025-08-05 09:48:34
+
+Move: A4
+Move: A2
+
+2025-08-05 09:48:34 - Opponent's Move
+O: 21 pieces, X: 26 pieces
+  ABCDEFGH
+1 ··OOOOOX
+2 X✓OXOOOO
+3 ✓XXXXXOX
+4 OOXXXOXX
+5 OOOXOXXX
+6 ··OOXXX✓
+7 ··OXXX✓✓
+8 ···X✓X··
+Placeable: B2 A3 H6 G7 H7 E8
+
+2025-08-05 09:48:34 - AI Thinking
+O: 21 pieces, X: 26 pieces
+  ABCDEFGH
+1 ··OOOOOX
+2 X✓OXOOOO
+3 ✓XXXXXOX
+4 OOXXXOXX
+5 OOOXOXXX
+6 ··OOXXX✓
+7 ··OXXX✓✓
+8 ···X✓X··
+Placeable: B2 A3 H6 G7 H7 E8
+Remaining time: 4856 ms, Allocated time: 3237 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=10, evals=8, score=0.65, move=16
+Depth 2: nodes=94, evals=73, score=-0.28, move=55
+Depth 3: nodes=170, evals=134, score=-2.69, move=60
+Depth 4: nodes=829, evals=592, score=1.56, move=60
+Search completed: Total nodes=1103, Total evals=807, Ratio=73.16%
+Final: Depth=5, Best move=60, Score=1.56, Finished=false
+End : 2025-08-05 09:48:34
+
+Move: E8
+Move: B2
+
+2025-08-05 09:48:34 - Opponent's Move
+O: 24 pieces, X: 25 pieces
+  ABCDEFGH
+1 ✓✓OOOOOX
+2 XXXXOOOO
+3 ✓XXXXXOX
+4 OOXXXOXX
+5 OOOXOXXX
+6 ··OOOXX✓
+7 ··OOOX✓·
+8 ··✓XOX✓·
+Placeable: A1 B1 A3 H6 G7 C8 G8
+
+2025-08-05 09:48:34 - AI Thinking
+O: 24 pieces, X: 25 pieces
+  ABCDEFGH
+1 ✓✓OOOOOX
+2 XXXXOOOO
+3 ✓XXXXXOX
+4 OOXXXOXX
+5 OOOXOXXX
+6 ··OOOXX✓
+7 ··OOOX✓·
+8 ··✓XOX✓·
+Placeable: A1 B1 A3 H6 G7 C8 G8
+Remaining time: 4392 ms, Allocated time: 2928 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=9, evals=7, score=3.36, move=0
+Depth 2: nodes=64, evals=54, score=1.56, move=58
+Depth 3: nodes=289, evals=231, score=3.34, move=58
+Depth 4: nodes=984, evals=697, score=-1.39, move=58
+Search completed: Total nodes=1346, Total evals=989, Ratio=73.48%
+Final: Depth=5, Best move=58, Score=-1.39, Finished=false
+End : 2025-08-05 09:48:35
+
+Move: C8
+Move: B8
+
+2025-08-05 09:48:35 - Opponent's Move
+O: 23 pieces, X: 28 pieces
+  ABCDEFGH
+1 ✓✓OOOOOX
+2 XXXXOOOO
+3 ✓XXXXXOX
+4 OOXXXOXX
+5 OOOXOXXX
+6 ··OOOXX✓
+7 ··OOOX✓·
+8 ·XXXXX✓·
+Placeable: A1 B1 A3 H6 G7 G8
+
+2025-08-05 09:48:35 - AI Thinking
+O: 23 pieces, X: 28 pieces
+  ABCDEFGH
+1 ✓✓OOOOOX
+2 XXXXOOOO
+3 ✓XXXXXOX
+4 OOXXXOXX
+5 OOOXOXXX
+6 ··OOOXX✓
+7 ··OOOX✓·
+8 ·XXXXX✓·
+Placeable: A1 B1 A3 H6 G7 G8
+Remaining time: 4024 ms, Allocated time: 2682 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=7, evals=6, score=10.00, move=0
+Depth 2: nodes=73, evals=60, score=-1.39, move=0
+Depth 3: nodes=136, evals=104, score=1.60, move=62
+Depth 4: nodes=497, evals=342, score=-0.73, move=16
+Search completed: Total nodes=713, Total evals=512, Ratio=71.81%
+Final: Depth=5, Best move=16, Score=-0.73, Finished=false
+End : 2025-08-05 09:48:35
+
+Move: A3
+Move: A6
+
+2025-08-05 09:48:35 - Opponent's Move
+O: 26 pieces, X: 27 pieces
+  ABCDEFGH
+1 ·✓OOOOOX
+2 XOXXOOOO
+3 XOOOOOOX
+4 XOXXXOXX
+5 XXOXOXXX
+6 X✓OOOXX✓
+7 ··OOOX✓✓
+8 ·XXXXX✓·
+Placeable: B1 B6 H6 G7 H7 G8
+
+2025-08-05 09:48:35 - AI Thinking
+O: 26 pieces, X: 27 pieces
+  ABCDEFGH
+1 ·✓OOOOOX
+2 XOXXOOOO
+3 XOOOOOOX
+4 XOXXXOXX
+5 XXOXOXXX
+6 X✓OOOXX✓
+7 ··OOOX✓✓
+8 ·XXXXX✓·
+Placeable: B1 B6 H6 G7 H7 G8
+Remaining time: 3687 ms, Allocated time: 2458 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=8, evals=7, score=-4.98, move=55
+Depth 2: nodes=43, evals=34, score=-0.73, move=55
+Depth 3: nodes=147, evals=117, score=-5.97, move=62
+Depth 4: nodes=493, evals=348, score=-7.23, move=1
+Search completed: Total nodes=691, Total evals=506, Ratio=73.23%
+Final: Depth=5, Best move=1, Score=-7.23, Finished=false
+End : 2025-08-05 09:48:35
+
+Move: B1
+Move: A1
+
+2025-08-05 09:48:35 - Opponent's Move
+O: 20 pieces, X: 35 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOOOOX
+4 XOXXXOXX
+5 XXOXOXXX
+6 X✓OOOXX✓
+7 ··OOOX✓✓
+8 ·XXXXX✓·
+Placeable: B6 H6 G7 H7 G8
+
+2025-08-05 09:48:35 - AI Thinking
+O: 20 pieces, X: 35 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOOOOX
+4 XOXXXOXX
+5 XXOXOXXX
+6 X✓OOOXX✓
+7 ··OOOX✓✓
+8 ·XXXXX✓·
+Placeable: B6 H6 G7 H7 G8
+Remaining time: 3378 ms, Allocated time: 2252 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=7, evals=6, score=-15.61, move=41
+Depth 2: nodes=25, evals=15, score=-7.23, move=41
+Depth 3: nodes=57, evals=38, score=-11.92, move=41
+Depth 4: nodes=215, evals=134, score=-9.34, move=41
+Depth 5: nodes=537, evals=339, score=-12.54, move=41
+Depth 6: nodes=1373, evals=696, score=-10.92, move=41
+Search completed: Total nodes=2214, Total evals=1228, Ratio=55.47%
+Final: Depth=7, Best move=41, Score=-10.92, Finished=false
+End : 2025-08-05 09:48:36
+
+Move: B6
+Move: A7
+
+2025-08-05 09:48:36 - Opponent's Move
+O: 20 pieces, X: 37 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOOOOX
+4 XOXXXOXX
+5 XOXXOXXX
+6 XXOOOXX✓
+7 X✓OOOX✓✓
+8 ·XXXXX✓·
+Placeable: H6 B7 G7 H7 G8
+
+2025-08-05 09:48:36 - AI Thinking
+O: 20 pieces, X: 37 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOOOOX
+4 XOXXXOXX
+5 XOXXOXXX
+6 XXOOOXX✓
+7 X✓OOOX✓✓
+8 ·XXXXX✓·
+Placeable: H6 B7 G7 H7 G8
+Remaining time: 3095 ms, Allocated time: 2063 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=8, evals=7, score=-11.92, move=55
+Depth 2: nodes=37, evals=25, score=-9.34, move=55
+Depth 3: nodes=82, evals=50, score=-12.54, move=55
+Depth 4: nodes=178, evals=102, score=-10.92, move=54
+Depth 5: nodes=488, evals=244, score=-5.36, move=55
+Depth 6: nodes=679, evals=254, score=-3.18, move=54
+Depth 7: nodes=533, evals=147, score=-1006.00, move=54
+Search completed: Total nodes=2005, Total evals=829, Ratio=41.35%
+Final: Depth=7, Best move=54, Score=-1006.00, Finished=true
+End : 2025-08-05 09:48:36
+
+Move: G7
+Move: B7
+
+2025-08-05 09:48:36 - Opponent's Move
+O: 25 pieces, X: 34 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOOOOX
+4 XOXXXOOX
+5 XOXXOXOX
+6 XXXOOOO✓
+7 XXOOOOO·
+8 ✓XXXXX··
+Placeable: H6 A8
+
+2025-08-05 09:48:36 - AI Thinking
+O: 25 pieces, X: 34 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOOOOX
+4 XOXXXOOX
+5 XOXXOXOX
+6 XXXOOOO✓
+7 XXOOOOO·
+8 ✓XXXXX··
+Placeable: H6 A8
+Remaining time: 2939 ms, Allocated time: 1959 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=4, evals=3, score=-7.59, move=56
+Depth 2: nodes=20, evals=16, score=-10.92, move=56
+Depth 3: nodes=51, evals=33, score=-5.10, move=56
+Depth 4: nodes=92, evals=40, score=-3.18, move=56
+Depth 5: nodes=69, evals=22, score=-1002.00, move=56
+Search completed: Total nodes=236, Total evals=114, Ratio=48.31%
+Final: Depth=5, Best move=56, Score=-1002.00, Finished=true
+End : 2025-08-05 09:48:36
+
+Move: A8
+Move: H6
+
+2025-08-05 09:48:36 - Opponent's Move
+O: 21 pieces, X: 40 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOXOOX
+4 XOXXOXOX
+5 XOXOOXXX
+6 XXXXXXXX
+7 XOOOOOX✓
+8 OXXXXX✓✓
+Placeable: H7 G8 H8
+
+2025-08-05 09:48:36 - AI Thinking
+O: 21 pieces, X: 40 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOXOOX
+4 XOXXOXOX
+5 XOXOOXXX
+6 XXXXXXXX
+7 XOOOOOX✓
+8 OXXXXX✓✓
+Placeable: H7 G8 H8
+Remaining time: 2917 ms, Allocated time: 1944 ms
+No book move found
+Solved: Losing position
+Depth 1: nodes=6, evals=5, score=-5.10, move=63
+Depth 2: nodes=12, evals=7, score=-2.40, move=63
+Depth 3: nodes=16, evals=5, score=-1002.00, move=62
+Search completed: Total nodes=34, Total evals=17, Ratio=50.00%
+Final: Depth=3, Best move=62, Score=-1002.00, Finished=true
+End : 2025-08-05 09:48:36
+
+Move: G8
+Move: H7
+
+2025-08-05 09:48:36 - Opponent's Move
+O: 23 pieces, X: 40 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOXOOX
+4 XOXXOXOX
+5 XOXOOXOX
+6 XXXXXXXX
+7 XXXXXXXX
+8 OOOOOOO✓
+Placeable: H8
+
+2025-08-05 09:48:36 - AI Thinking
+O: 23 pieces, X: 40 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOXOOX
+4 XOXXOXOX
+5 XOXOOXOX
+6 XXXXXXXX
+7 XXXXXXXX
+8 OOOOOOO✓
+Placeable: H8
+Remaining time: 2913 ms, Allocated time: 1942 ms
+No book move found
+Solved: Winning position with move 63
+Move: H8
+Move: PASS
+
+2025-08-05 09:48:36 - AI Thinking
+O: 31 pieces, X: 33 pieces
+  ABCDEFGH
+1 XXXXXXXX
+2 XXOXOOOO
+3 XOXOXOOO
+4 XOXXOXOO
+5 XOXOOXOO
+6 XXXXXOXO
+7 XXXXXXOO
+8 OOOOOOOO
+No placeable positions
+Remaining time: 2913 ms, Allocated time: 1942 ms
+No valid moves - PASS
+Move: PASS
