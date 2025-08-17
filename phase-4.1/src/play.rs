@@ -1,6 +1,10 @@
 // ここいじる
 use crate::database;
+
+// 評価関数のインポートを条件分岐
+#[cfg(not(target_arch = "wasm32"))]
 use crate::eval;
+
 use super::proto::Move;
 use crate::solver::solve;
 
@@ -48,7 +52,7 @@ impl TimeManager {
     }
 }
 
-#[derive(Clone, Copy, Eq, Hash, PartialEq)]
+#[derive(Clone, Copy, Eq, Hash, PartialEq, serde::Serialize, serde::Deserialize)]
 pub struct Board{
     pub my_board : u64,
     pub opponent_board : u64
@@ -278,7 +282,18 @@ impl Board {
 
         // (my_piece_count - op_piece_count) as f32 * (1.0 - database::get_sigmoid_table()[turn]) + 
         // (my_placeable_count - op_placeable_count) as f32 * database::get_sigmoid_table()[turn]
-        -eval::EVAL_FUNCTION.eval(&self)
+        
+        // WebAssembly環境では専用の評価関数を使用
+        #[cfg(target_arch = "wasm32")]
+        {
+            -crate::eval_wasm::EVAL_FUNCTION.eval(&self)
+        }
+        
+        // 通常環境では既存の評価関数を使用
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            -eval::EVAL_FUNCTION.eval(&self)
+        }
     }
     
     pub fn decide_move(&self, assigned_time_ms: i32) -> usize {

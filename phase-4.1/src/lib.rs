@@ -2,7 +2,20 @@ use wasm_bindgen::prelude::*;
 use serde::{Serialize, Deserialize};
 
 mod play;
-use crate::play::{Board, Move};
+mod proto;
+mod database;
+mod solver;
+
+use crate::play::Board;
+use crate::proto::Move;
+
+// WebAssembly環境では専用の評価関数を使用
+#[cfg(target_arch = "wasm32")]
+mod eval_wasm;
+
+// WebAssembly以外の環境では通常の評価関数
+#[cfg(not(target_arch = "wasm32"))]
+mod eval;
 
 // 複雑な返り値用の構造体
 #[derive(Serialize, Deserialize)]
@@ -22,7 +35,7 @@ fn format_move(mv: usize) -> Move {
     } else {
         let x = (mv % 8) + 1;
         let y = (mv / 8) + 1;
-        Move::Mv { x_ah: x as u8, y_18: y as u8 }
+        Move::Mv { x_ah: x as u32, y_18: y as u32 }
     }
 }
 
@@ -44,19 +57,21 @@ fn make_board(black_board: u64, white_board: u64, turn: bool) -> Board {
 // turn = trueの時、白の手番
 #[wasm_bindgen]
 pub fn update_board(black_board: u64, white_board: u64, mv: usize, turn: bool) -> JsValue {
-    let mut board = make_board(black_board, white_board, turn);
+    let mut board = make_board(black_board, white_board, !turn);
 
     let next_move = format_move(mv);
     board.do_move_interface(next_move, true);
+    if !turn {
+        board.change_turn();
+    }
     JsValue::from_serde(&board).unwrap()
 }
 
 #[wasm_bindgen]
-pub fn get_ai_move(black_board: u64, white_board: u64, turn: bool, assigned_time_ms: i32) -> JsValue {
+pub fn get_ai_move(black_board: u64, white_board: u64, turn: bool, assigned_time_ms: i32) -> usize {
     let board = make_board(black_board, white_board, turn);
 
-    let res = board.decide_move(assigned_time_ms);
-    JsValue::from_serde(&res).unwrap()
+    board.decide_move(assigned_time_ms)
 }
 
 #[wasm_bindgen]

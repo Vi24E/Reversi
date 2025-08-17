@@ -11,22 +11,21 @@ thiserror = "1.0.61"
 rand = "0.8.5"
 itertools = "0.14.0"
 chrono = { version = "0.4", features = ["serde"] }
-tract-onnx = "0.21.0"
 ndarray = "0.15.4"
 hashbrown = "0.14"
-wasm-pack = "0.13.1"
 wasm-bindgen = { version = "0.2.100", features = ["serde-serialize"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+serde-wasm-bindgen = "0.6"
 getrandom = { version = "0.2", features = ["js"] }
+
+# WebAssembly以外の環境でのみ有効
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tract-onnx = "0.21.0"
 
 [lib]
 crate-type = ["cdylib"]
 
 [profile.release]
-target-cpu = "native"
 lto = true
 codegen-units = 1
-
-[profile.dev]
-target-cpu = "native"
