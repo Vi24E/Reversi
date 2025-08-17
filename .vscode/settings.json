@@ -1,0 +1,29 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./phase-4.1/Cargo.toml"
+    ],
+    "rust-analyzer.checkOnSave.command": "cargo check",
+    "rust-analyzer.cargo.buildScripts.enable": true,
+    "rust-analyzer.procMacro.enable": true,
+    "rust-analyzer.lens.enable": true,
+    "rust-analyzer.hover.actions.enable": true,
+    "rust-analyzer.hover.documentation.enable": true,
+    "rust-analyzer.inlayHints.enable": true,
+    "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+    "rust-analyzer.inlayHints.chainingHints.enable": true,
+    "rust-analyzer.inlayHints.parameterHints.enable": true,
+    "rust-analyzer.inlayHints.typeHints.enable": true,
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.completion.autoimport.enable": true,
+    "rust-analyzer.completion.autoself.enable": true,
+    "rust-analyzer.completion.callable.snippets": "fill_arguments",
+    "rust-analyzer.assist.importGranularity": "module",
+    "rust-analyzer.assist.importEnforceGranularity": true,
+    "rust-analyzer.assist.importPrefix": "by_self",
+    "rust-analyzer.semanticHighlighting.strings.enable": true,
+    "rust-analyzer.server.path": "rust-analyzer",
+    "rust-analyzer.cargo.target": null,
+    "files.watcherExclude": {
+        "**/target": true
+    }
+}

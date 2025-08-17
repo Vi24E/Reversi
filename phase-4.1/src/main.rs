@@ -15,6 +15,7 @@ mod play;
 mod proto;
 mod eval;
 mod solver;
+mod lib;
 
 use crate::play::{Board, InitGame};
 use crate::proto::{Color, Move, PlayerStat, RecvCommand, SendCommand, Wl};

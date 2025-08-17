@@ -288,23 +288,7 @@ impl Board {
         database::reset_counters();
         
         let turn = self.get_turn();
-        let mut time_manager = {
-            if (assigned_time_ms >= 600000){
-                if turn <= 46 {
-                    TimeManager::new(2000);
-                }
-                else {
-                    TimeManager::new(15000);
-                }
-            }
-
-            if turn < 46 {
-                TimeManager::new(assigned_time_ms * 2 / (50 - turn as i32))
-            }
-            else {
-                TimeManager::new(assigned_time_ms * 2 / 3)
-            }
-        };
+        let mut time_manager = TimeManager::new(assigned_time_ms);
         self.write_to_log(&format!("Remaining time: {} ms, Allocated time: {} ms", assigned_time_ms, time_manager.get_assigned_time()));
 
         let moves = self.get_valid_moves();
