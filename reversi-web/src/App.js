@@ -77,21 +77,38 @@ function GameInfo({gameEngine, passMessage}) {
     const blackCount = gameEngine.getBlackStoneCount();
     const whiteCount = gameEngine.getWhiteStoneCount();
     const currentPlayer = gameEngine.getCurrentTurn() % 2 === 0 ? '黒' : '白';
+    const currentPlayerType = gameEngine.getCurrentPlayerType();
     const gameState = gameEngine.getGameState();
 
     return (
         <div style={{ marginBottom: '15px' }}>
-            <div>現在のプレイヤー: {currentPlayer}</div>
+            <div>現在のプレイヤー: {currentPlayer} ({currentPlayerType === 'human' ? '人間' : 'AI'})</div>
             <div>黒石: {blackCount}個</div>
             <div>白石: {whiteCount}個</div>
             <div>ターン数: {gameEngine.getCurrentTurn()}</div>
             <div>状態: {gameState}</div>
+
+            {passMessage && (
+                <div style={{
+                    color: 'orange',
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    padding: '10px',
+                    backgroundColor: '#fff3cd',
+                    border: '1px solid #ffeaa7',
+                    borderRadius: '5px',
+                    marginTop: '10px',
+                    textAlign: 'center'
+                }}>
+                    {passMessage}
+                </div>
+            )}
         </div>
     );
 }
 
 // ゲーム操作ボタンコンポーネント
-function GameControls({gameEngine, onReset, onUndo, onRedo}) {
+function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
     const canUndo = gameEngine.undoable();
     const canRedo = gameEngine.redoable();
 
@@ -154,6 +171,22 @@ function GameControls({gameEngine, onReset, onUndo, onRedo}) {
             >
                 リセット
             </button>
+
+            {/* メニューボタン */}
+            <button
+                onClick={onShowMenu}
+                style={{
+                    padding: '8px 16px',
+                    fontSize: '14px',
+                    backgroundColor: '#6c757d',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer'
+                }}
+            >
+                メニュー
+            </button>
         </div>
     );
 }
@@ -165,6 +198,7 @@ function App() {
     const [wasmError, setWasmError] = useState(null);
     const [passMessage, setPassMessage] = useState('');
     const [, forceUpdate] = useState({}); // 強制再描画用
+    const [showMenu, setShowMenu] = useState(true); // 初回はメニュー表示
 
     // WebAssemblyの初期化を待つ
     useEffect(() => {
@@ -173,7 +207,10 @@ function App() {
         wasmPromise.then(success => {
             if (isMounted) {
                 if (success) {
-                    setGameEngine(new GameEngine(wasmModule));
+                    // GameEngineを初期化
+                    const engine = new GameEngine(wasmModule);
+                    engine.setPlayerMode('human', 'human'); // デフォルト設定
+                    setGameEngine(engine);
                     setWasmLoaded(true);
                     setWasmError(null);
                 } else {
@@ -220,10 +257,25 @@ function App() {
         );
     }
 
+    // メニューキャンセル
+    const handleMenuCancel = () => {
+        setShowMenu(false);
+    };
+
     // マスをクリックしたときの処理
     const handleCellClick = (row, col) => {
+        // メニュー表示中はクリック無効
+        if (showMenu) {
+            return;
+        }
+
         // ゲーム終了時またはパス中はクリック無効
         if (gameEngine.isGameFinished() || passMessage !== '') {
+            return;
+        }
+
+        // AIのターンの場合はクリック無効
+        if (gameEngine.getCurrentPlayerType() !== 'human') {
             return;
         }
 
@@ -237,12 +289,10 @@ function App() {
         if (result.success) {
             if (result.passMessage) {
                 setPassMessage(result.passMessage);
-
                 setTimeout(() => setPassMessage(''), 700);
             } else {
                 setPassMessage('');
             }
-
             forceUpdate({});
         }
     };
@@ -250,7 +300,6 @@ function App() {
     // リセット処理
     const handleReset = () => {
         gameEngine.reset();
-        gameEngine.setPlayerMode('human', 'human');
         setPassMessage('');
         forceUpdate({});
     };
@@ -259,7 +308,7 @@ function App() {
     const handleUndo = () => {
         if (gameEngine.undoable()) {
             gameEngine.undoBoard();
-            setPassMessage(''); // パスメッセージをクリア
+            setPassMessage('');
             forceUpdate({});
         }
     };
@@ -268,9 +317,14 @@ function App() {
     const handleRedo = () => {
         if (gameEngine.redoable()) {
             gameEngine.redoBoard();
-            setPassMessage(''); // パスメッセージをクリア
+            setPassMessage('');
             forceUpdate({});
         }
+    };
+
+    // メニュー表示
+    const handleShowMenu = () => {
+        setShowMenu(true);
     };
 
     // ボードの描画
@@ -280,7 +334,8 @@ function App() {
         const borderSize = 2;
         const gameFinished = gameEngine.isGameFinished();
         const validMovesStr = gameEngine.getValidMoves();
-        const isPassActive = passMessage !== ''; // パスメッセージがある時はパス状態
+        const isPassActive = passMessage !== '';
+        const currentPlayerType = gameEngine.getCurrentPlayerType();
 
         return (
             <div style={{display: 'inline-block', position: 'relative'}}>
@@ -290,7 +345,7 @@ function App() {
                             <tr key={row}>
                                 {[...Array(size)].map((_, col) => {
                                     const cellType = gameEngine.getCell(row, col);
-                                    const isValidMove = !gameFinished && !isPassActive && validMovesStr[row * 8 + col] === '1';
+                                    const isValidMove = !gameFinished && !isPassActive && !showMenu && currentPlayerType === 'human' && validMovesStr[row * 8 + col] === '1';
 
                                     return (
                                         <td
@@ -302,13 +357,13 @@ function App() {
                                                 background: '#0a7d2c',
                                                 padding: 0,
                                                 position: 'relative',
-                                                cursor: (gameFinished || isPassActive || gameEngine.getCurrentPlayerType() !== 'human') ? 'not-allowed' : 'pointer',
-                                                opacity: (gameFinished || isPassActive) ? 0.3 : 1,
-                                                filter: (gameFinished || isPassActive) ? 'grayscale(30%)' : 'none',
+                                                cursor: (gameFinished || isPassActive || showMenu || currentPlayerType !== 'human') ? 'not-allowed' : 'pointer',
+                                                opacity: (gameFinished || isPassActive || showMenu) ? 0.3 : 1,
+                                                filter: (gameFinished || isPassActive || showMenu) ? 'grayscale(30%)' : 'none',
                                             }}
                                             onClick={() => handleCellClick(row, col)}
                                         >
-                                            <Stone type={cellType} isValidMove={isValidMove && gameEngine.getCurrentPlayerType() == 'human'} />
+                                            <Stone type={cellType} isValidMove={isValidMove} />
                                         </td>
                                     );
                                 })}
@@ -335,7 +390,7 @@ function App() {
                             background: 'black',
                             borderRadius: '100%',
                             pointerEvents: 'none',
-                            opacity: (gameFinished || isPassActive) ? 0.3 : 1,
+                            opacity: (gameFinished || isPassActive || showMenu) ? 0.3 : 1,
                         }}
                     />
                 ))}
@@ -352,8 +407,8 @@ function App() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)', // 半透明の黒いオーバーレイ
-                            pointerEvents: 'none', // クリックを無効化
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            pointerEvents: 'none',
                         }}
                     >
                         <div
@@ -370,6 +425,204 @@ function App() {
                     </div>
                 )}
 
+                {/* メニューオーバーレイ */}
+                {showMenu && (
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            pointerEvents: 'none',
+                        }}
+                    >
+                        <div
+                            style={{
+                                backgroundColor: '#1a1a1a',
+                                border: '2px solid #666',
+                                borderRadius: '10px',
+                                padding: '25px',
+                                color: 'white',
+                                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.8)',
+                                pointerEvents: 'auto',
+                                minWidth: '300px'
+                            }}
+                        >
+                            <h3 style={{ margin: '0 0 20px 0', fontSize: '20px', textAlign: 'center' }}>
+                                プレイヤー設定
+                            </h3>
+
+                            {/* 設定セクション */}
+                            <div style={{ marginBottom: '20px' }}>
+                                {/* 黒プレイヤー設定 */}
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    marginBottom: '15px',
+                                    gap: '15px'
+                                }}>
+                                    <div style={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: '50%',
+                                        background: 'black',
+                                        border: '1px solid #999'
+                                    }}></div>
+                                    <span style={{ fontSize: '16px', minWidth: '40px' }}>黒:</span>
+                                    <div style={{
+                                        display: 'flex',
+                                        border: '1px solid #555',
+                                        borderRadius: '15px',
+                                        overflow: 'hidden',
+                                        marginLeft: 'auto'
+                                    }}>
+                                        <button
+                                            onClick={() => {
+                                                const newBlackMode = 'human';
+                                                gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
+                                                forceUpdate({});
+                                            }}
+                                            style={{
+                                                padding: '6px 12px',
+                                                border: 'none',
+                                                backgroundColor: gameEngine.playerModes.black === 'human' ? '#007bff' : '#333',
+                                                color: gameEngine.playerModes.black === 'human' ? '#fff' : '#ccc',
+                                                cursor: 'pointer',
+                                                fontSize: '14px'
+                                            }}
+                                        >
+                                            人間
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                const newBlackMode = 'ai';
+                                                gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
+                                                forceUpdate({});
+                                            }}
+                                            style={{
+                                                padding: '6px 12px',
+                                                border: 'none',
+                                                backgroundColor: gameEngine.playerModes.black === 'ai' ? '#007bff' : '#333',
+                                                color: gameEngine.playerModes.black === 'ai' ? '#fff' : '#ccc',
+                                                cursor: 'pointer',
+                                                fontSize: '14px'
+                                            }}
+                                        >
+                                            AI
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* 白プレイヤー設定 */}
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '15px'
+                                }}>
+                                    <div style={{
+                                        width: 24,
+                                        height: 24,
+                                        borderRadius: '50%',
+                                        background: 'white',
+                                        border: '1px solid #666'
+                                    }}></div>
+                                    <span style={{ fontSize: '16px', minWidth: '40px' }}>白:</span>
+                                    <div style={{
+                                        display: 'flex',
+                                        border: '1px solid #555',
+                                        borderRadius: '15px',
+                                        overflow: 'hidden',
+                                        marginLeft: 'auto'
+                                    }}>
+                                        <button
+                                            onClick={() => {
+                                                const newWhiteMode = 'human';
+                                                gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
+                                                forceUpdate({});
+                                            }}
+                                            style={{
+                                                padding: '6px 12px',
+                                                border: 'none',
+                                                backgroundColor: gameEngine.playerModes.white === 'human' ? '#007bff' : '#333',
+                                                color: gameEngine.playerModes.white === 'human' ? '#fff' : '#ccc',
+                                                cursor: 'pointer',
+                                                fontSize: '14px'
+                                            }}
+                                        >
+                                            人間
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                const newWhiteMode = 'ai';
+                                                gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
+                                                forceUpdate({});
+                                            }}
+                                            style={{
+                                                padding: '6px 12px',
+                                                border: 'none',
+                                                backgroundColor: gameEngine.playerModes.white === 'ai' ? '#007bff' : '#333',
+                                                color: gameEngine.playerModes.white === 'ai' ? '#fff' : '#ccc',
+                                                cursor: 'pointer',
+                                                fontSize: '14px'
+                                            }}
+                                        >
+                                            AI
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* ボタン */}
+                            <div style={{
+                                display: 'flex',
+                                gap: '10px',
+                                justifyContent: 'center'
+                            }}>
+                                <button
+                                    onClick={() => {
+                                        gameEngine.reset();
+                                        setPassMessage('');
+                                        setShowMenu(false);
+                                        forceUpdate({});
+                                    }}
+                                    style={{
+                                        padding: '10px 20px',
+                                        fontSize: '14px',
+                                        fontWeight: 'bold',
+                                        backgroundColor: '#28a745',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '6px',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Start
+                                </button>
+                                <button
+                                    onClick={handleMenuCancel}
+                                    style={{
+                                        padding: '10px 20px',
+                                        fontSize: '14px',
+                                        fontWeight: 'bold',
+                                        backgroundColor: '#6c757d',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '6px',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 {gameFinished && (
                     <div
                         style={{
@@ -381,8 +634,8 @@ function App() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)', // 半透明の黒いオーバーレイ
-                            pointerEvents: 'none', // クリックを無効化
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            pointerEvents: 'none',
                         }}
                     >
                         <div
@@ -426,6 +679,7 @@ function App() {
                 onReset={handleReset}
                 onUndo={handleUndo}
                 onRedo={handleRedo}
+                onShowMenu={handleShowMenu}
             />
         </div>
     );

@@ -47,6 +47,10 @@ export class GameEngine {
 		return this.turn % 2 === 0 ? this.playerModes.black : this.playerModes.white;
 	}
 
+	getOpponentPlayerType() {
+		return this.turn % 2 === 0 ? this.playerModes.white : this.playerModes.black;
+	}
+
 	// 指定座標の石の状態を取得（0:空, 1:黒石, 2:白石）
 	getCell(row, col) {
 		const pos = row * 8 + col;
