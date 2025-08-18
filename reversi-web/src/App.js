@@ -150,6 +150,8 @@ function App() {
   const [turn, setTurn] = useState(0);
   const [wasmLoaded, setWasmLoaded] = useState(false);
   const [wasmError, setWasmError] = useState(null);
+  const [wasPassed, setWasPassed] = useState(false);
+  const [gameState, setGameState] = useState("Initialized");
 
   // WebAssemblyの初期化完了を待つ
   useEffect(() => {
@@ -177,8 +179,14 @@ function App() {
   // リセット機能
   const handleReset = () => {
     setBoardStr(initialBoard);
+    setGameState("Initialized");
     setTurn(0);
   };
+
+  const setState = (boardStr) => {
+    const state = wasmModule.get_result(boardStr);
+    setGameState(state);
+  }
 
   // マスをクリックしたときの処理
   const handleCellClick = (row, col) => {
@@ -205,6 +213,7 @@ function App() {
       console.log('WASM call successful, result:', updatedBoardStr);
       
       setBoardStr(updatedBoardStr);
+      setState(updatedBoardStr);
       let next_turn = turn + 1;
       setTurn(next_turn);
 
@@ -263,7 +272,7 @@ function App() {
         <div>黒石: {blackStoneCount}個</div>
         <div>白石: {whiteStoneCount}個</div>
         <div>ターン数: {turn}</div>
-        <div>状態: {wasmModule.get_result(boardStr)}</div>
+        <div>状態: {gameState}</div>
         <div style={{ color: 'green' }}>
           WASM状態: ✅ 読み込み済み
         </div>
@@ -291,10 +300,13 @@ function App() {
                       width: cellSize,
                       height: cellSize,
                       border: '2px solid black',
-                      background: '#0a7d2c',
+                      background: gameState === 'Ongoing' || gameState === 'Initialized' ? '#0a7d2c' : '#6b8e5a', // ゲーム終了時は暗い緑
                       padding: 0,
                       position: 'relative',
-                      cursor: 'pointer',
+                      cursor: gameState === 'Ongoing' || gameState === 'Initialized' ? 'pointer' : 'not-allowed',
+                      opacity: gameState === 'Ongoing' || gameState === 'Initialized' ? 1 : 0.7,
+                      filter: gameState === 'Ongoing' || gameState === 'Initialized' ? 'none' : 'grayscale(30%)',
+                      transition: 'all 0.3s ease', // スムーズな変化
                     }}
                     onClick={() => handleCellClick(row, col)}
                   >
