@@ -1035,9 +1035,16 @@ static BOOK: LazyLock<std::sync::Mutex<base::HashMap<play::Board, u8>>> = LazyLo
 static INIT_BOOK: Once = Once::new();
 pub fn init_book() {
     INIT_BOOK.call_once(|| {
-        let mut file = File::open("src/book.bin").expect("Failed to open book.bin");
-        let mut buffer = Vec::new();
-        file.read_to_end(&mut buffer).expect("Failed to read book.bin");
+        #[cfg(target_arch = "wasm32")]
+        let buffer = include_bytes!("book.bin").to_vec();
+        
+        #[cfg(not(target_arch = "wasm32"))]
+        let buffer = {
+            let mut file = File::open("src/book.bin").expect("Failed to open book.bin");
+            let mut buffer = Vec::new();
+            file.read_to_end(&mut buffer).expect("Failed to read book.bin");
+            buffer
+        };
 
         let mut i = 0;
         let mut j = 0;

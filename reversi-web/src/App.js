@@ -16,6 +16,8 @@ const wasmPromise = (async () => {
             await wasmModule.default();
         }
 
+		wasmModule.initialize();
+
         // 初期化テスト
         const testBoard = '...........................WB......BW...........................';
         wasmModule.get_valid_moves(testBoard, false);
@@ -199,6 +201,7 @@ function App() {
     const [passMessage, setPassMessage] = useState('');
     const [, forceUpdate] = useState({}); // 強制再描画用
     const [showMenu, setShowMenu] = useState(true); // 初回はメニュー表示
+    const [isAiThinking, setIsAiThinking] = useState(false); // AI思考中フラグ
 
     // WebAssemblyの初期化を待つ
     useEffect(() => {
@@ -223,6 +226,43 @@ function App() {
             isMounted = false;
         };
     }, []);
+
+    // AIの手番を監視して自動で手を打つ
+    useEffect(() => {
+        if (!gameEngine || showMenu || gameEngine.isGameFinished() || passMessage !== '' || isAiThinking) {
+            return;
+        }
+
+		console.log('AIの手番を監視中...');
+
+        const currentPlayerType = gameEngine.getCurrentPlayerType();
+        
+        if (!isAiThinking && currentPlayerType === 'ai') {
+            // AIの番の場合、少し遅延をつけてからAIに手を打たせる
+            setIsAiThinking(true);
+            
+            const aiMoveTimer = setTimeout(() => {
+                try {
+                    const result = gameEngine.getAIMove(10000); // GameEngineにAIの手を打つメソッドが必要
+					let row = Math.floor(result / 8);
+					let col = result % 8;
+					console.log(`AI recommends move: (${row}, ${col})`);
+					gameEngine.makeMove(row, col);
+
+                    forceUpdate({});
+                } catch (error) {
+                    console.error('AI move failed:', error);
+                } finally {
+                    setIsAiThinking(false);
+                }
+            }, 1200); // 1秒の思考時間
+
+            return () => {
+                clearTimeout(aiMoveTimer);
+                setIsAiThinking(false);
+            };
+        }
+    }, [gameEngine, showMenu, passMessage, gameEngine?.getCurrentTurn()]);
 
     // ローディング画面
     if (!wasmLoaded || !gameEngine) {
@@ -264,8 +304,8 @@ function App() {
 
     // マスをクリックしたときの処理
     const handleCellClick = (row, col) => {
-        // メニュー表示中はクリック無効
-        if (showMenu) {
+        // メニュー表示中またはAI思考中はクリック無効
+        if (showMenu || isAiThinking) {
             return;
         }
 
@@ -299,6 +339,7 @@ function App() {
 
     // リセット処理
     const handleReset = () => {
+        setIsAiThinking(false);
         gameEngine.reset();
         setPassMessage('');
         forceUpdate({});
@@ -306,7 +347,8 @@ function App() {
 
     // Undo処理
     const handleUndo = () => {
-        if (gameEngine.undoable()) {
+        if (gameEngine.undoable() && !isAiThinking) {
+            setIsAiThinking(false);
             gameEngine.undoBoard();
             setPassMessage('');
             forceUpdate({});
@@ -315,7 +357,8 @@ function App() {
 
     // Redo処理
     const handleRedo = () => {
-        if (gameEngine.redoable()) {
+        if (gameEngine.redoable() && !isAiThinking) {
+            setIsAiThinking(false);
             gameEngine.redoBoard();
             setPassMessage('');
             forceUpdate({});
@@ -345,7 +388,7 @@ function App() {
                             <tr key={row}>
                                 {[...Array(size)].map((_, col) => {
                                     const cellType = gameEngine.getCell(row, col);
-                                    const isValidMove = !gameFinished && !isPassActive && !showMenu && currentPlayerType === 'human' && validMovesStr[row * 8 + col] === '1';
+                                    const isValidMove = !gameFinished && !isPassActive && !showMenu && !isAiThinking && currentPlayerType === 'human' && validMovesStr[row * 8 + col] === '1';
 
                                     return (
                                         <td
@@ -357,9 +400,9 @@ function App() {
                                                 background: '#0a7d2c',
                                                 padding: 0,
                                                 position: 'relative',
-                                                cursor: (gameFinished || isPassActive || showMenu || currentPlayerType !== 'human') ? 'not-allowed' : 'pointer',
-                                                opacity: (gameFinished || isPassActive || showMenu) ? 0.3 : 1,
-                                                filter: (gameFinished || isPassActive || showMenu) ? 'grayscale(30%)' : 'none',
+                                                cursor: (gameFinished || isPassActive || showMenu || isAiThinking || currentPlayerType !== 'human') ? 'not-allowed' : 'pointer',
+                                                opacity: (gameFinished || isPassActive || showMenu || isAiThinking) ? 0.3 : 1,
+                                                filter: (gameFinished || isPassActive || showMenu || isAiThinking) ? 'grayscale(30%)' : 'none',
                                             }}
                                             onClick={() => handleCellClick(row, col)}
                                         >
@@ -390,10 +433,41 @@ function App() {
                             background: 'black',
                             borderRadius: '100%',
                             pointerEvents: 'none',
-                            opacity: (gameFinished || isPassActive || showMenu) ? 0.3 : 1,
+                            opacity: (gameFinished || isPassActive || showMenu || isAiThinking) ? 0.3 : 1,
                         }}
                     />
                 ))}
+
+                {/* AI思考中オーバーレイ */}
+                {isAiThinking && (
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            pointerEvents: 'none',
+                        }}
+                    >
+                        <div
+                            style={{
+                                color: 'white',
+                                fontSize: '32px',
+                                fontWeight: 'bold',
+                                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+                                letterSpacing: '4px',
+                                animation: 'pulse 1.5s infinite'
+                            }}
+                        >
+                            AI思考中...
+                        </div>
+                    </div>
+                )}
 
                 {/* PASSオーバーレイ */}
                 {passMessage && (

@@ -5,6 +5,7 @@ mod play;
 mod proto;
 mod database;
 mod solver;
+mod test_wasm;
 
 use crate::play::Board;
 use crate::proto::Move;
@@ -90,6 +91,12 @@ fn make_board(black_board: u64, white_board: u64, turn: bool) -> Board {
     }
 }
 
+#[wasm_bindgen]
+pub fn initialize(){
+    database::initialize_tables();
+    database::init_book();
+}
+
 // turn = trueの時、白の手番
 #[wasm_bindgen]
 pub fn update_board(board_str: &str, mv: usize, turn: bool) -> String {
@@ -110,7 +117,9 @@ pub fn get_ai_move(board_str: &str, turn: bool, assigned_time_ms: i32) -> usize 
     let (black_board, white_board) = string_to_boards(board_str);
     let board = make_board(black_board, white_board, turn);
 
-    board.decide_move(assigned_time_ms)
+    //return board.get_valid_moves().trailing_zeros() as usize; // stub
+
+    board.decide_move(assigned_time_ms as u64)
 }
 
 #[wasm_bindgen]
@@ -179,4 +188,32 @@ pub fn get_stone_counts(board_str: &str) -> JsValue {
         "white": white_board.count_ones()
     });
     JsValue::from_serde(&counts).unwrap()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_ai_move() {
+        // Standard opening position
+        let board_str = "...........................WB......BW...........................";
+        
+        // Test black's move (turn = false)
+        let ai_move = get_ai_move(board_str, false, 1000);
+        assert!(ai_move < 64, "AI move should be a valid board position");
+        
+        // Verify it's a legal move
+        assert!(is_valid_move(board_str, ai_move, false), "AI move should be legal");
+    }
+}
+
+#[wasm_bindgen]
+pub fn test_eval_wasm_simple() -> f32 {
+    test_wasm::test_eval_wasm()
+}
+
+#[wasm_bindgen] 
+pub fn test_ai_move_simple() -> usize {
+    test_wasm::test_decide_move_simple()
 }

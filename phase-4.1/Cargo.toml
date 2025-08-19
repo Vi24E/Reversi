@@ -18,6 +18,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 serde-wasm-bindgen = "0.6"
 getrandom = { version = "0.2", features = ["js"] }
+js-sys = "0.3"
 
 # WebAssembly以外の環境でのみ有効
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
@@ -25,6 +26,10 @@ tract-onnx = "0.21.0"
 
 [lib]
 crate-type = ["cdylib"]
+
+[[bin]]
+name = "test_main"
+path = "src/test_main.rs"
 
 [profile.release]
 lto = true

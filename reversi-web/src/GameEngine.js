@@ -207,7 +207,8 @@ export class GameEngine {
 	getAIMove(timeMs = 1000) {
 		try {
 			return this.wasmModule.get_ai_move(this.boardStr, this.getCurrentPlayer(), timeMs);
-		} catch (error) {
+		}
+		catch (error) {
 			console.error('Error getting AI move:', error);
 			return 64; // パスを返す
 		}
