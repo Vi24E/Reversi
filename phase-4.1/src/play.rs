@@ -15,6 +15,12 @@ use std::fs::OpenOptions;
 use std::time::{Instant, Duration};
 use chrono::Local;
 
+// WebAssembly環境でのログ管理用
+#[cfg(target_arch = "wasm32")]
+use std::sync::Mutex;
+#[cfg(target_arch = "wasm32")]
+pub static LOG_BUFFER: Mutex<Vec<String>> = Mutex::new(Vec::new());
+
 
 const PASS : u8 = 64;
 const NIL_MOVE : u8 = 255;
@@ -54,8 +60,8 @@ impl TimeManager {
     #[cfg(not(target_arch = "wasm32"))]
     pub fn new(limit_ms: u64) -> Self {
         Self {
-            start: Instant::now(),
-            limit: Duration::from_millis(limit_ms)
+            start_time: Instant::now(),
+            assigned_time: Duration::from_millis(limit_ms)
         }
     }
 
@@ -70,14 +76,19 @@ impl TimeManager {
         self.start_time.elapsed() >= self.assigned_time
     }
 
+    #[cfg(not(target_arch = "wasm32"))]
+    pub fn get_assigned_time(&self) -> i32 {
+        self.assigned_time.as_millis() as i32
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    pub fn get_assigned_time(&self) -> i32 {
+        self.assigned_time_ms as i32
+    }
+
     #[cfg(target_arch = "wasm32")]
     pub fn get_elapsed_ms(&self) -> u64 {
         (js_sys::Date::now() - self.start_time) as u64
-    }
-
-    #[cfg(not(target_arch = "wasm32"))]
-    pub fn get_assigned_time(&self) -> i32 {
-        self.limit.as_millis() as i32
     }
 
     #[cfg(not(target_arch = "wasm32"))]
@@ -95,7 +106,17 @@ pub struct Board{
 type Pos = (usize, usize);
 
 impl Board {
-    // ログ出力用のヘルパー関数
+    // ログ出力用のヘルパー関数（条件付きコンパイル対応）
+    #[cfg(target_arch = "wasm32")]
+    fn write_to_log(&self, message: &str) {
+        if let Ok(mut buffer) = LOG_BUFFER.lock() {
+            buffer.push(message.to_string());
+        }
+        // WebAssemblyではコンソールにも出力
+        web_sys::console::log_1(&message.into());
+    }
+
+    #[cfg(not(target_arch = "wasm32"))]
     fn write_to_log(&self, message: &str) {
         if let Ok(mut file) = OpenOptions::new()
             .create(true)
@@ -103,6 +124,42 @@ impl Board {
             .open("log.txt") {
             let _ = writeln!(file, "{}", message);
         }
+    }
+
+    // デバッグ用：盤面状態を詳細にログ出力する関数
+    pub fn debug_board_state(&self, context: &str) {
+        self.write_to_log(&format!("\n=== DEBUG: {} ===", context));
+        
+        // ビット表現を表示
+        self.write_to_log(&format!("my_board (bits): 0x{:016x}", self.my_board));
+        self.write_to_log(&format!("opponent_board (bits): 0x{:016x}", self.opponent_board));
+        
+        // 角の状態をチェック
+        let corners = [0, 7, 56, 63]; // 左上、右上、左下、右下
+        let corner_names = ["A1", "H1", "A8", "H8"];
+        
+        for (i, &pos) in corners.iter().enumerate() {
+            let my_corner = (self.my_board >> pos) & 1 != 0;
+            let op_corner = (self.opponent_board >> pos) & 1 != 0;
+            self.write_to_log(&format!("Corner {}: Mine={}, Opponent={}", 
+                corner_names[i], my_corner, op_corner));
+        }
+        
+        // 有効手も表示
+        let valid_moves = self.get_valid_moves();
+        self.write_to_log(&format!("Valid moves (bits): 0x{:016x}", valid_moves));
+        
+        // 各角への手が可能かチェック
+        for (i, &pos) in corners.iter().enumerate() {
+            let can_play = (valid_moves >> pos) & 1 != 0;
+            if can_play {
+                self.write_to_log(&format!("⚠️ WARNING: Can play corner {}!", corner_names[i]));
+            }
+        }
+
+        // 評価値も表示
+        let eval_score = self.eval();
+        self.write_to_log(&format!("Current evaluation: {:.2}", eval_score));
     }
 
     // 盤面をコンパクトにログ出力
@@ -328,6 +385,11 @@ impl Board {
         {
             -crate::eval::EVAL_FUNCTION.eval(&self)
         }
+    }
+
+    // 公開用の評価関数
+    pub fn get_eval(&self) -> f32 {
+        self.eval()
     }
 
     pub fn decide_move(&self, assigned_time_ms: u64) -> usize {

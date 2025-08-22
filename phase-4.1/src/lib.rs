@@ -217,3 +217,65 @@ pub fn test_eval_wasm_simple() -> f32 {
 pub fn test_ai_move_simple() -> usize {
     test_wasm::test_decide_move_simple()
 }
+
+// ログ管理機能
+#[wasm_bindgen]
+pub fn get_log() -> String {
+    #[cfg(target_arch = "wasm32")]
+    {
+        if let Ok(buffer) = crate::play::LOG_BUFFER.lock() {
+            buffer.join("\n")
+        } else {
+            "Failed to access log buffer".to_string()
+        }
+    }
+    
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        "Log not available in non-WASM environment".to_string()
+    }
+}
+
+#[wasm_bindgen]
+pub fn clear_log() {
+    #[cfg(target_arch = "wasm32")]
+    {
+        if let Ok(mut buffer) = crate::play::LOG_BUFFER.lock() {
+            buffer.clear();
+        }
+    }
+}
+
+// デバッグ用の関数
+#[wasm_bindgen]
+pub fn debug_board_state(board_str: &str, turn: bool, context: &str) {
+    initialize();
+    let (black_board, white_board) = string_to_boards(board_str);
+    let board = make_board(black_board, white_board, turn);
+    board.debug_board_state(context);
+}
+
+#[wasm_bindgen]
+pub fn test_corner_evaluation(board_str: &str, turn: bool) -> f32 {
+    initialize();
+    let (black_board, white_board) = string_to_boards(board_str);
+    let board = make_board(black_board, white_board, turn);
+    
+    // 角に石がある場合とない場合の評価値を比較
+    let current_eval = board.get_eval();
+    
+    // 各角をテスト
+    let corners = [0, 7, 56, 63];
+    let corner_names = ["A1", "H1", "A8", "H8"];
+    
+    for (i, &pos) in corners.iter().enumerate() {
+        let my_has_corner = (board.my_board >> pos) & 1 != 0;
+        let op_has_corner = (board.opponent_board >> pos) & 1 != 0;
+        
+        #[cfg(target_arch = "wasm32")]
+        web_sys::console::log_1(&format!("Corner {} - Mine: {}, Opponent: {}", 
+            corner_names[i], my_has_corner, op_has_corner).into());
+    }
+    
+    current_eval
+}

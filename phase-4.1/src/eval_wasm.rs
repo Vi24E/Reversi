@@ -152,11 +152,13 @@ static BIT_TO_TERNARY_TABLES: LazyLock<Vec<Vec<i64>>> = LazyLock::new(|| {
     
     for (pattern_id, pattern) in PATTERNS.iter().enumerate() {
         let pattern_len = pattern.len();
-        let table_size = 1usize << (pattern_len * 2);
+        let table_size = 1usize << (pattern_len * 2); // 正しいテーブルサイズ
         let mut conversion_table = vec![0i64; table_size];
         
+        // my_bits と opp_bits の全組み合わせを計算
         for my_bits in 0..(1 << pattern_len) {
             for opp_bits in 0..(1 << pattern_len) {
+                // ビットが重複していない場合のみ処理
                 if (my_bits & opp_bits) == 0 {
                     let combined_index = (my_bits << pattern_len) | opp_bits;
                     if combined_index < conversion_table.len() {
@@ -227,33 +229,36 @@ impl EmbeddingNeuralNetwork {
         // パターンを3つのグループに分ける（元のモデルの構造に合わせて）
         let mut embedded_features = Vec::with_capacity(416); // 52 * 8 = 416
         
-        // 各パターンを埋め込み
+        // 各パターンを埋め込み（ONNXモデルの構造に合わせて正確に分類）
         for (i, &pattern_idx) in pattern_indices.iter().enumerate() {
             let pattern_idx = pattern_idx as usize;
             
             // パターンのサイズに基づいて適切な埋め込み層を選択
             let pattern_size = PATTERNS[i].len();
-            let embedding_values = if pattern_size <= 8 {
-                // 小さなパターン用の埋め込み
+            let embedding_values = if pattern_size == 8 {
+                // Group 0: 8要素パターン (embedding_0: 3^8 = 6561)
                 if pattern_idx < 6561 {
                     &self.embedding_0[pattern_idx * 8..(pattern_idx + 1) * 8]
                 } else {
                     &[0.0; 8] // インデックスが範囲外の場合はゼロパディング
                 }
-            } else if pattern_size <= 10 {
-                // 中サイズパターン用の埋め込み
+            } else if pattern_size == 9 {
+                // Group 1: 9要素パターン (embedding_1: 3^9 = 19683)
                 if pattern_idx < 19683 {
                     &self.embedding_1[pattern_idx * 8..(pattern_idx + 1) * 8]
                 } else {
                     &[0.0; 8]
                 }
-            } else {
-                // 大きなパターン用の埋め込み
+            } else if pattern_size == 10 {
+                // Group 2: 10要素パターン (embedding_2: 3^10 = 59049)
                 if pattern_idx < 59049 {
                     &self.embedding_2[pattern_idx * 8..(pattern_idx + 1) * 8]
                 } else {
                     &[0.0; 8]
                 }
+            } else {
+                // 予期しないパターンサイズ
+                &[0.0; 8]
             };
             
             embedded_features.extend_from_slice(embedding_values);
@@ -292,42 +297,43 @@ impl EvalFunction {
     }
 
     pub fn eval(&self, board: &Board) -> f32 {
-        // パターンインデックスを計算（eval.rsと同じロジック）
+        // パターンインデックスを計算（eval.rsと完全に同じロジック）
         let pattern_indices: Vec<i64> = PATTERNS.iter().enumerate().map(|(pattern_id, pattern)| {
             let mask = PATTERN_MASK[pattern_id];
             
+            // パターンマスクを使って該当ビットを抽出
             let my_masked = board.my_board & mask;
             let opp_masked = board.opponent_board & mask;
             
-            let my_compressed = self.compress_bits(my_masked, pattern);
-            let opp_compressed = self.compress_bits(opp_masked, pattern);
+            // パターン内の位置にビットを圧縮
+            let mut my_compressed = 0u64;
+            let mut opp_compressed = 0u64;
+            let mut compressed_pos = 0;
             
+            for &pos in pattern.iter() {
+                if (my_masked >> pos) & 1 != 0 {
+                    my_compressed |= 1 << compressed_pos;
+                }
+                if (opp_masked >> pos) & 1 != 0 {
+                    opp_compressed |= 1 << compressed_pos;
+                }
+                compressed_pos += 1;
+            }
+            
+            // 前計算テーブルから3進インデックスを取得
             let pattern_len = pattern.len();
-            let combined_index = (my_compressed << pattern_len) | opp_compressed;
+            let combined_index = ((my_compressed as usize) << pattern_len) | (opp_compressed as usize);
             
             if combined_index < BIT_TO_TERNARY_TABLES[pattern_id].len() {
                 BIT_TO_TERNARY_TABLES[pattern_id][combined_index]
             } else {
+                // フォールバック: 直接計算
                 self.direct_ternary_calculation(pattern, board)
             }
         }).collect();
 
         // ニューラルネットワークで評価
         self.neural_net.forward(&pattern_indices)
-    }
-
-    fn compress_bits(&self, bits: u64, pattern: &[u8]) -> usize {
-        let mut compressed = 0usize;
-        let mut compressed_pos = 0;
-        
-        for &pos in pattern.iter() {
-            if (bits >> pos) & 1 != 0 {
-                compressed |= 1 << compressed_pos;
-            }
-            compressed_pos += 1;
-        }
-        
-        compressed
     }
 
     fn direct_ternary_calculation(&self, pattern: &[u8], board: &Board) -> i64 {

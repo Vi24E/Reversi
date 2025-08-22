@@ -89,22 +89,6 @@ function GameInfo({gameEngine, passMessage}) {
             <div>白石: {whiteCount}個</div>
             <div>ターン数: {gameEngine.getCurrentTurn()}</div>
             <div>状態: {gameState}</div>
-
-            {passMessage && (
-                <div style={{
-                    color: 'orange',
-                    fontSize: '18px',
-                    fontWeight: 'bold',
-                    padding: '10px',
-                    backgroundColor: '#fff3cd',
-                    border: '1px solid #ffeaa7',
-                    borderRadius: '5px',
-                    marginTop: '10px',
-                    textAlign: 'center'
-                }}>
-                    {passMessage}
-                </div>
-            )}
         </div>
     );
 }
@@ -113,6 +97,30 @@ function GameInfo({gameEngine, passMessage}) {
 function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
     const canUndo = gameEngine.undoable();
     const canRedo = gameEngine.redoable();
+
+    // ログダウンロード機能
+    const handleDownloadLog = () => {
+        if (wasmModule && wasmModule.get_log) {
+            const logContent = wasmModule.get_log();
+            const blob = new Blob([logContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `reversi-log-${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    };
+
+    // ログクリア機能
+    const handleClearLog = () => {
+        if (wasmModule && wasmModule.clear_log) {
+            wasmModule.clear_log();
+            console.log('Log cleared');
+        }
+    };
 
     return (
         <div style={{ marginTop: '20px', display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
@@ -189,6 +197,39 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
             >
                 メニュー
             </button>
+
+            {/* ログ管理ボタン */}
+            <button
+                onClick={handleDownloadLog}
+                style={{
+                    padding: '8px 16px',
+                    fontSize: '14px',
+                    backgroundColor: '#17a2b8',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer'
+                }}
+                title="ログをダウンロード"
+            >
+                📥 ログ
+            </button>
+
+            <button
+                onClick={handleClearLog}
+                style={{
+                    padding: '8px 16px',
+                    fontSize: '14px',
+                    backgroundColor: '#dc3545',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer'
+                }}
+                title="ログをクリア"
+            >
+                🗑️ クリア
+            </button>
         </div>
     );
 }
@@ -202,6 +243,7 @@ function App() {
     const [, forceUpdate] = useState({}); // 強制再描画用
     const [showMenu, setShowMenu] = useState(true); // 初回はメニュー表示
     const [isAiThinking, setIsAiThinking] = useState(false); // AI思考中フラグ
+	const [isEditing, setIsEditing] = useState(false); // 編集中フラグ
 
     // WebAssemblyの初期化を待つ
     useEffect(() => {
@@ -229,7 +271,7 @@ function App() {
 
     // AIの手番を監視して自動で手を打つ
     useEffect(() => {
-        if (!gameEngine || showMenu || gameEngine.isGameFinished() || passMessage !== '' || isAiThinking) {
+        if (!gameEngine || showMenu || gameEngine.isGameFinished() || passMessage !== '' || isAiThinking || isEditing) {
             return;
         }
 
@@ -243,7 +285,7 @@ function App() {
             
             const aiMoveTimer = setTimeout(() => {
                 try {
-                    const result = gameEngine.getAIMove(10000); // GameEngineにAIの手を打つメソッドが必要
+                    const result = gameEngine.getAIMove(1000); // GameEngineにAIの手を打つメソッドが必要
 					let row = Math.floor(result / 8);
 					let col = result % 8;
 					console.log(`AI recommends move: (${row}, ${col})`);
@@ -262,7 +304,7 @@ function App() {
                 setIsAiThinking(false);
             };
         }
-    }, [gameEngine, showMenu, passMessage, gameEngine?.getCurrentTurn()]);
+    }, [gameEngine, showMenu, passMessage, gameEngine?.getCurrentTurn(), isEditing]);
 
     // ローディング画面
     if (!wasmLoaded || !gameEngine) {
@@ -304,6 +346,10 @@ function App() {
 
     // マスをクリックしたときの処理
     const handleCellClick = (row, col) => {
+		if (isEditing) {
+			setIsEditing(false);
+		}
+
         // メニュー表示中またはAI思考中はクリック無効
         if (showMenu || isAiThinking) {
             return;
@@ -340,6 +386,7 @@ function App() {
     // リセット処理
     const handleReset = () => {
         setIsAiThinking(false);
+		setIsEditing(false);
         gameEngine.reset();
         setPassMessage('');
         forceUpdate({});
@@ -347,6 +394,7 @@ function App() {
 
     // Undo処理
     const handleUndo = () => {
+		setIsEditing(true);
         if (gameEngine.undoable() && !isAiThinking) {
             setIsAiThinking(false);
             gameEngine.undoBoard();
@@ -357,6 +405,7 @@ function App() {
 
     // Redo処理
     const handleRedo = () => {
+		setIsEditing(true);
         if (gameEngine.redoable() && !isAiThinking) {
             setIsAiThinking(false);
             gameEngine.redoBoard();
@@ -697,7 +746,7 @@ function App() {
                     </div>
                 )}
 
-                {gameFinished && (
+                {gameFinished && !showMenu && (
                     <div
                         style={{
                             position: 'absolute',
@@ -760,3 +809,7 @@ function App() {
 }
 
 export default App;
+
+/*
+
+*/
