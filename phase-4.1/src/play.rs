@@ -158,7 +158,7 @@ impl Board {
         }
 
         // 評価値も表示
-        let eval_score = self.eval();
+        let eval_score = self.eval(0.0);
         self.write_to_log(&format!("Current evaluation: {:.2}", eval_score));
     }
 
@@ -330,7 +330,7 @@ impl Board {
         self.opponent_board ^= flipper;
     }
 
-    fn eval(&self) -> f32 {
+    fn eval(&self, disturbance: f32) -> f32 {
         // eval呼び出しをカウント
         database::increment_eval_count();
         
@@ -383,16 +383,16 @@ impl Board {
         // 通常環境では既存の評価関数を使用
         #[cfg(not(target_arch = "wasm32"))]
         {
-            -crate::eval::EVAL_FUNCTION.eval(&self)
+            -crate::eval::EVAL_FUNCTION.eval(&self) + sqrt(disturbance) * generate_normal_random()
         }
     }
 
     // 公開用の評価関数
     pub fn get_eval(&self) -> f32 {
-        self.eval()
+        self.eval(0.0)
     }
 
-    pub fn decide_move(&self, assigned_time_ms: u64) -> usize {
+    pub fn decide_move(&self, assigned_time_ms: u64, disturbance: f32) -> usize {
         self.log_board_compact("AI Thinking");
         
         // カウンターをリセット
@@ -400,17 +400,11 @@ impl Board {
 
         let turn = self.get_turn();
         let mut time_manager = TimeManager::new(assigned_time_ms); // バグ元
-        //self.write_to_log(&format!("Remaining time: {} ms, Allocated time: {} ms", assigned_time_ms, time_manager.get_assigned_time()));
-
-        // let moves = self.get_valid_moves();
-        //return moves.trailing_zeros() as usize; // stub
 
         let moves = self.get_valid_moves();
         if moves == 0 {
-            //self.write_to_log("No valid moves - PASS");
             return PASS as usize;
         }
-        // return moves.trailing_zeros() as usize; // stub
 
         if let Some(mv) = database::lookup_book(self) {
             self.write_to_log("Using book move");
@@ -420,7 +414,7 @@ impl Board {
             self.write_to_log("No book move found");
         }
 
-        if turn >= 46 {
+        if turn >= 46 && disturbance <= 1 {
             let (res, mv) = solve(self, &time_manager);
             if (res != -2){
                 if (res == -1) {
@@ -451,7 +445,7 @@ impl Board {
             let prev_nodes = database::get_node_count();
             let prev_evals = database::get_eval_count();
             
-            let (score, finished, next_move, terminated) = nega_scout(&self, alpha, beta, depth, &time_manager);
+            let (score, finished, next_move, terminated) = nega_scout(&self, alpha, beta, depth, &time_manager, disturbance);
 
             // この深度での新規訪問数
             let depth_nodes = database::get_node_count() - prev_nodes;
@@ -543,7 +537,7 @@ impl Board {
     }
 }
 
-fn nega_scout(board: &Board, original_alpha: f32, beta: f32, depth: u8, time_manager: &TimeManager) -> (f32, bool, u8, bool) {
+fn nega_scout(board: &Board, original_alpha: f32, beta: f32, depth: u8, time_manager: &TimeManager, disturbance: f32) -> (f32, bool, u8, bool) {
     // ノード訪問をカウント
     database::increment_node_count();
     
@@ -579,13 +573,13 @@ fn nega_scout(board: &Board, original_alpha: f32, beta: f32, depth: u8, time_man
 
     // 終端条件
     if board.get_turn() == 64 {
-        let eval = board.eval();  // ここでeval()が呼ばれる
+        let eval = board.eval(disturbance);  // ここでeval()が呼ばれる
         database::get_cache().set(board, DEPTH_INF, NIL_MOVE, eval, true, true, false, false);
         return (eval, true, NIL_MOVE, false);
     }
 
     if depth == 0 {
-        let eval = board.eval();  // ここでeval()が呼ばれる
+        let eval = board.eval(disturbance);  // ここでeval()が呼ばれる
         let finished = eval >= WIN_SCORE || eval <= LOSE_SCORE;
         database::get_cache().set(board, 0, NIL_MOVE, eval, false, finished, false, false);
         return (eval, finished, NIL_MOVE, false);
@@ -596,12 +590,12 @@ fn nega_scout(board: &Board, original_alpha: f32, beta: f32, depth: u8, time_man
         let mut t = board.clone();
         t.change_turn();
         if t.get_valid_moves() == 0 {
-            let eval = board.eval();  // ここでeval()が呼ばれる
+            let eval = board.eval(disturbance);  // ここでeval()が呼ばれる
             database::get_cache().set(&board, DEPTH_INF, NIL_MOVE, eval, true, true, false, false);
             return (eval, true, NIL_MOVE, false);
         }
 
-        let p = nega_scout(&t, -beta, -alpha, depth - 1, &time_manager);
+        let p = nega_scout(&t, -beta, -alpha, depth - 1, &time_manager, disturbance);
         let (eval, finished, _, terminated) = (-p.0, p.1, p.2, p.3);
         if terminated {return (eval, finished, PASS, true);}
 
@@ -634,7 +628,7 @@ fn nega_scout(board: &Board, original_alpha: f32, beta: f32, depth: u8, time_man
     ordered_moves.sort_by(|a, b| b.0.partial_cmp(&a.0).unwrap());
 
     // 残りの探索は既存のまま...
-    let p = nega_scout(&ordered_moves[0].2, -beta, -alpha, depth - 1, &time_manager);
+    let p = nega_scout(&ordered_moves[0].2, -beta, -alpha, depth - 1, &time_manager, disturbance);
     let (v, finished, _, terminated) = (-p.0, p.1, p.2, p.3);
     let mut best_score = v;
     let mut best_move = ordered_moves[0].1;
@@ -649,12 +643,12 @@ fn nega_scout(board: &Board, original_alpha: f32, beta: f32, depth: u8, time_man
     }
 
     for (_eval, m, t) in ordered_moves.iter().skip(1) {
-        let p = nega_scout(t, -alpha - 1.0, -alpha, depth - 1, &time_manager);
+        let p = nega_scout(t, -alpha - 1.0, -alpha, depth - 1, &time_manager, disturbance);
         let (mut v, mut finished, _, terminated) = (-p.0, p.1, p.2, p.3);
         if terminated {return (best_score, is_finished, best_move, true);}
 
         if alpha < v && v < beta {
-            let p = nega_scout(t, -beta, -v, depth - 1, &time_manager);
+            let p = nega_scout(t, -beta, -v, depth - 1, &time_manager, disturbance);
             (v, finished) = (-p.0, p.1);
             if p.3 {return (best_score, is_finished, best_move, true);}
         }
@@ -709,12 +703,12 @@ fn nega_scout_background(
     
     // 終端条件
     if board.get_turn() == 64 {
-        let eval = board.eval();
+        let eval = board.eval(0.0);
         return (eval, true, NIL_MOVE, false);
     }
 
     if depth == 0 {
-        let eval = board.eval();
+        let eval = board.eval(0.0);
         let finished = eval >= WIN_SCORE || eval <= LOSE_SCORE;
         return (eval, finished, NIL_MOVE, false);
     }
@@ -724,7 +718,7 @@ fn nega_scout_background(
         let mut t = board.clone();
         t.change_turn();
         if t.get_valid_moves() == 0 {
-            let eval = board.eval();
+            let eval = board.eval(0.0);
             return (eval, true, NIL_MOVE, false);
         }
         

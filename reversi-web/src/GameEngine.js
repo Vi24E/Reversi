@@ -5,7 +5,6 @@ export class GameEngine {
 		this.initialBoard = '...........................WB......BW...........................';
 		this.BoardHistory = [];
 		this.CurrentBoardIdx = 0;
-		// ゆくゆくはNilに変更
 		this.playerModes = {
 			black : 'human',
 			white : 'human'
@@ -204,58 +203,46 @@ export class GameEngine {
 	}
 
 	// AI手を取得（将来の実装用）
-	getAIMove(timeMs = 1000) {
+	getAIMove(timeMs = 1000, disturbance = 0) {
 		try {
-			console.log('=== AI Move Debug Info ===');
-			console.log('Current board string:', this.boardStr);
-			console.log('Current turn:', this.turn);
-			console.log('Current player:', this.getCurrentPlayer());
-			
-			// デバッグ用：盤面状態を詳細に出力
-			this.wasmModule.debug_board_state(this.boardStr, this.getCurrentPlayer(), 'Before AI Move');
-			
-			// デバッグ用：角の評価をテスト
-			const cornerEval = this.wasmModule.test_corner_evaluation(this.boardStr, this.getCurrentPlayer());
-			console.log('Corner evaluation test:', cornerEval);
-			
-			// 有効手があるかチェック
-			const validMoves = this.getValidMoves();
-			console.log('Valid moves:', validMoves);
-			
-			// 各角への手が可能かチェック
-			const corners = [0, 7, 56, 63]; // A1, H1, A8, H8
-			const cornerNames = ['A1', 'H1', 'A8', 'H8'];
-			corners.forEach((pos, i) => {
-				if (validMoves[pos] === '1') {
-					console.warn(`⚠️ WARNING: AI can play corner ${cornerNames[i]}!`);
-				}
-			});
-			
-			const hasValidMoves = validMoves.includes('1');
-			
-			if (!hasValidMoves) {
-				console.log('No valid moves - returning pass (64)');
-				return 64;
-			}
-			
-			console.log('Calling WASM get_ai_move...');
-			const result = this.wasmModule.get_ai_move(this.boardStr, this.getCurrentPlayer(), timeMs);
-			console.log('WASM result:', result);
-			
-			// 結果が角の場合は警告
-			if (corners.includes(result)) {
-				const cornerName = cornerNames[corners.indexOf(result)];
-				console.warn(`🚨 AI chose corner ${cornerName}! This might be a bug.`);
-			}
-			
-			// 結果の後でもデバッグ情報を出力
-			this.wasmModule.debug_board_state(this.boardStr, this.getCurrentPlayer(), 'After AI Decision');
-			
+			const result = this.wasmModule.get_ai_move(this.boardStr, this.getCurrentPlayer(), timeMs, disturbance);
+
 			return result;
 		}
 		catch (error) {
 			console.error('Error getting AI move:', error);
 			return 64; // パスを返す
 		}
+	}
+
+	getLastMove(){
+		if (this.CurrentBoardIdx === 0) return null;
+
+		for (let i = 0; i < 64; i++) {
+			if ((this.BoardHistory[this.CurrentBoardIdx - 1].board[i] === '.') !== (this.BoardHistory[this.CurrentBoardIdx].board[i] === '.')) {
+				return i;
+			}
+		}
+
+		return null;
+	}
+
+	getKif(){
+		let str = '';
+		for (let i = 0; i < this.CurrentBoardIdx; i++) {
+			let t = -1;
+			for (let j = 0; j < 64; j++) {
+				if ((this.BoardHistory[i].board[j] === '.') !== (this.BoardHistory[i + 1].board[j] === '.')) {
+					t = j;
+					break;
+				}
+			}
+
+			if (t === -1) continue;
+			let x = Math.floor(t / 8);
+			let y = t % 8;
+			str += `${String.fromCharCode(97 + y)}${x + 1}`;
+		}
+		return str;
 	}
 }

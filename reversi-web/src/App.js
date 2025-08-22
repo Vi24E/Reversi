@@ -31,7 +31,7 @@ const wasmPromise = (async () => {
 })();
 
 // 石を描画するコンポーネント
-function Stone({type, isValidMove}) {
+function Stone({type, isValidMove, isLastMove}) {
     if (type === 1) {
         return (
             <div
@@ -41,6 +41,7 @@ function Stone({type, isValidMove}) {
                     borderRadius: '50%',
                     background: 'black',
                     margin: 'auto',
+					boxShadow: isLastMove ? '6px 4px 4px #033d14ff' : 'none',
                 }}
             />
         );
@@ -54,6 +55,7 @@ function Stone({type, isValidMove}) {
                     borderRadius: '50%',
                     background: 'white',
                     margin: 'auto',
+					boxShadow: isLastMove ? '6px 4px 4px #033d14ff' : 'none',
                 }}
             />
         );
@@ -75,20 +77,60 @@ function Stone({type, isValidMove}) {
 }
 
 // ゲーム情報を表示するコンポーネント
-function GameInfo({gameEngine, passMessage}) {
+function GameInfo({gameEngine}) {
     const blackCount = gameEngine.getBlackStoneCount();
     const whiteCount = gameEngine.getWhiteStoneCount();
-    const currentPlayer = gameEngine.getCurrentTurn() % 2 === 0 ? '黒' : '白';
-    const currentPlayerType = gameEngine.getCurrentPlayerType();
-    const gameState = gameEngine.getGameState();
+    const currentPlayer = gameEngine.getCurrentTurn() % 2 === 0 ? '●' : '○';
 
     return (
-        <div style={{ marginBottom: '15px' }}>
-            <div>現在のプレイヤー: {currentPlayer} ({currentPlayerType === 'human' ? '人間' : 'AI'})</div>
-            <div>黒石: {blackCount}個</div>
-            <div>白石: {whiteCount}個</div>
-            <div>ターン数: {gameEngine.getCurrentTurn()}</div>
-            <div>状態: {gameState}</div>
+        <div style={{ 
+            width: '100%',
+            maxWidth: '320px', // ボードと同じ幅に合わせる
+            margin: '0 auto 15px auto', // 中央寄せ
+        }}>
+            <div style={{
+                background: '#e0f1ff',
+                color: 'black',
+                padding: '8px 16px',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '20px',
+                border: '2px solid #000000',
+                borderRadius: '0', // リボン風にするため角を丸くしない
+            }}>
+                {/* 現在の手番 */}
+                <span>Next: {currentPlayer}</span>
+                
+                {/* 区切り線 */}
+                <div style={{
+                    width: '2px',
+                    height: '20px',
+                    background: '#000000',
+                    opacity: 0.7
+                }}></div>
+                
+                {/* 黒石の数 */}
+                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    ● {blackCount}
+                </span>
+                
+                {/* 区切り線 */}
+                <div style={{
+                    width: '2px',
+                    height: '20px',
+                    background: '#000000',
+                    opacity: 0.7
+                }}></div>
+                
+                {/* 白石の数 */}
+                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    ○ {whiteCount}
+                </span>
+            </div>
         </div>
     );
 }
@@ -98,28 +140,16 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
     const canUndo = gameEngine.undoable();
     const canRedo = gameEngine.redoable();
 
-    // ログダウンロード機能
+    // 棋譜ダウンロード機能
     const handleDownloadLog = () => {
-        if (wasmModule && wasmModule.get_log) {
-            const logContent = wasmModule.get_log();
-            const blob = new Blob([logContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `reversi-log-${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.txt`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-    };
-
-    // ログクリア機能
-    const handleClearLog = () => {
-        if (wasmModule && wasmModule.clear_log) {
-            wasmModule.clear_log();
-            console.log('Log cleared');
-        }
+        let result = gameEngine.getKif();
+		if (result) {
+			navigator.clipboard.writeText(result).then(() => {
+				console.log('棋譜がクリップボードにコピーされました');
+			}).catch(err => {
+				console.error('クリップボードへのコピーに失敗しました:', err);
+			});
+		}
     };
 
     return (
@@ -131,7 +161,7 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                 style={{
                     padding: '8px 12px',
                     fontSize: '16px',
-                    backgroundColor: canUndo ? '#007bff' : '#6c757d',
+                    backgroundColor: canUndo ? '#17a2b8' : '#6c757d',
                     color: 'white',
                     border: 'none',
                     borderRadius: '4px',
@@ -152,7 +182,7 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                 style={{
                     padding: '8px 12px',
                     fontSize: '16px',
-                    backgroundColor: canRedo ? '#007bff' : '#6c757d',
+                    backgroundColor: canRedo ? '#17a2b8' : '#6c757d',
                     color: 'white',
                     border: 'none',
                     borderRadius: '4px',
@@ -212,23 +242,7 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                 }}
                 title="ログをダウンロード"
             >
-                📥 ログ
-            </button>
-
-            <button
-                onClick={handleClearLog}
-                style={{
-                    padding: '8px 16px',
-                    fontSize: '14px',
-                    backgroundColor: '#dc3545',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer'
-                }}
-                title="ログをクリア"
-            >
-                🗑️ クリア
+                📥 棋譜
             </button>
         </div>
     );
@@ -243,7 +257,11 @@ function App() {
     const [, forceUpdate] = useState({}); // 強制再描画用
     const [showMenu, setShowMenu] = useState(true); // 初回はメニュー表示
     const [isAiThinking, setIsAiThinking] = useState(false); // AI思考中フラグ
-	const [isEditing, setIsEditing] = useState(false); // 編集中フラグ
+    const [isEditing, setIsEditing] = useState(false); // 編集中フラグ
+    
+    // 新しい設定用のstate
+    const [blackAiLevel, setBlackAiLevel] = useState(5); // 黒AIレベル (1-10)
+    const [whiteAiLevel, setWhiteAiLevel] = useState(5); // 白AIレベル (1-10)
 
     // WebAssemblyの初期化を待つ
     useEffect(() => {
@@ -419,6 +437,327 @@ function App() {
         setShowMenu(true);
     };
 
+    // メニューオーバーレイ部分を修正
+    const renderMenu = () => (
+        <div
+            style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                pointerEvents: 'none',
+            }}
+        >
+            <div
+                style={{
+                    backgroundColor: '#1a1a1a',
+                    border: '2px solid #666',
+                    borderRadius: '10px',
+                    padding: '25px',
+                    color: 'white',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.8)',
+                    pointerEvents: 'auto',
+                    minWidth: '350px',
+                    maxHeight: '80vh',
+                    overflowY: 'auto'
+                }}
+            >
+
+                {/* プレイヤー設定セクション */}
+                <div style={{ marginBottom: '25px' }}>
+                    <h4 style={{ margin: '0 0 15px 0', fontSize: '16px', borderBottom: '1px solid #555', paddingBottom: '8px' }}>
+                        プレイヤー設定
+                    </h4>
+                    
+                    {/* 黒プレイヤー設定 */}
+                    <div style={{ marginBottom: '20px' }}>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginBottom: '15px',
+                            gap: '15px'
+                        }}>
+                            <div style={{
+                                width: 24,
+                                height: 24,
+                                borderRadius: '50%',
+                                background: 'black',
+                                border: '1px solid #999'
+                            }}></div>
+                            <div style={{
+                                display: 'flex',
+                                border: '1px solid #555',
+                                borderRadius: '15px',
+                                overflow: 'hidden',
+                                marginLeft: 'auto'
+                            }}>
+                                <button
+                                    onClick={() => {
+                                        const newBlackMode = 'human';
+                                        gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
+                                        forceUpdate({});
+                                    }}
+                                    style={{
+                                        padding: '6px 12px',
+                                        border: 'none',
+                                        backgroundColor: gameEngine.playerModes.black === 'human' ? '#007bff' : '#333',
+                                        color: gameEngine.playerModes.black === 'human' ? '#fff' : '#ccc',
+                                        cursor: 'pointer',
+                                        fontSize: '14px'
+                                    }}
+                                >
+                                    人間
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        const newBlackMode = 'ai';
+                                        gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
+                                        forceUpdate({});
+                                    }}
+                                    style={{
+                                        padding: '6px 12px',
+                                        border: 'none',
+                                        backgroundColor: gameEngine.playerModes.black === 'ai' ? '#007bff' : '#333',
+                                        color: gameEngine.playerModes.black === 'ai' ? '#fff' : '#ccc',
+                                        cursor: 'pointer',
+                                        fontSize: '14px'
+                                    }}
+                                >
+                                    AI
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* 黒AI レベル設定 */}
+                        <div style={{ 
+                            marginLeft: '39px',
+                            opacity: gameEngine.playerModes.black === 'ai' ? 1 : 0.4,
+                            pointerEvents: gameEngine.playerModes.black === 'ai' ? 'auto' : 'none',
+                            transition: 'opacity 0.3s ease'
+                        }}>
+                            <div style={{ 
+                                fontSize: '14px', 
+                                marginBottom: '8px',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
+                            }}>
+                                <span>AI Level:</span>
+                                <span style={{ 
+                                    backgroundColor: '#333', 
+                                    padding: '2px 8px', 
+                                    borderRadius: '10px',
+                                    fontSize: '12px',
+                                    minWidth: '25px',
+                                    textAlign: 'center'
+                                }}>
+                                    {blackAiLevel}
+                                </span>
+                            </div>
+                            <input
+                                type="range"
+                                min="1"
+                                max="10"
+                                step="1"
+                                value={blackAiLevel}
+                                onChange={(e) => setBlackAiLevel(parseInt(e.target.value))}
+                                disabled={gameEngine.playerModes.black !== 'ai'}
+                                style={{
+                                    width: '100%',
+                                    height: '4px',
+                                    borderRadius: '2px',
+                                    background: gameEngine.playerModes.black === 'ai' ? '#555' : '#333',
+                                    outline: 'none',
+                                    cursor: gameEngine.playerModes.black === 'ai' ? 'pointer' : 'not-allowed'
+                                }}
+                            />
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                fontSize: '10px',
+                                color: '#999',
+                                marginTop: '3px'
+                            }}>
+                                <span>弱</span>
+                                <span>強</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 白プレイヤー設定 */}
+                    <div style={{ marginBottom: '20px' }}>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginBottom: '15px',
+                            gap: '15px'
+                        }}>
+                            <div style={{
+                                width: 24,
+                                height: 24,
+                                borderRadius: '50%',
+                                background: 'white',
+                                border: '1px solid #666'
+                            }}></div>
+                            <div style={{
+                                display: 'flex',
+                                border: '1px solid #555',
+                                borderRadius: '15px',
+                                overflow: 'hidden',
+                                marginLeft: 'auto'
+                            }}>
+                                <button
+                                    onClick={() => {
+                                        const newWhiteMode = 'human';
+                                        gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
+                                        forceUpdate({});
+                                    }}
+                                    style={{
+                                        padding: '6px 12px',
+                                        border: 'none',
+                                        backgroundColor: gameEngine.playerModes.white === 'human' ? '#007bff' : '#333',
+                                        color: gameEngine.playerModes.white === 'human' ? '#fff' : '#ccc',
+                                        cursor: 'pointer',
+                                        fontSize: '14px'
+                                    }}
+                                >
+                                    人間
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        const newWhiteMode = 'ai';
+                                        gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
+                                        forceUpdate({});
+                                    }}
+                                    style={{
+                                        padding: '6px 12px',
+                                        border: 'none',
+                                        backgroundColor: gameEngine.playerModes.white === 'ai' ? '#007bff' : '#333',
+                                        color: gameEngine.playerModes.white === 'ai' ? '#fff' : '#ccc',
+                                        cursor: 'pointer',
+                                        fontSize: '14px'
+                                    }}
+                                >
+                                    AI
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* 白AI レベル設定 */}
+                        <div style={{ 
+                            marginLeft: '39px',
+                            opacity: gameEngine.playerModes.white === 'ai' ? 1 : 0.4,
+                            pointerEvents: gameEngine.playerModes.white === 'ai' ? 'auto' : 'none',
+                            transition: 'opacity 0.3s ease'
+                        }}>
+                            <div style={{ 
+                                fontSize: '14px', 
+                                marginBottom: '8px',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
+                            }}>
+                                <span>AI Level:</span>
+                                <span style={{ 
+                                    backgroundColor: '#333', 
+                                    padding: '2px 8px', 
+                                    borderRadius: '10px',
+                                    fontSize: '12px',
+                                    minWidth: '25px',
+                                    textAlign: 'center'
+                                }}>
+                                    {whiteAiLevel}
+                                </span>
+                            </div>
+                            <input
+                                type="range"
+                                min="1"
+                                max="10"
+                                step="1"
+                                value={whiteAiLevel}
+                                onChange={(e) => setWhiteAiLevel(parseInt(e.target.value))}
+                                disabled={gameEngine.playerModes.white !== 'ai'}
+                                style={{
+                                    width: '100%',
+                                    height: '4px',
+                                    borderRadius: '2px',
+                                    background: gameEngine.playerModes.white === 'ai' ? '#555' : '#333',
+                                    outline: 'none',
+                                    cursor: gameEngine.playerModes.white === 'ai' ? 'pointer' : 'not-allowed'
+                                }}
+                            />
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                fontSize: '10px',
+                                color: '#999',
+                                marginTop: '3px'
+                            }}>
+                                <span>弱</span>
+                                <span>強</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ボタン */}
+                <div style={{
+                    display: 'flex',
+                    gap: '10px',
+                    justifyContent: 'center',
+                    paddingTop: '15px',
+                    borderTop: '1px solid #555'
+                }}>
+                    <button
+                        onClick={() => {
+                            console.log('Game Settings Applied:', {
+                                boardSize,
+                                blackAiLevel: gameEngine.playerModes.black === 'ai' ? blackAiLevel : 'N/A',
+                                whiteAiLevel: gameEngine.playerModes.white === 'ai' ? whiteAiLevel : 'N/A'
+                            });
+                            gameEngine.reset();
+                            setPassMessage('');
+                            setShowMenu(false);
+                            forceUpdate({});
+                        }}
+                        style={{
+                            padding: '10px 20px',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            backgroundColor: '#28a745',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '6px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Start
+                    </button>
+                    <button
+                        onClick={handleMenuCancel}
+                        style={{
+                            padding: '10px 20px',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            backgroundColor: '#6c757d',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '6px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+
     // ボードの描画
     const renderBoard = () => {
         const size = 8;
@@ -438,6 +777,7 @@ function App() {
                                 {[...Array(size)].map((_, col) => {
                                     const cellType = gameEngine.getCell(row, col);
                                     const isValidMove = !gameFinished && !isPassActive && !showMenu && !isAiThinking && currentPlayerType === 'human' && validMovesStr[row * 8 + col] === '1';
+									const isLastMove = (gameEngine.getLastMove() === row * 8 + col);
 
                                     return (
                                         <td
@@ -455,7 +795,7 @@ function App() {
                                             }}
                                             onClick={() => handleCellClick(row, col)}
                                         >
-                                            <Stone type={cellType} isValidMove={isValidMove} />
+                                            <Stone type={cellType} isValidMove={isValidMove} isLastMove={isLastMove} />
                                         </td>
                                     );
                                 })}
@@ -466,10 +806,7 @@ function App() {
 
                 {/* ガイドポイント */}
                 {[
-                    [2, 2],
-                    [2, 6],
-                    [6, 2],
-                    [6, 6],
+                    [2, 2], [2, 6], [6, 2], [6, 6],
                 ].map(([r, c], i) => (
                     <div
                         key={i}
@@ -513,7 +850,7 @@ function App() {
                                 animation: 'pulse 1.5s infinite'
                             }}
                         >
-                            AI思考中...
+                            Thinking...
                         </div>
                     </div>
                 )}
@@ -549,203 +886,9 @@ function App() {
                 )}
 
                 {/* メニューオーバーレイ */}
-                {showMenu && (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                            pointerEvents: 'none',
-                        }}
-                    >
-                        <div
-                            style={{
-                                backgroundColor: '#1a1a1a',
-                                border: '2px solid #666',
-                                borderRadius: '10px',
-                                padding: '25px',
-                                color: 'white',
-                                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.8)',
-                                pointerEvents: 'auto',
-                                minWidth: '300px'
-                            }}
-                        >
-                            <h3 style={{ margin: '0 0 20px 0', fontSize: '20px', textAlign: 'center' }}>
-                                プレイヤー設定
-                            </h3>
+                {showMenu && renderMenu()}
 
-                            {/* 設定セクション */}
-                            <div style={{ marginBottom: '20px' }}>
-                                {/* 黒プレイヤー設定 */}
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    marginBottom: '15px',
-                                    gap: '15px'
-                                }}>
-                                    <div style={{
-                                        width: 24,
-                                        height: 24,
-                                        borderRadius: '50%',
-                                        background: 'black',
-                                        border: '1px solid #999'
-                                    }}></div>
-                                    <span style={{ fontSize: '16px', minWidth: '40px' }}>黒:</span>
-                                    <div style={{
-                                        display: 'flex',
-                                        border: '1px solid #555',
-                                        borderRadius: '15px',
-                                        overflow: 'hidden',
-                                        marginLeft: 'auto'
-                                    }}>
-                                        <button
-                                            onClick={() => {
-                                                const newBlackMode = 'human';
-                                                gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
-                                                forceUpdate({});
-                                            }}
-                                            style={{
-                                                padding: '6px 12px',
-                                                border: 'none',
-                                                backgroundColor: gameEngine.playerModes.black === 'human' ? '#007bff' : '#333',
-                                                color: gameEngine.playerModes.black === 'human' ? '#fff' : '#ccc',
-                                                cursor: 'pointer',
-                                                fontSize: '14px'
-                                            }}
-                                        >
-                                            人間
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                const newBlackMode = 'ai';
-                                                gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
-                                                forceUpdate({});
-                                            }}
-                                            style={{
-                                                padding: '6px 12px',
-                                                border: 'none',
-                                                backgroundColor: gameEngine.playerModes.black === 'ai' ? '#007bff' : '#333',
-                                                color: gameEngine.playerModes.black === 'ai' ? '#fff' : '#ccc',
-                                                cursor: 'pointer',
-                                                fontSize: '14px'
-                                            }}
-                                        >
-                                            AI
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* 白プレイヤー設定 */}
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '15px'
-                                }}>
-                                    <div style={{
-                                        width: 24,
-                                        height: 24,
-                                        borderRadius: '50%',
-                                        background: 'white',
-                                        border: '1px solid #666'
-                                    }}></div>
-                                    <span style={{ fontSize: '16px', minWidth: '40px' }}>白:</span>
-                                    <div style={{
-                                        display: 'flex',
-                                        border: '1px solid #555',
-                                        borderRadius: '15px',
-                                        overflow: 'hidden',
-                                        marginLeft: 'auto'
-                                    }}>
-                                        <button
-                                            onClick={() => {
-                                                const newWhiteMode = 'human';
-                                                gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
-                                                forceUpdate({});
-                                            }}
-                                            style={{
-                                                padding: '6px 12px',
-                                                border: 'none',
-                                                backgroundColor: gameEngine.playerModes.white === 'human' ? '#007bff' : '#333',
-                                                color: gameEngine.playerModes.white === 'human' ? '#fff' : '#ccc',
-                                                cursor: 'pointer',
-                                                fontSize: '14px'
-                                            }}
-                                        >
-                                            人間
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                const newWhiteMode = 'ai';
-                                                gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
-                                                forceUpdate({});
-                                            }}
-                                            style={{
-                                                padding: '6px 12px',
-                                                border: 'none',
-                                                backgroundColor: gameEngine.playerModes.white === 'ai' ? '#007bff' : '#333',
-                                                color: gameEngine.playerModes.white === 'ai' ? '#fff' : '#ccc',
-                                                cursor: 'pointer',
-                                                fontSize: '14px'
-                                            }}
-                                        >
-                                            AI
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* ボタン */}
-                            <div style={{
-                                display: 'flex',
-                                gap: '10px',
-                                justifyContent: 'center'
-                            }}>
-                                <button
-                                    onClick={() => {
-                                        gameEngine.reset();
-                                        setPassMessage('');
-                                        setShowMenu(false);
-                                        forceUpdate({});
-                                    }}
-                                    style={{
-                                        padding: '10px 20px',
-                                        fontSize: '14px',
-                                        fontWeight: 'bold',
-                                        backgroundColor: '#28a745',
-                                        color: 'white',
-                                        border: 'none',
-                                        borderRadius: '6px',
-                                        cursor: 'pointer'
-                                    }}
-                                >
-                                    Start
-                                </button>
-                                <button
-                                    onClick={handleMenuCancel}
-                                    style={{
-                                        padding: '10px 20px',
-                                        fontSize: '14px',
-                                        fontWeight: 'bold',
-                                        backgroundColor: '#6c757d',
-                                        color: 'white',
-                                        border: 'none',
-                                        borderRadius: '6px',
-                                        cursor: 'pointer'
-                                    }}
-                                >
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
+                {/* ゲーム終了オーバーレイ */}
                 {gameFinished && !showMenu && (
                     <div
                         style={{
@@ -783,29 +926,34 @@ function App() {
         );
     };
 
-    return (
-        <div className="App">
-            <h1>Reversi</h1>
-            
-            {/* ゲーム情報（ボードの上） */}
-            <GameInfo 
-                gameEngine={gameEngine} 
-                passMessage={passMessage}
-            />
-            
-            {/* オセロボード */}
-            {renderBoard()}
-            
-            {/* ゲーム操作ボタン（ボードの下） */}
-            <GameControls
-                gameEngine={gameEngine}
-                onReset={handleReset}
-                onUndo={handleUndo}
-                onRedo={handleRedo}
-                onShowMenu={handleShowMenu}
-            />
-        </div>
-    );
+	return (
+		<div className="App">
+			<h1>Reversi</h1>
+			
+			{/* オセロボード */}
+			<div style={{ marginBottom: '2px' }}>
+				{renderBoard()}
+			</div>
+
+			{/* ゲーム情報*/}
+			<div style={{ marginBottom: '-15px' }}>
+				<GameInfo 
+					gameEngine={gameEngine} 
+				/>
+			</div>
+
+			{/* ゲーム操作ボタン */}
+			<div style={{ marginBottom: '3px' }}>
+				<GameControls
+					gameEngine={gameEngine}
+					onReset={handleReset}
+					onUndo={handleUndo}
+					onRedo={handleRedo}
+					onShowMenu={handleShowMenu}
+				/>
+			</div>
+		</div>
+	);
 }
 
 export default App;

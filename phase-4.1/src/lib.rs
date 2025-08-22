@@ -113,13 +113,13 @@ pub fn update_board(board_str: &str, mv: usize, turn: bool) -> String {
 }
 
 #[wasm_bindgen]
-pub fn get_ai_move(board_str: &str, turn: bool, assigned_time_ms: i32) -> usize {
+pub fn get_ai_move(board_str: &str, turn: bool, assigned_time_ms: i32, disturbance: f32) -> usize {
     let (black_board, white_board) = string_to_boards(board_str);
     let board = make_board(black_board, white_board, turn);
 
     //return board.get_valid_moves().trailing_zeros() as usize; // stub
 
-    board.decide_move(assigned_time_ms as u64)
+    board.decide_move(assigned_time_ms as u64, disturbance)
 }
 
 #[wasm_bindgen]
