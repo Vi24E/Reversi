@@ -203,7 +203,8 @@ export class GameEngine {
 	}
 
 	// AI手を取得（将来の実装用）
-	getAIMove(timeMs = 1000, disturbance = 0) {
+	getAIMove(timeMs = 1000, level = 10) {
+		const disturbance = (10 - level) * (10 - level);
 		try {
 			const result = this.wasmModule.get_ai_move(this.boardStr, this.getCurrentPlayer(), timeMs, disturbance);
 

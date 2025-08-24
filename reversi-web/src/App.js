@@ -303,7 +303,8 @@ function App() {
             
             const aiMoveTimer = setTimeout(() => {
                 try {
-                    const result = gameEngine.getAIMove(1000); // GameEngineにAIの手を打つメソッドが必要
+					const level = gameEngine.getCurrentPlayer() ? whiteAiLevel : blackAiLevel;
+                    const result = gameEngine.getAIMove(1000, level);
 					let row = Math.floor(result / 8);
 					let col = result % 8;
 					console.log(`AI recommends move: (${row}, ${col})`);
@@ -715,11 +716,6 @@ function App() {
                 }}>
                     <button
                         onClick={() => {
-                            console.log('Game Settings Applied:', {
-                                boardSize,
-                                blackAiLevel: gameEngine.playerModes.black === 'ai' ? blackAiLevel : 'N/A',
-                                whiteAiLevel: gameEngine.playerModes.white === 'ai' ? whiteAiLevel : 'N/A'
-                            });
                             gameEngine.reset();
                             setPassMessage('');
                             setShowMenu(false);

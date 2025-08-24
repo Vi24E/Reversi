@@ -9,6 +9,7 @@ edition = "2021"
 getopts = "0.2.21"
 thiserror = "1.0.61"
 rand = "0.8.5"
+rand_distr = "0.4"
 itertools = "0.14.0"
 chrono = { version = "0.4", features = ["serde"] }
 ndarray = "0.15.4"
@@ -28,9 +29,9 @@ tract-onnx = "0.21.0"
 [lib]
 crate-type = ["cdylib"]
 
-[[bin]]
-name = "test_main"
-path = "src/test_main.rs"
+# [[bin]]
+# name = "test_main"
+# path = "src/test_main.rs"
 
 [profile.release]
 lto = true

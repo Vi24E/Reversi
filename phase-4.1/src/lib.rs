@@ -200,7 +200,7 @@ mod tests {
         let board_str = "...........................WB......BW...........................";
         
         // Test black's move (turn = false)
-        let ai_move = get_ai_move(board_str, false, 1000);
+        let ai_move = get_ai_move(board_str, false, 1000, 0.0);
         assert!(ai_move < 64, "AI move should be a valid board position");
         
         // Verify it's a legal move

@@ -36,7 +36,7 @@ pub fn test_decide_move_simple() -> usize {
     let board = Board::new(false);
     
     // 短い時間でAI手を取得
-    let result = board.decide_move(100); // 100ms
+    let result = board.decide_move(100, 0.0); // 100ms, disturbance=0.0
     println!("AI move result: {}", result);
     result
 }
