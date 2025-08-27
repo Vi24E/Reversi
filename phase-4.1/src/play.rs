@@ -448,7 +448,7 @@ impl Board {
             return PASS as usize;
         }
 
-        if let Some(mv) = database::lookup_book(self) {
+        if let Some(mv) = database::lookup_book(self) && disturbance <= 10.0 {
             self.write_to_log("Using book move");
             return mv as usize;
         }
@@ -456,7 +456,7 @@ impl Board {
             self.write_to_log("No book move found");
         }
 
-        if turn >= 46 && disturbance <= 1.0 {
+        if turn >= 46 && disturbance <= 10.0 {
             let (res, mv) = solve(self, &time_manager);
             if (res != -2){
                 if (res == -1) {

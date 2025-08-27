@@ -689,7 +689,7 @@ function App() {
                                     borderRadius: '2px',
                                     background: gameEngine.playerModes.white === 'ai' ? '#555' : '#333',
                                     outline: 'none',
-                                    cursor: gameEngine.playerModes.white === 'ai' ? 'pointer' : 'not-allowed'
+                                    cursor: gameEngine.playerModes.white === 'ai' ? 'pointer' : (isEditing ? 'default' : 'not-allowed')
                                 }}
                             />
                             <div style={{
@@ -719,6 +719,7 @@ function App() {
                             gameEngine.reset();
                             setPassMessage('');
                             setShowMenu(false);
+							setIsEditing(false);
                             forceUpdate({});
                         }}
                         style={{
