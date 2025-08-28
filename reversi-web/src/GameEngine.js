@@ -1,4 +1,3 @@
-// オセロの処理を担当するクラス
 export class GameEngine {
 	constructor(wasmModule) {
 		this.wasmModule = wasmModule;
@@ -74,12 +73,12 @@ export class GameEngine {
 		try {
 			const place = row * 8 + col;
 
-			// 既に石がある場合は無効
 			if (this.boardStr[place] !== '.') return false;
 
 			const validMovesStr = this.wasmModule.get_valid_moves(this.boardStr, this.getCurrentPlayer());
 			return validMovesStr[place] === '1';
-		} catch (error) {
+		}
+		catch (error) {
 			console.error('Error in isValidMove:', error);
 			return false;
 		}
@@ -89,9 +88,10 @@ export class GameEngine {
 	getValidMoves() {
 		try {
 			return this.wasmModule.get_valid_moves(this.boardStr, this.getCurrentPlayer());
-		} catch (error) {
+		}
+		catch (error) {
 			console.error('Error getting valid moves:', error);
-			return '0'.repeat(64); // エラー時は空の有効手
+			return '0'.repeat(64);
 		}
 	}
 
@@ -126,19 +126,17 @@ export class GameEngine {
 	// 手を実行
 	makeMove(row, col) {
 		if (!this.isValidMove(row, col)) {
-			return {success: false, message: '無効な手です'};
+			return {success: false, message: 'Invalid move'};
 		}
 
 		try {
 			const pos = row * 8 + col;
 			const currentPlayer = this.getCurrentPlayer();
 
-			// WebAssemblyで盤面を更新
 			const updatedBoardStr = this.wasmModule.update_board(this.boardStr, pos, !currentPlayer);
 			this.boardStr = updatedBoardStr;
 			this.turn += 1;
 
-			// パス処理
 			const passMessage = this.handlePass();
 
 			if (this.BoardHistory.length !== this.CurrentBoardIdx + 1){
@@ -161,20 +159,21 @@ export class GameEngine {
 				passMessage: passMessage,
 				gameState: this.getGameState(),
 			};
-		} catch (error) {
+		}
+		catch (error) {
 			console.error('Error during move:', error);
-			return {success: false, message: 'エラーが発生しました'};
+			return {success: false, message: 'Error'};
 		}
 	}
 
-	// パス処理（連続パス対応）
+	// パス処理
 	handlePass() {
 		let passMessage = '';
 		const nextPlayer = this.getCurrentPlayer();
 
 		if (this.wasmModule.is_pass(this.boardStr, nextPlayer)) {
-			const playerName = nextPlayer ? '白' : '黒';
-			passMessage = `${playerName}はパスです`;
+			const playerName = nextPlayer ? 'White' : 'Black';
+			passMessage = `${playerName} passed`;
 			this.turn += 1;
 		}
 		return passMessage;
@@ -186,13 +185,15 @@ export class GameEngine {
 	BlackWin
 	Draw
 	Ongoing
+	Error
 	*/
 	getGameState() {
 		try {
 			return this.wasmModule.get_result(this.boardStr);
-		} catch (error) {
+		}
+		catch (error) {
 			console.error('Error getting game state:', error);
-			return 'Ongoing';
+			return 'Error';
 		}
 	}
 
@@ -202,9 +203,10 @@ export class GameEngine {
 		return state !== 'Ongoing';
 	}
 
-	// AI手を取得（将来の実装用）
+	// AI手を取得
 	getAIMove(timeMs = 1000, level = 10) {
-		const disturbance = (10 - level) * (10 - level) * (10 - level);
+		const turn = this.getCurrentTurn();
+		const disturbance = (10 - level) * (10 - level) * 8 * Math.max(0.1, Math.sqrt(64 - turn) / 8);
 		try {
 			const result = this.wasmModule.get_ai_move(this.boardStr, this.getCurrentPlayer(), timeMs, disturbance);
 
@@ -212,10 +214,11 @@ export class GameEngine {
 		}
 		catch (error) {
 			console.error('Error getting AI move:', error);
-			return 64; // パスを返す
+			return 64;
 		}
 	}
 
+	// 最後の手を取得
 	getLastMove(){
 		if (this.CurrentBoardIdx === 0) return null;
 
@@ -228,8 +231,9 @@ export class GameEngine {
 		return null;
 	}
 
+	// 棋譜を取得
 	getKif(){
-		let str = '';
+		let kif = '';
 		for (let i = 0; i < this.CurrentBoardIdx; i++) {
 			let t = -1;
 			for (let j = 0; j < 64; j++) {
@@ -242,8 +246,8 @@ export class GameEngine {
 			if (t === -1) continue;
 			let x = Math.floor(t / 8);
 			let y = t % 8;
-			str += `${String.fromCharCode(97 + y)}${x + 1}`;
+			kif += `${String.fromCharCode(97 + y)}${x + 1}`;
 		}
-		return str;
+		return kif;
 	}
 }

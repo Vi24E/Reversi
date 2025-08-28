@@ -3,10 +3,9 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import {GameEngine} from './GameEngine';
 
-// WebAssemblyモジュールをグローバル変数として管理
 let wasmModule = null;
 
-// アプリケーション開始時にWebAssemblyを即座に初期化開始
+// WASM初期化
 const wasmPromise = (async () => {
     try {
         console.log('Starting WASM initialization...');
@@ -18,20 +17,17 @@ const wasmPromise = (async () => {
 
 		wasmModule.initialize();
 
-        // 初期化テスト
-        const testBoard = '...........................WB......BW...........................';
-        wasmModule.get_valid_moves(testBoard, false);
-
-        console.log('WASM fully ready');
+        console.log('WASM ready');
         return true;
-    } catch (error) {
+    }
+	catch (error) {
         console.error('WASM initialization failed:', error);
         return false;
     }
 })();
 
-// 石を描画するコンポーネント
-function Stone({type, isValidMove, isLastMove}) {
+// 石の描画
+function RenderStone({type, isValidMove, isLastMove}) {
     if (type === 1) {
         return (
             <div
@@ -76,7 +72,7 @@ function Stone({type, isValidMove, isLastMove}) {
     return null;
 }
 
-// ゲーム情報を表示するコンポーネント
+// ゲーム情報
 function GameInfo({gameEngine}) {
     const blackCount = gameEngine.getBlackStoneCount();
     const whiteCount = gameEngine.getWhiteStoneCount();
@@ -85,8 +81,8 @@ function GameInfo({gameEngine}) {
     return (
         <div style={{ 
             width: '100%',
-            maxWidth: '320px', // ボードと同じ幅に合わせる
-            margin: '0 auto 15px auto', // 中央寄せ
+            maxWidth: '320px',
+            margin: '0 auto 15px auto',
         }}>
             <div style={{
                 background: '#e0f1ff',
@@ -100,12 +96,11 @@ function GameInfo({gameEngine}) {
                 alignItems: 'center',
                 gap: '20px',
                 border: '2px solid #000000',
-                borderRadius: '0', // リボン風にするため角を丸くしない
+                borderRadius: '0',
             }}>
                 {/* 現在の手番 */}
                 <span>Next: {currentPlayer}</span>
                 
-                {/* 区切り線 */}
                 <div style={{
                     width: '2px',
                     height: '20px',
@@ -118,7 +113,6 @@ function GameInfo({gameEngine}) {
                     ● {blackCount}
                 </span>
                 
-                {/* 区切り線 */}
                 <div style={{
                     width: '2px',
                     height: '20px',
@@ -136,31 +130,20 @@ function GameInfo({gameEngine}) {
 }
 
 // ゲーム操作ボタンコンポーネント
-function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
+function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu, onDownloadLog}) {
     const canUndo = gameEngine.undoable();
     const canRedo = gameEngine.redoable();
 
-    // 棋譜ダウンロード機能
-    const handleDownloadLog = () => {
-        let result = gameEngine.getKif();
-		if (result) {
-			navigator.clipboard.writeText(result).then(() => {
-				console.log('棋譜がクリップボードにコピーされました');
-			}).catch(err => {
-				console.error('クリップボードへのコピーに失敗しました:', err);
-			});
-		}
-    };
-
     return (
-        <div style={{ marginTop: '20px', display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Undoボタン */}
+        <div style={{ marginTop: '20px', display: 'flex', gap: '10px', height: '35px', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Undo */}
             <button
                 onClick={onUndo}
                 disabled={!canUndo}
                 style={{
                     padding: '8px 12px',
                     fontSize: '16px',
+					height: '35px',
                     backgroundColor: canUndo ? '#17a2b8' : '#6c757d',
                     color: 'white',
                     border: 'none',
@@ -170,18 +153,18 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                     alignItems: 'center',
                     gap: '5px'
                 }}
-                title="元に戻す"
             >
-                ←
+				←
             </button>
 
-            {/* Redoボタン */}
+            {/* Redo */}
             <button
                 onClick={onRedo}
                 disabled={!canRedo}
                 style={{
                     padding: '8px 12px',
                     fontSize: '16px',
+					height: '35px',
                     backgroundColor: canRedo ? '#17a2b8' : '#6c757d',
                     color: 'white',
                     border: 'none',
@@ -191,17 +174,17 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                     alignItems: 'center',
                     gap: '5px'
                 }}
-                title="やり直し"
             >
                 →
             </button>
 
-            {/* リセットボタン */}
+            {/* RESET */}
             <button
                 onClick={onReset}
                 style={{
                     padding: '8px 16px',
                     fontSize: '14px',
+					height: '35px',
                     backgroundColor: '#28a745',
                     color: 'white',
                     border: 'none',
@@ -209,15 +192,16 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                     cursor: 'pointer'
                 }}
             >
-                リセット
+                RESET
             </button>
 
-            {/* メニューボタン */}
+            {/* メニュー */}
             <button
                 onClick={onShowMenu}
                 style={{
                     padding: '8px 16px',
                     fontSize: '14px',
+					height: '35px',
                     backgroundColor: '#6c757d',
                     color: 'white',
                     border: 'none',
@@ -225,24 +209,24 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu}) {
                     cursor: 'pointer'
                 }}
             >
-                メニュー
+                MENU
             </button>
 
-            {/* ログ管理ボタン */}
+            {/* 棋譜コピー */}
             <button
-                onClick={handleDownloadLog}
+                onClick={onDownloadLog}
                 style={{
                     padding: '8px 16px',
                     fontSize: '14px',
+					height: '35px',
                     backgroundColor: '#17a2b8',
                     color: 'white',
                     border: 'none',
                     borderRadius: '4px',
                     cursor: 'pointer'
                 }}
-                title="ログをダウンロード"
             >
-                📥 棋譜
+                📋RECORD
             </button>
         </div>
     );
@@ -254,29 +238,26 @@ function App() {
     const [wasmLoaded, setWasmLoaded] = useState(false);
     const [wasmError, setWasmError] = useState(null);
     const [passMessage, setPassMessage] = useState('');
-    const [, forceUpdate] = useState({}); // 強制再描画用
+    const [, forceUpdate] = useState({}); // 強制再描画
     const [showMenu, setShowMenu] = useState(true); // 初回はメニュー表示
     const [isAiThinking, setIsAiThinking] = useState(false); // AI思考中フラグ
     const [isEditing, setIsEditing] = useState(false); // 編集中フラグ
-    
-    // 新しい設定用のstate
     const [blackAiLevel, setBlackAiLevel] = useState(5); // 黒AIレベル (1-10)
     const [whiteAiLevel, setWhiteAiLevel] = useState(5); // 白AIレベル (1-10)
 
-    // WebAssemblyの初期化を待つ
     useEffect(() => {
         let isMounted = true;
 
         wasmPromise.then(success => {
             if (isMounted) {
                 if (success) {
-                    // GameEngineを初期化
                     const engine = new GameEngine(wasmModule);
-                    engine.setPlayerMode('human', 'human'); // デフォルト設定
+                    engine.setPlayerMode('human', 'human');
                     setGameEngine(engine);
                     setWasmLoaded(true);
                     setWasmError(null);
-                } else {
+                }
+				else {
                     setWasmError('WebAssemblyの読み込みに失敗しました');
                 }
             }
@@ -287,18 +268,15 @@ function App() {
         };
     }, []);
 
-    // AIの手番を監視して自動で手を打つ
+    // AIの手番を監視
     useEffect(() => {
         if (!gameEngine || showMenu || gameEngine.isGameFinished() || passMessage !== '' || isAiThinking || isEditing) {
             return;
         }
 
-		console.log('AIの手番を監視中...');
-
         const currentPlayerType = gameEngine.getCurrentPlayerType();
         
         if (!isAiThinking && currentPlayerType === 'ai') {
-            // AIの番の場合、少し遅延をつけてからAIに手を打たせる
             setIsAiThinking(true);
             
             const aiMoveTimer = setTimeout(() => {
@@ -311,12 +289,14 @@ function App() {
 					gameEngine.makeMove(row, col);
 
                     forceUpdate({});
-                } catch (error) {
+                }
+				catch (error) {
                     console.error('AI move failed:', error);
-                } finally {
+                } 
+				finally {
                     setIsAiThinking(false);
                 }
-            }, 1200); // 1秒の思考時間
+            }, 1200);
 
             return () => {
                 clearTimeout(aiMoveTimer);
@@ -340,7 +320,7 @@ function App() {
                     }}
                 >
                     <div>
-                        <div>⏳ WebAssemblyを読み込み中...</div>
+                        <div>⏳ Waiting for initializing WASM...</div>
                         {wasmError && (
                             <div
                                 style={{
@@ -438,7 +418,7 @@ function App() {
         setShowMenu(true);
     };
 
-    // メニューオーバーレイ部分を修正
+    // メニューオーバーレイ
     const renderMenu = () => (
         <div
             style={{
@@ -472,7 +452,7 @@ function App() {
                 {/* プレイヤー設定セクション */}
                 <div style={{ marginBottom: '25px' }}>
                     <h4 style={{ margin: '0 0 15px 0', fontSize: '16px', borderBottom: '1px solid #555', paddingBottom: '8px' }}>
-                        プレイヤー設定
+                        Settings
                     </h4>
                     
                     {/* 黒プレイヤー設定 */}
@@ -512,7 +492,7 @@ function App() {
                                         fontSize: '14px'
                                     }}
                                 >
-                                    人間
+                                    Human
                                 </button>
                                 <button
                                     onClick={() => {
@@ -584,8 +564,8 @@ function App() {
                                 color: '#999',
                                 marginTop: '3px'
                             }}>
-                                <span>弱</span>
-                                <span>強</span>
+                                <span>Weak</span>
+                                <span>Strong</span>
                             </div>
                         </div>
                     </div>
@@ -627,7 +607,7 @@ function App() {
                                         fontSize: '14px'
                                     }}
                                 >
-                                    人間
+                                    Human
                                 </button>
                                 <button
                                     onClick={() => {
@@ -699,8 +679,8 @@ function App() {
                                 color: '#999',
                                 marginTop: '3px'
                             }}>
-                                <span>弱</span>
-                                <span>強</span>
+                                <span>Weak</span>
+                                <span>Strong</span>
                             </div>
                         </div>
                     </div>
@@ -755,6 +735,18 @@ function App() {
         </div>
     );
 
+	// 棋譜ダウンロード機能
+    const handleDownloadLog = () => {
+        let result = gameEngine.getKif();
+		if (result) {
+			navigator.clipboard.writeText(result).then(() => {
+				console.log('棋譜がクリップボードにコピーされました');
+			}).catch(err => {
+				console.error('クリップボードへのコピーに失敗しました:', err);
+			});
+		}
+    };
+
     // ボードの描画
     const renderBoard = () => {
         const size = 8;
@@ -786,13 +778,13 @@ function App() {
                                                 background: '#0a7d2c',
                                                 padding: 0,
                                                 position: 'relative',
-                                                cursor: (gameFinished || isPassActive || showMenu || isAiThinking || currentPlayerType !== 'human') ? 'not-allowed' : 'pointer',
+                                                cursor: (gameFinished || isPassActive || showMenu) ? 'not-allowed' : (isAiThinking ? 'wait' : 'pointer'),
                                                 opacity: (gameFinished || isPassActive || showMenu || isAiThinking) ? 0.3 : 1,
                                                 filter: (gameFinished || isPassActive || showMenu || isAiThinking) ? 'grayscale(30%)' : 'none',
                                             }}
                                             onClick={() => handleCellClick(row, col)}
                                         >
-                                            <Stone type={cellType} isValidMove={isValidMove} isLastMove={isLastMove} />
+                                            <RenderStone type={cellType} isValidMove={isValidMove} isLastMove={isLastMove} />
                                         </td>
                                     );
                                 })}
@@ -947,6 +939,7 @@ function App() {
 					onUndo={handleUndo}
 					onRedo={handleRedo}
 					onShowMenu={handleShowMenu}
+					onDownloadLog={handleDownloadLog}
 				/>
 			</div>
 		</div>
@@ -954,7 +947,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-*/
