@@ -31,12 +31,8 @@ function RenderStone({type, isValidMove, isLastMove}) {
     if (type === 1) {
         return (
             <div
+                className="BlackStone"
                 style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: '50%',
-                    background: 'black',
-                    margin: 'auto',
 					boxShadow: isLastMove ? '6px 4px 4px #033d14ff' : 'none',
                 }}
             />
@@ -45,12 +41,8 @@ function RenderStone({type, isValidMove, isLastMove}) {
     if (type === 2) {
         return (
             <div
+                className="WhiteStone"
                 style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: '50%',
-                    background: 'white',
-                    margin: 'auto',
 					boxShadow: isLastMove ? '6px 4px 4px #033d14ff' : 'none',
                 }}
             />
@@ -58,15 +50,7 @@ function RenderStone({type, isValidMove, isLastMove}) {
     }
     if (isValidMove) {
         return (
-            <div
-                style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: '50%',
-                    background: '#999999b1',
-                    margin: 'auto',
-                }}
-            />
+            <div className="PlaceableDot" />
         );
     }
     return null;
@@ -79,49 +63,24 @@ function GameInfo({gameEngine}) {
     const currentPlayer = gameEngine.getCurrentTurn() % 2 === 0 ? '●' : '○';
 
     return (
-        <div style={{ 
-            width: '100%',
-            maxWidth: '320px',
-            margin: '0 auto 15px auto',
-        }}>
-            <div style={{
-                background: '#e0f1ff',
-                color: 'black',
-                padding: '8px 16px',
-                fontSize: '16px',
-                fontWeight: 'bold',
-                textAlign: 'center',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '20px',
-                border: '2px solid #000000',
-                borderRadius: '0',
-            }}>
+        <div className="GameInfo">
+            <div className="GameInfoBackground">
                 {/* 現在の手番 */}
-                <span>Next: {currentPlayer}</span>
-                
-                <div style={{
-                    width: '2px',
-                    height: '20px',
-                    background: '#000000',
-                    opacity: 0.7
-                }}></div>
-                
+                <span className="GameInfoText"> 
+					Next: {currentPlayer}
+				</span>
+
+                <div className="GameInfoSeparator"></div>
+
                 {/* 黒石の数 */}
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span className="GameInfoText">
                     ● {blackCount}
                 </span>
-                
-                <div style={{
-                    width: '2px',
-                    height: '20px',
-                    background: '#000000',
-                    opacity: 0.7
-                }}></div>
-                
+
+                <div className="GameInfoSeparator"></div>
+
                 {/* 白石の数 */}
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span className="GameInfoText">
                     ○ {whiteCount}
                 </span>
             </div>
@@ -140,40 +99,16 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu, onDownlo
             <button
                 onClick={onUndo}
                 disabled={!canUndo}
-                style={{
-                    padding: '8px 12px',
-                    fontSize: '16px',
-					height: '35px',
-                    backgroundColor: canUndo ? '#17a2b8' : '#6c757d',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: canUndo ? 'pointer' : 'not-allowed',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px'
-                }}
+                className={canUndo ? 'ButtonEditEnabled' : 'ButtonEditDisabled'}
             >
-				←
+                ←
             </button>
 
             {/* Redo */}
             <button
                 onClick={onRedo}
                 disabled={!canRedo}
-                style={{
-                    padding: '8px 12px',
-                    fontSize: '16px',
-					height: '35px',
-                    backgroundColor: canRedo ? '#17a2b8' : '#6c757d',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: canRedo ? 'pointer' : 'not-allowed',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px'
-                }}
+                className={canRedo ? 'ButtonEditEnabled' : 'ButtonEditDisabled'}
             >
                 →
             </button>
@@ -181,16 +116,7 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu, onDownlo
             {/* RESET */}
             <button
                 onClick={onReset}
-                style={{
-                    padding: '8px 16px',
-                    fontSize: '14px',
-					height: '35px',
-                    backgroundColor: '#28a745',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer'
-                }}
+                className="ButtonReset"
             >
                 RESET
             </button>
@@ -198,16 +124,7 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu, onDownlo
             {/* メニュー */}
             <button
                 onClick={onShowMenu}
-                style={{
-                    padding: '8px 16px',
-                    fontSize: '14px',
-					height: '35px',
-                    backgroundColor: '#6c757d',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer'
-                }}
+                className="ButtonMenu"
             >
                 MENU
             </button>
@@ -215,18 +132,9 @@ function GameControls({gameEngine, onReset, onUndo, onRedo, onShowMenu, onDownlo
             {/* 棋譜コピー */}
             <button
                 onClick={onDownloadLog}
-                style={{
-                    padding: '8px 16px',
-                    fontSize: '14px',
-					height: '35px',
-                    backgroundColor: '#17a2b8',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer'
-                }}
+                className="ButtonRecord"
             >
-                📋RECORD
+                RECORD
             </button>
         </div>
     );
@@ -420,38 +328,12 @@ function App() {
 
     // メニューオーバーレイ
     const renderMenu = () => (
-        <div
-            style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                pointerEvents: 'none',
-            }}
-        >
-            <div
-                style={{
-                    backgroundColor: '#1a1a1a',
-                    border: '2px solid #666',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    color: 'white',
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.8)',
-                    pointerEvents: 'auto',
-                    minWidth: '350px',
-                    maxHeight: '80vh',
-                    overflowY: 'auto'
-                }}
-            >
+        <div className="MenuOverlay">
+            <div className="MenuBackground">
 
                 {/* プレイヤー設定セクション */}
                 <div style={{ marginBottom: '25px' }}>
-                    <h4 style={{ margin: '0 0 15px 0', fontSize: '16px', borderBottom: '1px solid #555', paddingBottom: '8px' }}>
+                    <h4 className="MenuTitle">
                         Settings
                     </h4>
                     
@@ -463,34 +345,15 @@ function App() {
                             marginBottom: '15px',
                             gap: '15px'
                         }}>
-                            <div style={{
-                                width: 24,
-                                height: 24,
-                                borderRadius: '50%',
-                                background: 'black',
-                                border: '1px solid #999'
-                            }}></div>
-                            <div style={{
-                                display: 'flex',
-                                border: '1px solid #555',
-                                borderRadius: '15px',
-                                overflow: 'hidden',
-                                marginLeft: 'auto'
-                            }}>
+                            <div className="MenuBlackStone"></div>
+                            <div className="MenuPlayerButtonEdge">
                                 <button
                                     onClick={() => {
                                         const newBlackMode = 'human';
                                         gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
                                         forceUpdate({});
                                     }}
-                                    style={{
-                                        padding: '6px 12px',
-                                        border: 'none',
-                                        backgroundColor: gameEngine.playerModes.black === 'human' ? '#007bff' : '#333',
-                                        color: gameEngine.playerModes.black === 'human' ? '#fff' : '#ccc',
-                                        cursor: 'pointer',
-                                        fontSize: '14px'
-                                    }}
+                                    className={gameEngine.playerModes.black === 'human' ? 'MenuPlayerButtonEnabled' : 'MenuPlayerButtonDisabled'}
                                 >
                                     Human
                                 </button>
@@ -500,14 +363,7 @@ function App() {
                                         gameEngine.setPlayerMode(newBlackMode, gameEngine.playerModes.white);
                                         forceUpdate({});
                                     }}
-                                    style={{
-                                        padding: '6px 12px',
-                                        border: 'none',
-                                        backgroundColor: gameEngine.playerModes.black === 'ai' ? '#007bff' : '#333',
-                                        color: gameEngine.playerModes.black === 'ai' ? '#fff' : '#ccc',
-                                        cursor: 'pointer',
-                                        fontSize: '14px'
-                                    }}
+                                    className={gameEngine.playerModes.black === 'ai' ? 'MenuPlayerButtonEnabled' : 'MenuPlayerButtonDisabled'}
                                 >
                                     AI
                                 </button>
@@ -515,28 +371,10 @@ function App() {
                         </div>
 
                         {/* 黒AI レベル設定 */}
-                        <div style={{ 
-                            marginLeft: '39px',
-                            opacity: gameEngine.playerModes.black === 'ai' ? 1 : 0.4,
-                            pointerEvents: gameEngine.playerModes.black === 'ai' ? 'auto' : 'none',
-                            transition: 'opacity 0.3s ease'
-                        }}>
-                            <div style={{ 
-                                fontSize: '14px', 
-                                marginBottom: '8px',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center'
-                            }}>
+                        <div className={gameEngine.playerModes.black === 'ai' ? 'MenuLevelEnabled' : 'MenuLevelDisabled'}>
+                            <div className="MenuLevelText">
                                 <span>AI Level:</span>
-                                <span style={{ 
-                                    backgroundColor: '#333', 
-                                    padding: '2px 8px', 
-                                    borderRadius: '10px',
-                                    fontSize: '12px',
-                                    minWidth: '25px',
-                                    textAlign: 'center'
-                                }}>
+                                <span className="MenuLevelValue">
                                     {blackAiLevel}
                                 </span>
                             </div>
@@ -548,22 +386,9 @@ function App() {
                                 value={blackAiLevel}
                                 onChange={(e) => setBlackAiLevel(parseInt(e.target.value))}
                                 disabled={gameEngine.playerModes.black !== 'ai'}
-                                style={{
-                                    width: '100%',
-                                    height: '4px',
-                                    borderRadius: '2px',
-                                    background: gameEngine.playerModes.black === 'ai' ? '#555' : '#333',
-                                    outline: 'none',
-                                    cursor: gameEngine.playerModes.black === 'ai' ? 'pointer' : 'not-allowed'
-                                }}
+                                className={gameEngine.playerModes.black === 'ai' ? 'MenuSliderEnabled' : 'MenuSliderDisabled'}
                             />
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                fontSize: '10px',
-                                color: '#999',
-                                marginTop: '3px'
-                            }}>
+                            <div className="MenuSubtext">
                                 <span>Weak</span>
                                 <span>Strong</span>
                             </div>
@@ -578,34 +403,15 @@ function App() {
                             marginBottom: '15px',
                             gap: '15px'
                         }}>
-                            <div style={{
-                                width: 24,
-                                height: 24,
-                                borderRadius: '50%',
-                                background: 'white',
-                                border: '1px solid #666'
-                            }}></div>
-                            <div style={{
-                                display: 'flex',
-                                border: '1px solid #555',
-                                borderRadius: '15px',
-                                overflow: 'hidden',
-                                marginLeft: 'auto'
-                            }}>
+                            <div className="MenuWhiteStone"></div>
+                            <div className="MenuPlayerButtonEdge">
                                 <button
                                     onClick={() => {
                                         const newWhiteMode = 'human';
                                         gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
                                         forceUpdate({});
                                     }}
-                                    style={{
-                                        padding: '6px 12px',
-                                        border: 'none',
-                                        backgroundColor: gameEngine.playerModes.white === 'human' ? '#007bff' : '#333',
-                                        color: gameEngine.playerModes.white === 'human' ? '#fff' : '#ccc',
-                                        cursor: 'pointer',
-                                        fontSize: '14px'
-                                    }}
+                                    className={gameEngine.playerModes.white === 'human' ? 'MenuPlayerButtonEnabled' : 'MenuPlayerButtonDisabled'}
                                 >
                                     Human
                                 </button>
@@ -615,14 +421,7 @@ function App() {
                                         gameEngine.setPlayerMode(gameEngine.playerModes.black, newWhiteMode);
                                         forceUpdate({});
                                     }}
-                                    style={{
-                                        padding: '6px 12px',
-                                        border: 'none',
-                                        backgroundColor: gameEngine.playerModes.white === 'ai' ? '#007bff' : '#333',
-                                        color: gameEngine.playerModes.white === 'ai' ? '#fff' : '#ccc',
-                                        cursor: 'pointer',
-                                        fontSize: '14px'
-                                    }}
+                                    className={gameEngine.playerModes.white === 'ai' ? 'MenuPlayerButtonEnabled' : 'MenuPlayerButtonDisabled'}
                                 >
                                     AI
                                 </button>
@@ -630,28 +429,10 @@ function App() {
                         </div>
 
                         {/* 白AI レベル設定 */}
-                        <div style={{ 
-                            marginLeft: '39px',
-                            opacity: gameEngine.playerModes.white === 'ai' ? 1 : 0.4,
-                            pointerEvents: gameEngine.playerModes.white === 'ai' ? 'auto' : 'none',
-                            transition: 'opacity 0.3s ease'
-                        }}>
-                            <div style={{ 
-                                fontSize: '14px', 
-                                marginBottom: '8px',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center'
-                            }}>
+                        <div className={gameEngine.playerModes.white === 'ai' ? 'MenuLevelEnabled' : 'MenuLevelDisabled'}>
+                            <div className="MenuLevelText">
                                 <span>AI Level:</span>
-                                <span style={{ 
-                                    backgroundColor: '#333', 
-                                    padding: '2px 8px', 
-                                    borderRadius: '10px',
-                                    fontSize: '12px',
-                                    minWidth: '25px',
-                                    textAlign: 'center'
-                                }}>
+                                <span className="MenuLevelValue">
                                     {whiteAiLevel}
                                 </span>
                             </div>
@@ -663,22 +444,9 @@ function App() {
                                 value={whiteAiLevel}
                                 onChange={(e) => setWhiteAiLevel(parseInt(e.target.value))}
                                 disabled={gameEngine.playerModes.white !== 'ai'}
-                                style={{
-                                    width: '100%',
-                                    height: '4px',
-                                    borderRadius: '2px',
-                                    background: gameEngine.playerModes.white === 'ai' ? '#555' : '#333',
-                                    outline: 'none',
-                                    cursor: gameEngine.playerModes.white === 'ai' ? 'pointer' : (isEditing ? 'default' : 'not-allowed')
-                                }}
+                                className={gameEngine.playerModes.white === 'ai' ? 'MenuSliderEnabled' : 'MenuSliderDisabled'}
                             />
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                fontSize: '10px',
-                                color: '#999',
-                                marginTop: '3px'
-                            }}>
+                            <div className="MenuSubtext">
                                 <span>Weak</span>
                                 <span>Strong</span>
                             </div>
@@ -687,13 +455,7 @@ function App() {
                 </div>
 
                 {/* ボタン */}
-                <div style={{
-                    display: 'flex',
-                    gap: '10px',
-                    justifyContent: 'center',
-                    paddingTop: '15px',
-                    borderTop: '1px solid #555'
-                }}>
+                <div className="MenuTailButton">
                     <button
                         onClick={() => {
                             gameEngine.reset();
@@ -702,31 +464,13 @@ function App() {
 							setIsEditing(false);
                             forceUpdate({});
                         }}
-                        style={{
-                            padding: '10px 20px',
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            backgroundColor: '#28a745',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '6px',
-                            cursor: 'pointer'
-                        }}
+                        className="MenuStartButton"
                     >
                         Start
                     </button>
                     <button
                         onClick={handleMenuCancel}
-                        style={{
-                            padding: '10px 20px',
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            backgroundColor: '#6c757d',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '6px',
-                            cursor: 'pointer'
-                        }}
+                        className="MenuCloseButton"
                     >
                         Close
                     </button>
@@ -778,9 +522,7 @@ function App() {
                                                 background: '#0a7d2c',
                                                 padding: 0,
                                                 position: 'relative',
-                                                cursor: (gameFinished || isPassActive || showMenu) ? 'not-allowed' : (isAiThinking ? 'wait' : 'pointer'),
-                                                opacity: (gameFinished || isPassActive || showMenu || isAiThinking) ? 0.3 : 1,
-                                                filter: (gameFinished || isPassActive || showMenu || isAiThinking) ? 'grayscale(30%)' : 'none',
+                                                cursor: (gameFinished || isPassActive || showMenu) ? 'not-allowed' : (isAiThinking ? 'wait' : 'pointer')
                                             }}
                                             onClick={() => handleCellClick(row, col)}
                                         >
@@ -808,37 +550,14 @@ function App() {
                             background: 'black',
                             borderRadius: '100%',
                             pointerEvents: 'none',
-                            opacity: (gameFinished || isPassActive || showMenu || isAiThinking) ? 0.3 : 1,
                         }}
                     />
                 ))}
 
                 {/* AI思考中オーバーレイ */}
                 {isAiThinking && (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                            pointerEvents: 'none',
-                        }}
-                    >
-                        <div
-                            style={{
-                                color: 'white',
-                                fontSize: '32px',
-                                fontWeight: 'bold',
-                                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-                                letterSpacing: '4px',
-                                animation: 'pulse 1.5s infinite'
-                            }}
-                        >
+                    <div className="AIThinkingOverlay">
+                        <div className="AIThinkingMessage">
                             Thinking...
                         </div>
                     </div>
@@ -846,29 +565,8 @@ function App() {
 
                 {/* PASSオーバーレイ */}
                 {passMessage && (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                            pointerEvents: 'none',
-                        }}
-                    >
-                        <div
-                            style={{
-                                color: 'white',
-                                fontSize: '48px',
-                                fontWeight: 'bold',
-                                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-                                letterSpacing: '8px',
-                            }}
-                        >
+                    <div className="PassOverlay">
+                        <div className="Pass">
                             PASS
                         </div>
                     </div>
@@ -879,30 +577,8 @@ function App() {
 
                 {/* ゲーム終了オーバーレイ */}
                 {gameFinished && !showMenu && (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                            pointerEvents: 'none',
-                        }}
-                    >
-                        <div
-                            style={{
-                                color: 'white',
-                                fontSize: '48px',
-                                fontWeight: 'bold',
-                                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-                                letterSpacing: '8px',
-                                textAlign: 'center',
-                            }}
-                        >
+                    <div className="GameFinishedOverlay">
+                        <div className="GameFinishedMessage">
                             White: {gameEngine.getWhiteStoneCount()} <br />
                             Black: {gameEngine.getBlackStoneCount()} <br />
                             <br />
