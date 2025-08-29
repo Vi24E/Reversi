@@ -11,7 +11,7 @@
     "fl-reversi-rs": "file:../phase-4.1/pkg",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-scripts": "^0.0.0",
+    "react-scripts": "5.0.1",
     "tempy": "^3.1.0",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predploy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
