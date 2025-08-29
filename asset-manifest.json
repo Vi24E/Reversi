@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Reversi/static/css/main.f4a22d2c.css",
+    "main.js": "/Reversi/static/js/main.2616f0d1.js",
+    "static/js/959.2479a487.chunk.js": "/Reversi/static/js/959.2479a487.chunk.js",
+    "static/media/fl_reversi_rs_bg.wasm": "/Reversi/static/media/fl_reversi_rs_bg.bcbf39d706ec67c99e17.wasm",
+    "index.html": "/Reversi/index.html",
+    "main.f4a22d2c.css.map": "/Reversi/static/css/main.f4a22d2c.css.map",
+    "main.2616f0d1.js.map": "/Reversi/static/js/main.2616f0d1.js.map",
+    "959.2479a487.chunk.js.map": "/Reversi/static/js/959.2479a487.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4a22d2c.css",
+    "static/js/main.2616f0d1.js"
+  ]
+}
